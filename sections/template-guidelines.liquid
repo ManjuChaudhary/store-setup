@@ -19,34 +19,56 @@
         <div class="row row-cols-7">
             <div class="col">
                 <div class="shadow">
-                    <div class="bg-primary py-9">
+                    <div class="bg-primary-100 py-9">
 
                     </div>
                     <div class="py-3 px-2 ">
-                        <p class="font-size-xs text-uppercase fw-bold mb-1">Primary</p>
-                        <p class="font-size-xs mb-0 text-gray-500">{{ settings.color_primary }}</p>    
+                        <p class="font-size-md text-uppercase fw-bold mb-1">Red</p>
+                        <p class="font-size-md mb-0 text-black">{{ settings.color_primary_1 }}</p>    
                     </div>
                 </div>
             </div>
             <div class="col">
                 <div class="shadow">
-                    <div class="bg-secondary py-9">
+                    <div class="bg-primary-200  py-9">
 
                     </div>
                     <div class="py-3 px-2 ">
-                        <p class="font-size-xs text-uppercase fw-bold mb-1">Secondary</p>
-                        <p class="font-size-xs mb-0 text-gray-500">{{ settings.color_secondary }}</p>    
+                        <p class="font-size-md text-uppercase fw-bold mb-1">Yellow</p>
+                        <p class="font-size-md mb-0 text-black">{{ settings.color_primary_2 }}</p>    
                     </div>
                 </div>
             </div>
             <div class="col">
                 <div class="shadow">
-                    <div class="bg-dark py-9">
+                    <div class="bg-primary-300 py-9">
 
                     </div>
                     <div class="py-3 px-2 ">
-                        <p class="font-size-xs text-uppercase fw-bold mb-1">Dark</p>
-                        <p class="font-size-xs mb-0 text-gray-500">{{ settings.color_dark }}</p>    
+                        <p class="font-size-md text-uppercase fw-bold mb-1">Black</p>
+                        <p class="font-size-md mb-0 text-black">{{ settings.color_primary_3 }}</p>    
+                    </div>
+                </div>
+            </div>
+             <div class="col">
+                <div class="shadow">
+                    <div class="bg-primary-400 py-9">
+
+                    </div>
+                    <div class="py-3 px-2 ">
+                        <p class="font-size-md text-uppercase fw-bold mb-1">Gray</p>
+                        <p class="font-size-md mb-0 text-black">{{ settings.color_primary_4 }}</p>    
+                    </div>
+                </div>
+            </div>
+             <div class="col">
+                <div class="shadow">
+                    <div class="bg-primary-500 py-9">
+
+                    </div>
+                    <div class="py-3 px-2 ">
+                        <p class="font-size-md text-uppercase fw-bold mb-1">White</p>
+                        <p class="font-size-md mb-0 text-black">{{ settings.color_primary_5 }}</p>    
                     </div>
                 </div>
             </div>
@@ -57,49 +79,6 @@
     <div class="container mb-10">
         <p class="mb-3 text-gray-400">Color Tints</p>
         <div class="row">
-            <div class="col-3">
-                <div class="bg-primary-500 py-1 px-3 text-black text-end text-uppercase">
-                    {{ settings.color_primary_500 }}
-                </div>
-
-                <div class="bg-primary-400 py-1 px-3 text-black text-end text-uppercase">
-                    {{ settings.color_primary_400 }}
-                </div>
-
-                <div class="bg-primary-300 py-1 px-3 text-black text-end text-uppercase">
-                    {{ settings.color_primary_300 }}
-                </div>
-
-                <div class="bg-primary-200 py-1 px-3 text-black text-end text-uppercase">
-                    {{ settings.color_primary_200 }}
-                </div>
-
-                <div class="bg-primary-100 py-1 px-3 text-black text-end text-uppercase">
-                    {{ settings.color_primary_100 }}
-                </div>
-            </div>
- 
-            <div class="col-3">
-                <div class="bg-secondary-500 py-1 px-3 text-black text-end text-uppercase">
-                    {{ settings.color_secondary_500 }}
-                </div>
-
-                <div class="bg-secondary-400 py-1 px-3 text-black text-end text-uppercase">
-                    {{ settings.color_secondary_400 }}
-                </div>
-
-                <div class="bg-secondary-300 py-1 px-3 text-black text-end text-uppercase">
-                    {{ settings.color_secondary_300 }}
-                </div>
-
-                <div class="bg-secondary-200 py-1 px-3 text-black text-end text-uppercase">
-                    {{ settings.color_secondary_200 }}
-                </div>
-
-                <div class="bg-secondary-100 py-1 px-3 text-black text-end text-uppercase">
-                    {{ settings.color_secondary_100 }}
-                </div>
-            </div>
 
             <div class="col-3">
                 <div class="bg-black py-1 px-3 text-white text-end text-uppercase">
@@ -129,6 +108,10 @@
                 </div>
 
                 <div class="bg-gray-300 py-1 px-3 text-black text-end text-uppercase">
+                    {{ settings.color_gray_400 }}
+                </div>
+
+                <div class="bg-gray-300 py-1 px-3 text-black text-end text-uppercase">
                     {{ settings.color_gray_300 }}
                 </div>
 
@@ -139,10 +122,6 @@
                 <div class="bg-gray-100 py-1 px-3 text-black text-end text-uppercase">
                     {{ settings.color_gray_100 }}
                 </div>
-
-                <div class="bg-white py-1 px-3 text-black text-end text-uppercase">
-                    {{ settings.color_white }}
-                </div>
             </div>
         </div>
     </div>
@@ -152,23 +131,78 @@
         <div class="row row-cols-7">
             <div class="col">
                 <div class="shadow">
-                    <div class="bg-almond py-9">
+                    <div class="bg-secondary-100 py-9">
 
                     </div>
                     <div class="py-3 px-2 ">
-                        <p class="font-size-xs text-uppercase fw-bold mb-1">ALMOND</p>
-                        <p class="font-size-xs mb-0 text-gray-500">#FAE2CC</p>    
+                        <p class="font-size-xs text-uppercase fw-bold mb-1">ORANGE</p>
+                        <p class="font-size-xs mb-0 text-gray-500">#F99D25</p>    
                     </div>
                 </div>
             </div>
             <div class="col">
                 <div class="shadow">
-                    <div class="bg-primary py-9">
+                    <div class="bg-secondary-200 py-9">
 
                     </div>
                     <div class="py-3 px-2 ">
-                        <p class="font-size-xs text-uppercase fw-bold mb-1">SALE PRICE</p>
-                        <p class="font-size-xs mb-0 text-gray-500">#C44313</p>    
+                        <p class="font-size-xs text-uppercase fw-bold mb-1">DARK RED</p>
+                        <p class="font-size-xs mb-0 text-gray-500">#BA122B</p>    
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="shadow">
+                    <div class="bg-secondary-300 py-9">
+
+                    </div>
+                    <div class="py-3 px-2 ">
+                        <p class="font-size-xs text-uppercase fw-bold mb-1">RED</p>
+                        <p class="font-size-xs mb-0 text-gray-500">#0085CA</p>    
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="shadow">
+                    <div class="bg-secondary-400 py-9">
+
+                    </div>
+                    <div class="py-3 px-2 ">
+                        <p class="font-size-xs text-uppercase fw-bold mb-1">PURPLE</p>
+                        <p class="font-size-xs mb-0 text-gray-500">#663399</p>    
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="shadow">
+                    <div class="bg-secondary-500 py-9">
+
+                    </div>
+                    <div class="py-3 px-2 ">
+                        <p class="font-size-xs text-uppercase fw-bold mb-1">GREEN</p>
+                        <p class="font-size-xs mb-0 text-gray-500">#4A7729</p>    
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="shadow">
+                    <div class="bg-secondary-600 py-9">
+
+                    </div>
+                    <div class="py-3 px-2 ">
+                        <p class="font-size-xs text-uppercase fw-bold mb-1">TAN</p>
+                        <p class="font-size-xs mb-0 text-gray-500">#DDCBA4</p>    
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="shadow">
+                    <div class="bg-secondary-700 py-9">
+
+                    </div>
+                    <div class="py-3 px-2 ">
+                        <p class="font-size-xs text-uppercase fw-bold mb-1">BROWN</p>
+                        <p class="font-size-xs mb-0 text-gray-500">#784D28</p>    
                     </div>
                 </div>
             </div>
@@ -230,7 +264,24 @@
                     <div>{{ settings.type_header_font }}</div>
                     <div class="mb-3">{{ settings.type_header_font_weight }}</div>
                     <div>Font Size: {{ settings.h1_font_size }}</div>
-                    <div>Line Height: {{ settings.type_heading_line_height }}</div> 
+                    <div>Line Height: {{ settings.h1_line_height }}</div> 
+                    <div>Font Color: {{ settings.heading_color }}</div>
+                </div>
+            </div>
+            <div class="col-8">
+                <h1>The quick brown fox jumps over the lazy dog.</h1>
+            </div>
+        </div>
+         <div class="row mb-7">
+            <div class="col-12">
+                <h6>H1 Mobile</h6>
+            </div>
+            <div class="col-4">
+                <div class="text-gray-500 font-size-md font-family-heading">
+                    <div>{{ settings.type_header_font }}</div>
+                    <div class="mb-3">{{ settings.type_header_font_weight }}</div>
+                    <div>Font Size: {{ settings.h1_font_size_sm }}</div>
+                    <div>Line Height: {{ settings.h1_line_height_sm }}</div> 
                     <div>Font Color: {{ settings.heading_color }}</div>
                 </div>
             </div>
@@ -247,12 +298,29 @@
                     <div>{{ settings.type_header_font }}</div>
                     <div class="mb-3">{{ settings.type_header_font_weight }}</div>
                     <div>Font Size: {{ settings.h2_font_size }}</div>
-                    <div>Line Height: {{ settings.type_heading_line_height }}</div> 
+                    <div>Line Height: {{ settings.h2_line_height }}</div> 
                     <div>Font Color: {{ settings.heading_color }}</div>
                 </div>
             </div>
             <div class="col-8">
                 <h2>The quick brown fox jumps over the lazy dog.</h2>
+            </div>
+        </div>
+          <div class="row mb-7">
+            <div class="col-12">
+                <h6>H2 Mobile</h6>
+            </div>
+            <div class="col-4">
+                <div class="text-gray-500 font-size-md font-family-heading">
+                    <div>{{ settings.type_header_font }}</div>
+                    <div class="mb-3">{{ settings.type_header_font_weight }}</div>
+                    <div>Font Size: {{ settings.h2_font_size_sm }}</div>
+                    <div>Line Height: {{ settings.h2_line_height_sm }}</div> 
+                    <div>Font Color: {{ settings.heading_color }}</div>
+                </div>
+            </div>
+            <div class="col-8">
+                <h1>The quick brown fox jumps over the lazy dog.</h1>
             </div>
         </div>
         <div class="row mb-10">
@@ -264,7 +332,7 @@
                     <div>{{ settings.type_header_font }}</div>
                     <div class="mb-3">{{ settings.type_header_font_weight }}</div>
                     <div>Font Size: {{ settings.h3_font_size }}</div>
-                    <div>Line Height: {{ settings.type_heading_line_height }}</div> 
+                    <div>Line Height: {{ settings.h3_line_height }}</div> 
                     <div>Font Color: {{ settings.heading_color }}</div>
                 </div>
             </div>
@@ -272,7 +340,23 @@
                 <h3>The quick brown fox jumps over the lazy dog.</h3>
             </div>
         </div>
-
+       <div class="row mb-7">
+            <div class="col-12">
+                <h6>H3 Mobile</h6>
+            </div>
+            <div class="col-4">
+                <div class="text-gray-500 font-size-md font-family-heading">
+                    <div>{{ settings.type_header_font }}</div>
+                    <div class="mb-3">{{ settings.type_header_font_weight }}</div>
+                    <div>Font Size: {{ settings.h3_font_size_sm }}</div>
+                    <div>Line Height: {{ settings.h3_line_height_sm }}</div> 
+                    <div>Font Color: {{ settings.heading_color }}</div>
+                </div>
+            </div>
+            <div class="col-8">
+                <h1>The quick brown fox jumps over the lazy dog.</h1>
+            </div>
+        </div>
         <div class="row mb-10">
             <div class="col-12">
                 <h6>H4</h6>
@@ -282,7 +366,7 @@
                     <div>{{ settings.type_header_font }}</div>
                     <div class="mb-3">{{ settings.type_header_font_weight }} Italic</div>
                     <div>Font Size: {{ settings.h4_font_size }}</div>
-                    <div>Line Height: {{ settings.type_heading_line_height }}</div> 
+                    <div>Line Height: {{ settings.h4_line_height }}</div> 
                     <div>Font Color: {{ settings.heading_color }}</div>
                 </div>
             </div>
@@ -290,7 +374,22 @@
                 <h4 class="font-italic">The quick brown fox jumps over the lazy dog.</h4>
             </div>
         </div>
-
+          <div class="row mb-7">
+            <div class="col-12">
+                <h6>H4 Mobile</h6>
+            </div>
+            <div class="col-4">
+                <div class="text-gray-500 font-size-md font-family-heading">
+                    <div>{{ settings.type_header_font }}</div>
+                    <div class="mb-3">SemiBold</div>
+                    <div>Font Size: {{ settings.h4_font_size_sm }}</div>
+                    <div>Font Color: {{ settings.heading_color }}</div>
+                </div>
+            </div>
+            <div class="col-8">
+                <h1>The quick brown fox jumps over the lazy dog.</h1>
+            </div>
+        </div>
         <div class="row mb-10">
             <div class="col-12">
                 <h6>H5</h6>
@@ -300,7 +399,7 @@
                     <div>{{ settings.type_header_font }}</div>
                     <div class="mb-3">{{ settings.type_header_font_weight }} Italic</div>
                     <div>Font Size: {{ settings.h5_font_size }}</div>
-                    <div>Line Height: {{ settings.type_heading_line_height }}</div> 
+                    <div>Line Height: {{ settings.h5_line_height }}</div> 
                     <div>Font Color: {{ settings.heading_color }}</div>
                 </div>
             </div>
@@ -308,7 +407,22 @@
                 <h5 class="font-italic">The quick brown fox jumps over the lazy dog.</h5>
             </div>
         </div>
-
+       <div class="row mb-7">
+            <div class="col-12">
+                <h6>H5 Mobile</h6>
+            </div>
+            <div class="col-4">
+                <div class="text-gray-500 font-size-md font-family-heading">
+                    <div>{{ settings.type_header_font }}</div>
+                    <div class="mb-3">SemiBold</div>
+                    <div>Font Size: {{ settings.h5_font_size_sm }}</div>
+                    <div>Font Color: {{ settings.heading_color }}</div>
+                </div>
+            </div>
+            <div class="col-8">
+                <h1>The quick brown fox jumps over the lazy dog.</h1>
+            </div>
+        </div>
         <div class="row mb-10">
             <div class="col-12">
                 <h6>H6</h6>
@@ -318,7 +432,7 @@
                     <div>{{ settings.type_header_font }}</div>
                     <div class="mb-3">{{ settings.type_header_font_weight }} Italic</div>
                     <div>Font Size: {{ settings.h6_font_size }}</div>
-                    <div>Line Height: {{ settings.type_heading_line_height }}</div> 
+                    <div>Line Height: {{ settings.h1_line_height }}</div> 
                     <div>Font Color: {{ settings.heading_color }}</div>
                 </div>
             </div>
@@ -326,7 +440,23 @@
                 <h6 class="font-italic">The quick brown fox jumps over the lazy dog.</h6>
             </div>
         </div>
-        
+           <div class="row mb-7">
+            <div class="col-12">
+                <h6>H6 Mobile</h6>
+            </div>
+            <div class="col-4">
+                <div class="text-gray-500 font-size-md font-family-heading">
+                    <div>{{ settings.type_header_font }}</div>
+                    <div class="mb-3">SemiBold</div>
+                    <div>Font Size: {{ settings.h6_font_size_sm }}</div>
+                    <div>Line Height: {{ settings.h6_line_height_sm }}</div> 
+                    <div>Font Color: {{ settings.heading_color }}</div>
+                </div>
+            </div>
+            <div class="col-8">
+                <h1>The quick brown fox jumps over the lazy dog.</h1>
+            </div>
+        </div>
         <div class="row mb-10">
             <div class="col-12">
                 <h6 class="font-family-base">Paragraph</h6>
@@ -450,7 +580,7 @@
 
         <div class="col-12 pb-10">
             <p><kbd>btn-link</kbd></p>
-            <a href="" class="btn-link">Shop Now</a>
+            <a href="" class="btn-link">Shop all best sellers</a>
         </div>
 
         <div class=" border-top d-block"></div>
@@ -471,19 +601,20 @@
                   </div>
             </div>
             <div class="col-md-4">
-                <h6 class="text-uppercase mb-3 fw-bold">Noraml Form</h6>
+                <h6 class="text-uppercase mb-3 fw-bold">Noraml Form Fiels Inactive</h6>
                 <div class="mb-3">
                     <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
                 </div>
                 <div class="mb-3">
                     <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
                 </div>
+
             </div>
             <div class="col-md-4">
                 <h6 class="text-uppercase mb-3 fw-bold">Newsletter</h6>
                 <div class="input-group">
                     <input type="email" class="form-control border-end-0" id="exampleFormControlInput1" placeholder="name@example.com">
-                    <button type="submit" name="btnSubmit" aria-label="submit" class="btn btn-secondary">
+                    <button type="submit" name="btnSubmit" aria-label="submit" class="btn btn-primary">
                         <span>sign up</span>
                     </button>     
                 </div>

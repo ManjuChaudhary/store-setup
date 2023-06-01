@@ -92,72 +92,107 @@ h6,
 .h6 {
     margin-top: 0;
     margin-bottom: 0.5rem;
-    font-family: var(--bs-font-family-heading);
-    font-weight: var(--bs-headings-font-weight);
-    line-height: var(--bs-line-height-heading);
     font-style: var(--bs-heading-style);
     /* color: var(--bs-heading-color); */
+}
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h5,
+.h5,
+h6,
+.h6 {
+font-family: var(--bs-font-family-heading);
+font-weight: var(--bs-headings-font-weight);
+}
+h4,
+.h4{
+    font-family: var(--bs-font-family-heading);
+    font-weight: 600; 
 }
 
 h1,
 .h1 {
     font-size: var(--bs-h1-font-size-sm);
+    line-height: var( --bs-h1-line-height-sm);
+    letter-spacing: -0.32px;
 }
 
 h2,
 .h2 {
     font-size: var(--bs-h2-font-size-sm);
+    line-height: var( --bs-h2-line-height-sm);
+    letter-spacing: -0.28px;
 }
 
 h3,
 .h3 {
     font-size: var(--bs-h3-font-size-sm);
+    line-height: var( --bs-h3-line-height-sm);
+    letter-spacing: -0.2px;
 }
 
 h4,
 .h4 {
     font-size: var(--bs-h4-font-size-sm);
+    line-height: var( --bs-h4-line-height-sm);
 }
 
 h5,
 .h5 {
     font-size: var(--bs-h5-font-size-sm);
+    line-height: var( --bs-h5-line-height-sm);
 }
 
 h6,
 .h6 {
     font-size: var(--bs-h6-font-size-sm);
+    line-height: var( --bs-h6-line-height-sm);
+    letter-spacing: 1.2px;
 }
 
 @media (min-width: 768px) {
     h1,
     .h1 {
         font-size: var(--bs-h1-font-size-md);
+        line-height: var( --bs-h1-line-height-md);
+        letter-spacing: -0.45px;
     }
 
     h2,
     .h2 {
         font-size: var(--bs-h2-font-size-md);
+        line-height: var( --bs-h2-line-height-md);
+        letter-spacing: -0.35px;
     }
 
     h3,
     .h3 {
         font-size: var(--bs-h3-font-size-md);
+        line-height: var( --bs-h3-line-height-md);
+        letter-spacing: -0.25px;
     }
 
     h4,
     .h4 {
         font-size: var(--bs-h4-font-size-md);
+        line-height: var( --bs-h4-line-height-md);
     }
 
     h5,
     .h5 {
         font-size: var(--bs-h5-font-size-md);
+        line-height: var( --bs-h5-line-height-md);
     }
 
     h6,
     .h6 {
         font-size: var(--bs-h6-font-size-md);
+        line-height: var( --bs-h6-line-height-md);
+        letter-spacing: 1.2px;
     }
 }
 
@@ -166,31 +201,41 @@ h6,
     h1,
     .h1 {
         font-size: var(--bs-h1-font-size);
+        line-height: var(--bs-h1-line-height);
+        letter-spacing: -0.45px;
     }
 
     h2,
     .h2 {
         font-size: var(--bs-h2-font-size);
+        line-height: var(--bs-h2-line-height);
+        letter-spacing: -0.35px;
     }
 
     h3,
     .h3 {
         font-size: var(--bs-h3-font-size);
+        line-height: var(--bs-h3-line-height);
+        letter-spacing: -0.25px;
     }
 
     h4,
     .h4 {
         font-size: var(--bs-h4-font-size);
+        line-height: var(--bs-h4-line-height-sm);
     }
 
     h5,
     .h5 {
         font-size: var(--bs-h5-font-size);
+        line-height: var(--bs-h5-line-height);
     }
 
     h6,
     .h6 {
         font-size: var(--bs-h6-font-size);
+        line-height: var(--bs-h6-line-height);
+        letter-spacing: 1.2px;
     }
 }
 
@@ -668,9 +713,9 @@ progress {
 }
 
 .btn-primary:hover {
-    color: #fff;
+    color: var(--bs-bg-color-btn-primary);
     background-color: var(--bs-bg-hover-color-btn-primary);
-    border-color: var(--bs-bg-hover-color-btn-primary);
+    border-color: var(--bs-bg-color-btn-primary);
 }
 
 .btn-outline-primary {
@@ -688,11 +733,11 @@ progress {
 .btn-secondary {
     color: var(--bs-txt-color-btn-secondary);
     background-color: var(--bs-bg-color-btn-secondary);
-    border-color: var(--bs-bg-color-btn-secondary);
+    border-color: var(--bs-txt-color-btn-secondary);
 }
 
 .btn-secondary:hover {
-    color: #fff;
+    color: var(--bs-bg-color-btn-secondary); ;
     background-color: var(--bs-bg-hover-color-btn-secondary);
     border-color: var(--bs-bg-hover-color-btn-secondary);
 }
@@ -740,9 +785,9 @@ progress {
 }
 
 .btn-dark:hover {
-    color: #fff;
+    color: var(--bs-bg-color-btn-dark);
     background-color: var(--bs-bg-hover-color-btn-dark);
-    border-color: var(--bs-bg-hover-color-btn-dark);
+    border-color: var(--bs-bg-color-btn-dark);
 }
 
 .btn-outline-dark {
@@ -770,18 +815,21 @@ progress {
 }
 
 .btn-link{
-    text-transform: uppercase;
+    text-transform: capitalize;
     font-size: var(--bs-font-size-lg);
     color: var(--bs-body-color);
     border-bottom: 1px solid;
     border-color: var(--bs-body-color);
     transition: .25s ease-in-out;  
     display: inline-block;
+    font-family: var(--bs-font-family-heading);
+    font-weight: 600;
 }
 
 .btn-link:hover{
     color:var(--bs-color-primary);
-    border-bottom: 1px solid var(--bs-color-primary);
+    border-bottom: 1px solid var(--bs-body-color);
+    padding-bottom: 3px;
 }
 
 .shopify-challenge__button{
@@ -2707,6 +2755,14 @@ textarea.form-control-lg {
     border-color: var(--bs-color-secondary-500) !important;
 }
 
+.border-secondary-600 {
+    border-color: var(--bs-color-secondary-600) !important;
+}
+
+.border-secondary-700 {
+    border-color: var(--bs-color-secondary-700) !important;
+}
+
 .border-gray-100 {
     border-color: var(--bs-color-gray-100) !important;
 }
@@ -2818,6 +2874,14 @@ textarea.form-control-lg {
 
 .text-secondary-500 {
     color: var(--bs-color-secondary-500) !important;
+}
+
+.text-secondary-600 {
+    color: var(--bs-color-secondary-600) !important;
+}
+
+.text-secondary-700 {
+    color: var(--bs-color-secondary-700) !important;
 }
 
 .text-gray-100 {
@@ -2961,6 +3025,14 @@ textarea.form-control-lg {
 .bg-secondary-500,
 .badge-secondary-500 {
     background-color: var(--bs-color-secondary-500) !important;
+}
+.bg-secondary-600,
+.badge-secondary-600 {
+    background-color: var(--bs-color-secondary-600) !important;
+}
+.bg-secondary-700,
+.badge-secondary-700 {
+    background-color: var(--bs-color-secondary-700) !important;
 }
 
 .bg-gray-100,

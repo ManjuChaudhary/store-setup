@@ -52,105 +52,83 @@
       },
       {
         "type": "header",
-        "content": "Main Colors"
-      },
-      {
-        "type": "color",
-        "id": "color_primary",
-        "default": "#9B6A45",
-        "label": "Color Primary"
-      },
-      {
-        "type": "color",
-        "id": "color_secondary",
-        "default": "#F2DBCF",
-        "label": "Color Secondary"
-      },
-      {
-        "type": "color",
-        "id": "color_dark",
-        "default": "#212529",
-        "label": "Color Dark"
-      },
-      {
-        "type": "color",
-        "id": "color_alabaster",
-        "default": "#fafaf7",
-        "label": "Color Alabaster"
-      },
-      {
-        "type": "color",
-        "id": "color_almond",
-        "default": "#FAE2CC",
-        "label": "Color Almond"
-      },
-      {
-        "type": "header",
         "content": "Primary Color Tints"
       },
       {
         "type": "color",
-        "id": "color_primary_100",
-        "default": "#F8F0EC",
-        "label": "Primary 100"
+        "id": "color_primary_1",
+        "default": "#EA002A",
+        "label": "Primary 1"
       },
       {
         "type": "color",
-        "id": "color_primary_200",
-        "default": "#F3E6DE",
-        "label": "Primary 200"
+        "id": "color_primary_2",
+        "default": "#FFDA27",
+        "label": "Primary 2"
       },
       {
         "type": "color",
-        "id": "color_primary_300",
-        "default": "#E8CDBE",
-        "label": "Primary 300"
+        "id": "color_primary_3",
+        "default": "#000000",
+        "label": "Primary 3"
       },
       {
         "type": "color",
-        "id": "color_primary_400",
-        "default": "#DDB49D",
-        "label": "Primary 400"
+        "id": "color_primary_4",
+        "default": "#999B9D",
+        "label": "Primary 4"
       },
       {
         "type": "color",
-        "id": "color_primary_500",
-        "default": "#D29C7D",
-        "label": "Primary 500"
+        "id": "color_primary_5",
+        "default": "#FFFFFF",
+        "label": "Primary 5"
       },
       {
         "type": "header",
-        "content": "Secondary Color Tints"
+        "content": "Secondary Color"
       },
       {
         "type": "color",
-        "id": "color_secondary_100",
-        "default": "#FDFBF9",
-        "label": "Secondary 100"
+        "id": "color_secondary_1",
+        "default": "#F99D25",
+        "label": "Secondary 1"
       },
       {
         "type": "color",
-        "id": "color_secondary_200",
-        "default": "#F8EDE7",
-        "label": "Secondary 200"
+        "id": "color_secondary_2",
+        "default": "#BA122B",
+        "label": "Secondary 2"
       },
       {
         "type": "color",
-        "id": "color_secondary_300",
-        "default": "#F8EDE7",
-        "label": "Secondary 300"
+        "id": "color_secondary_3",
+        "default": "#0085CA",
+        "label": "Secondary 3"
       },
       {
         "type": "color",
-        "id": "color_secondary_400",
-        "default": "#F5E4DB",
-        "label": "Secondary 400"
+        "id": "color_secondary_4",
+        "default": "#663399",
+        "label": "Secondary 4"
       },
       {
         "type": "color",
-        "id": "color_secondary_500",
-        "default": "#F2DBCF",
-        "label": "Secondary 500"
+        "id": "color_secondary_5",
+        "default": "#4A7729",
+        "label": "Secondary 5"
+      },
+      {
+        "type": "color",
+        "id": "color_secondary_6",
+        "default": "#DDCBA4",
+        "label": "Secondary 6"
+      },
+      {
+        "type": "color",
+        "id": "color_secondary_7",
+        "default": "#784D28",
+        "label": "Secondary 7"
       },
       {
         "type": "header",
@@ -312,12 +290,6 @@
         "label": "Select Font Weight"
       },
       {
-        "type": "text",
-        "id": "type_heading_line_height",
-        "default": "1.3",
-        "label": "Body Line Height"
-      },
-      {
         "type": "header",
         "content": "t:settings_schema.typography.settings.header__2.content"
       },
@@ -347,6 +319,10 @@
         "type": "select",
         "id": "type_body_font_weight",
         "options": [
+          {
+            "value": "normal",
+            "label": "Normal"
+          },
           {
             "value": "300",
             "label": "300"
@@ -543,6 +519,131 @@
         "id": "h6_font_size_sm",
         "default": "14px",
         "label": "H6 Font Size"
+      }
+    ]
+  },
+  {
+    "name": "Heading Line height",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Font Size"
+      },
+      {
+        "type": "text",
+        "id": "h1_line_height",
+        "default": "1.2",
+        "label": "H1 Line Height"
+      },
+      {
+        "type": "text",
+        "id": "h2_line_height",
+        "default": "1.26",
+        "label": "H2 Line Height"
+      },
+      {
+        "type": "text",
+        "id": "h3_line_height",
+        "default": "1.44",
+        "label": "H3 Line Height"
+      },
+      {
+        "type": "text",
+        "id": "h4_line_height",
+        "default": "1.5",
+        "label": "H4 Font Size"
+      },
+      {
+        "type": "text",
+        "id": "h5_line_height",
+        "default": "1.53",
+        "label": "H5 Line Height"
+      },
+      {
+        "type": "text",
+        "id": "h6_line_height",
+        "default": "1.4",
+        "label": "H6 Line Height"
+      },
+      {
+        "type": "header",
+        "content": "Font Size Ipad"
+      },
+      {
+        "type": "text",
+        "id": "h1_line_height_md",
+        "default": "1.25",
+        "label": "H1 Line Height"
+      },
+      {
+        "type": "text",
+        "id": "h2_line_height_md",
+        "default": "1.28",
+        "label": "H2 Font Size"
+      },
+      {
+        "type": "text",
+        "id": "h3_line_height_md",
+        "default": "1.45",
+        "label": "H3 Line Height"
+      },
+      {
+        "type": "text",
+        "id": "h4_line_height_md",
+        "default": "1.56",
+        "label": "H4 Line Height"
+      },
+      {
+        "type": "text",
+        "id": "h5_line_height_md",
+        "default": "1.6",
+        "label": "H5 Line Height"
+      },
+      {
+        "type": "text",
+        "id": "h6_line_height_md",
+        "default": "1.75",
+        "label": "H6 Line Height"
+      },
+      {
+        "type": "header",
+        "content": "Font Size Mobile"
+      },
+      {
+        "type": "text",
+        "id": "h1_line_height_sm",
+        "default": "1.25",
+        "label": "H1 Line Height"
+      },
+      {
+        "type": "text",
+        "id": "h2_line_height_sm",
+        "default": "1.28",
+        "label": "H2 Line Height"
+      },
+      {
+        "type": "text",
+        "id": "h3_line_height_sm",
+        "default": "1.45",
+        "label": "H3 Line Height"
+      },
+      {
+        "type": "text",
+        "id": "h4_line_height_sm",
+        "default": "1.56",
+        "label": "H4 Line Height"
+      },
+      {
+        "type": "text",
+        "id": "h5_line_height_sm",
+        "default": "1.6",
+        "label": "H5 Line Height"
+      },
+      {
+        "type": "text",
+        "id": "h6_line_height_sm",
+        "default": "1.75",
+        "label": "H6 Line Height"
       }
     ]
   },
@@ -782,6 +883,10 @@
         "type": "select",
         "id": "type_input_font_weight",
         "options": [
+          {
+            "value": "normal",
+            "label": "Normal"
+          },
           {
             "value": "300",
             "label": "300"
