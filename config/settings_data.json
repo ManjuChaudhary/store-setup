@@ -62,7 +62,7 @@
     "type_input_font": "Inter",
     "type_input_font_weight": "normal",
     "input_font_size": "15px",
-    "input_line-height": "0",
+    "input_line-height": "22px",
     "input_border-radius": "5px",
     "input_y_padding": "15px",
     "input_text_color": "#000000",
