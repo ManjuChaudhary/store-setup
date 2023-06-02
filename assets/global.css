@@ -662,7 +662,7 @@ Button
 
 .btn {
 display: inline-block;
-text-transform: uppercase;
+text-transform: capitalize;
 font-family: var(--bs-font-family-button);
 font-weight: var(--bs-font-weight-button);
 font-size: var(--bs-font-size-button);
@@ -693,6 +693,11 @@ padding: var(--bs-y-padding-button-sm) var(--bs-x-padding-button-sm);
 .btn-lg {
 font-size: var(--bs-font-size-button-lg);
 padding: var(--bs-y-padding-button-lg) var(--bs-x-padding-button-lg);
+}
+
+.btn-sold-out{
+    font-size: var(--bs-font-size-button-sold-out);
+    padding: var(--bs-y-padding-button-sold-out) var(--bs-x-padding-button-sold-out);
 }
 
 .btn-block {
@@ -789,6 +794,11 @@ border-color: var(--bs-bg-color-btn-dark);
 color: var(--bs-bg-color-btn-dark);
 background-color: var(--bs-bg-hover-color-btn-dark);
 border-color: var(--bs-bg-color-btn-dark);
+}
+.btn-sold-out {
+    color: var(--bs-txt-color-btn-sold-out);
+    background-color: var(--bs-bg-color-btn-sold-out);
+    border-color: var(--bs-txt-color-btn-sold-out);
 }
 
 .btn-outline-dark {

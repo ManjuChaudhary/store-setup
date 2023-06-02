@@ -775,6 +775,28 @@
         "default": "14px",
         "label": "Y padding"
       },
+     {
+      "type": "header",
+      "content": "Button Sold Out"
+    },
+    {
+      "type": "text",
+      "id": "button_font_size_sold_out",
+      "default": "13px",
+      "label": "Font Size"
+    },
+    {
+      "type": "text",
+      "id": "button_x_padding_sold_out",
+      "default": "20px",
+      "label": "X padding"
+    },
+    {
+      "type": "text",
+      "id": "button_y_padding_sold_out",
+      "default": "8px",
+      "label": "Y padding"
+    },
       {
         "type": "header",
         "content": "Button Primary"
@@ -862,6 +884,22 @@
         "id": "bg_hover_color_btn_dark",
         "default": "#222222",
         "label": "Dark Button Hover Color"
+      },
+      {
+        "type": "header",
+        "content": "Button Sold Out"
+      },
+      {
+        "type": "color",
+        "id": "txt_color_btn_sold_out",
+        "default": "#999B9D",
+        "label": "Sold Out Button Text Color"
+      },
+      {
+        "type": "color",
+        "id": "bg_color_btn_sold_out",
+        "default": "#ffffff",
+        "label": "Sold Out Button BG Color"
       }
     ]
   },
