@@ -5,7 +5,7 @@
 
 .header-slider .tallheight .swiper-slide{
     height: 60vh;
-    min-height: 600px;
+    min-height: 595px;
 }
 
 .header-slider .fullheight .swiper-slide{
@@ -79,4 +79,23 @@
 }
 .video-with--text.placement--grid.show--video .content-section{
     display: none;
+}
+.slider-content-wrapper h2{
+    display: inline-grid;
+}
+.slider-content-wrapper h2 span{
+    font-weight: normal;
+}
+.slider-content-wrapper p{
+    font-size: 19px;
+    max-width: 447px;
+}
+
+@media screen and (max-width:768px){
+    .slider-content-wrapper h2{
+        min-width: 100%;
+    }
+    .slider-content-wrapper p{
+        max-width: auto;
+    }
 }

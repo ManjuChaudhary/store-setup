@@ -2,7 +2,7 @@
 {% if section.settings.topbar_enabled %}
     <div class="topbar d-flex align-items-center" data-top-bar style="background-color: {{ section.settings.topbar_bg_color }}; min-height: {{ section.settings.topbar_height }}px;">
         <div class="container">
-            <div class="d-block text-center ls-1 py-1" style="color: {{ section.settings.topbar_text_color }};font-size: {{ section.settings.topbar_font_size }}">
+            <div class="d-block text-center ls-1 py-1" style="color: {{ section.settings.topbar_text_color }};font-size: {{ section.settings.topbar_font_size }}; font-family: {{ section.settings.header_topbar_font_family }}; font-weight: {{ section.settings.header_topbar_font_weight }}">
                 {{ section.settings.topbar_text }}
             </div>
         </div>
@@ -55,6 +55,44 @@
             "id": "topbar_font_size",
             "label": "t:sections.top-header.settings.header_topbar_font_size.label",
             "default": "15px"
+        },
+        {
+            "type": "text",
+            "id": "header_topbar_font_family",
+            "label": "t:sections.top-header.settings.header_topbar_font_family.label",
+            "default": "Inter"
+        },
+        {
+        "type": "select",
+        "id": "header_topbar_font_weight",
+        "options": [
+         {
+            "value": "normal",
+            "label": "Normal"
+          },
+          {
+            "value": "300",
+            "label": "300"
+          },
+          {
+            "value": "400",
+            "label": "400"
+          },
+          {
+            "value": "500",
+            "label": "500"
+          },
+          {
+            "value": "600",
+            "label": "600"
+          },
+          {
+            "value": "700",
+            "label": "700"
+          }
+        ],
+        "default": "normal",
+        "label": "t:sections.top-header.settings.header_topbar_font_weight.label"
         }
     ]
 }

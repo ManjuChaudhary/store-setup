@@ -135,9 +135,10 @@
           "enable_sticky_header": true,
           "header_bg_color": "#ffffff",
           "show_line_separator": false,
-          "logo_svg": "https:\/\/cdn.shopify.com\/s\/files\/1\/0581\/7663\/5061\/files\/logo-fluid.svg?v=1631096036",
-          "logo_width": 130,
-          "menu": "footer"
+          "logo_svg": "",
+          "logo": "shopify:\/\/shop_images\/Zone_logo-pms_stroke_2_c3b1b7d0-082f-460e-b8db-683ac68e5e7e.svg",
+          "logo_width": "144",
+          "menu": "new-mainu"
         }
       },
       "footer": {
@@ -206,9 +207,10 @@
         "type": "mobile-nav-drawer",
         "settings": {
           "logo_svg": "",
-          "logo_width": 100,
-          "main_menu_linklist": "footer",
-          "secondary_menu_linklist": "main-menu",
+          "logo": "shopify:\/\/shop_images\/Zone_logo-pms_stroke_2_c3b1b7d0-082f-460e-b8db-683ac68e5e7e.svg",
+          "logo_width": 50,
+          "main_menu_linklist": "new-mainu",
+          "secondary_menu_linklist": "footer",
           "mobilemenu_style": "slide-submenu",
           "mobile_nav_show_social_links": true,
           "social_icon_facebook": true,
@@ -225,11 +227,13 @@
         "type": "top-header",
         "settings": {
           "topbar_enabled": true,
-          "topbar_text": "SAME DAY SHIPPING! ORDER BY 2PM (EASTERN TIME)",
-          "topbar_bg_color": "#d29c7d",
+          "topbar_text": "Limited Time Offer | Spend $100 get a FREE Bottle of Olive Oil | Use Code: OLIVEOIL23 | <a href=\"\">Shop Now<\/a>",
+          "topbar_bg_color": "#000000",
           "topbar_text_color": "#ffffff",
-          "topbar_height": 40,
-          "topbar_font_size": "15px"
+          "topbar_height": 45,
+          "topbar_font_size": "14px",
+          "header_topbar_font_family": "Inter",
+          "header_topbar_font_weight": "normal"
         }
       }
     },

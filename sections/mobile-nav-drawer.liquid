@@ -8,7 +8,7 @@
         {% assign main_menu = section.settings.main_menu_linklist %}
         {% assign secondary_menu = section.settings.secondary_menu_linklist %}
 
-        <div class="drawer-header d-flex justify-content-between align-items-center px-4 py-3 bg-primary-100">
+        <div class="drawer-header d-flex justify-content-between align-items-center px-4 py-3 bg-black">
             <a href="{{ routes.root_url }}" class="navbar-brand nav-item mobile-header--logo" tabindex="0" title="{{ shop.name | escape }}" aria-label="{{ shop.name | escape }}">
                 {%- if logo_svg != blank -%}
                     <img src="{{ section.settings.logo_svg }}" alt="{{ shop.name | escape }}" class="img-fluid" style="width: {{ section.settings.logo_width }}px" loading="lazy" width="150" height="150">
@@ -22,10 +22,10 @@
                         alt="{{ section.settings.logo.alt | default: shop.name | escape }}" 
                         style="max-width: {{ section.settings.logo_width }}px" >
                 {%- else -%}
-                    <span class="h5 text-primary">{{ shop.name }}</span>
+                    <span class="h5 text-secondary">{{ shop.name }}</span>
                 {%- endif -%}
             </a>
-            <a href="#" class="btn-close ml-auto float-right close-mobile--navbar" title="close" rel="nofollow" aria-label="Close">
+            <a href="#" class="btn-close ml-auto float-right close-mobile--navbar text-white" title="close" rel="nofollow" aria-label="Close">
                 <span class="icon-close"></span>
             </a>
         </div>
@@ -38,13 +38,13 @@
                     {% assign child_list_handle = link.title | handleize %}
                     {% if link.links != blank %}
                     <li class="nav-item dropdown {% if link.active %}active{% endif %} second-level">
-                        <a class="nav-link submenu-toggle d-flex align-items-center {{ link.handle }}" is="drop-down" tabindex="0" data-href="{{ link.url }}" role="button" data-toggle="open" data-target="#submenu-{{ child_list_handle }}" aria-expanded="false" title="{{ link.title }}" aria-label="{{ link.title }}">
+                        <a class="text-black nav-link submenu-toggle d-flex align-items-center {{ link.handle }}" is="drop-down" tabindex="0" data-href="{{ link.url }}" role="button" data-toggle="open" data-target="#submenu-{{ child_list_handle }}" aria-expanded="false" title="{{ link.title }}" aria-label="{{ link.title }}">
                             <span class="nav-link-title">{{ link.title }}</span> 
                             <span class="icon-arrow-right text-center"></span>
                         </a>
                         <div class="submenu submenu-div dropdown-menu toggle-content" id="submenu-{{ child_list_handle }}" data-type="content">
                             {% if section.settings.mobilemenu_style == 'slide-submenu' %}
-                            <a class="nav-link d-flex align-items-center close-submenu fw-bold text-uppercase py-3 {{ link.handle }}" tabindex="0" title="{{ link.title }}" aria-label="{{ link.title }}">
+                            <a class="text-black nav-link d-flex align-items-center close-submenu fw-bold text-uppercase py-3 {{ link.handle }}" tabindex="0" title="{{ link.title }}" aria-label="{{ link.title }}">
                                 <span class="icon-arrow-left me-2"></span><span class="menu-title">{{ link.title }}</span> 
                             </a>
                             {% endif %}
@@ -53,19 +53,19 @@
                                 {% assign subchild_list_handle = childlink.title | handleize %}
                                 {% if childlink.links != blank %}
                                     <div class="nav-item dropdown {% if forloop.first %}open{% endif %}">
-                                        <a class="nav-link submenu-toggle d-flex align-items-center {{ link.handle }}" is="drop-down" tabindex="0" data-href="{{ link.url }}" role="button" data-toggle="open" data-target="#submenu-{{ child_list_handle }}" aria-expanded="false" title="{{ link.title }}" aria-label="{{ link.title }}">
+                                        <a class="text-black nav-link submenu-toggle d-flex align-items-center {{ link.handle }}" is="drop-down" tabindex="0" data-href="{{ link.url }}" role="button" data-toggle="open" data-target="#submenu-{{ child_list_handle }}" aria-expanded="false" title="{{ link.title }}" aria-label="{{ link.title }}">
                                             <span class="nav-link-title">{{ childlink.title }}</span> <span class="icon-arrow-right text-center"></span>
                                         </a>
                                         <div class="submenu submenu-div dropdown-menu toggle-content" id="submenu-{{ subchild_list_handle }}" data-type="content">
                                             {% if section.settings.mobilemenu_style == 'slide-submenu' %}
-                                            <a class="nav-link d-flex align-items-center close-submenu fw-bold text-uppercase py-3 {% if childlink.active %} active{% endif %} {{ childlink.handle }}" title="{{ childlink.title }}" aria-label="{{ childlink.title }}">
+                                            <a class="text-black nav-link d-flex align-items-center close-submenu fw-bold text-uppercase py-3 {% if childlink.active %} active{% endif %} {{ childlink.handle }}" title="{{ childlink.title }}" aria-label="{{ childlink.title }}">
                                                 <span class="icon-arrow-left me-2"></span>{{ childlink.title }}
                                             </a>
                                             {% endif %}
 
                                             {% for subchildlink in childlink.links %}
                                                 <div class="nav-item">
-                                                    <a is="simple-menu-item" class="nav-link d-flex align-items-center {% if subchildlink.active %} active{% endif %} {{ subchildlink.handle }}" href="{{ subchildlink.url }}" title="{{ subchildlink.title }}" aria-label="{{ subchildlink.title }}">
+                                                    <a is="simple-menu-item" class="text-black nav-link d-flex align-items-center {% if subchildlink.active %} active{% endif %} {{ subchildlink.handle }}" href="{{ subchildlink.url }}" title="{{ subchildlink.title }}" aria-label="{{ subchildlink.title }}">
                                                         {{ subchildlink.title }}
                                                     </a>
                                                 </div>
@@ -74,7 +74,7 @@
                                     </div>
                                 {% else %}
                                     <div class="nav-item">
-                                        <a is="simple-menu-item" class="nav-link d-flex align-items-center {% if childlink.active %} active{% endif %} {{ childlink.handle }}" href="{{ childlink.url }}" title="{{ childlink.title }}" aria-label="{{ childlink.title }}">
+                                        <a is="simple-menu-item" class="text-black nav-link d-flex align-items-center {% if childlink.active %} active{% endif %} {{ childlink.handle }}" href="{{ childlink.url }}" title="{{ childlink.title }}" aria-label="{{ childlink.title }}">
                                             {{ childlink.title }}
                                         </a>
                                     </div>
@@ -84,7 +84,7 @@
                     </li>
                     {% else %}
                     <li class="nav-item {% if link.active %} active{% endif %}">
-                        <a class="nav-link d-flex align-items-center" href="{{ link.url }}" is="simple-menu-item" title="{{ link.title }}" aria-label="{{ link.title }}">
+                        <a class="text-black nav-link d-flex align-items-center" href="{{ link.url }}" is="simple-menu-item" title="{{ link.title }}" aria-label="{{ link.title }}">
                         {{ link.title }}
                         </a>
                     </li>
@@ -100,12 +100,12 @@
                     {% assign child_list_handle = link.title | handleize %}
                         {% if link.links != blank %}
                             <li class="nav-item dropdown {% if link.active %}active{% endif %}">
-                                <a is="drop-down" class="nav-link submenu-toggle d-flex align-items-center justify-content-between" data-href="{{ link.url }}" title="{{ link.title }}" aria-label="{{ link.title }}" tabindex="0" role="button" data-toggle="dropdown" aria-expanded="false" aria-haspopup="menu">
+                                <a is="drop-down" class="text-black nav-link submenu-toggle d-flex align-items-center justify-content-between" data-href="{{ link.url }}" title="{{ link.title }}" aria-label="{{ link.title }}" tabindex="0" role="button" data-toggle="dropdown" aria-expanded="false" aria-haspopup="menu">
                                     <span>{{ link.title }}</span> <span class="icon-arrow-right"></span>
                                 </a>
                                 <div class="submenu dropdown-menu toggle-content" id="submenu-{{ child_list_handle }}" data-type="content">
                                     {% for childlink in link.links %}
-                                        <a class="nav-link d-flex align-items-center {% if childlink.active %} active{% endif %}" is="simple-menu-item" href="{{ childlink.url }}" title="{{ childlink.title }}" aria-label="{{ childlink.title }}">
+                                        <a class="text-black nav-link d-flex align-items-center {% if childlink.active %} active{% endif %}" is="simple-menu-item" href="{{ childlink.url }}" title="{{ childlink.title }}" aria-label="{{ childlink.title }}">
                                             {{ childlink.title }}
                                         </a>
                                     {% endfor %}
@@ -113,7 +113,7 @@
                             </li>
                         {% else %}
                         <li class="nav-item {% if link.active %} active{% endif %}">
-                            <a is="simple-menu-item" class="nav-link d-flex align-items-center" href="{{ link.url }}" title="{{ link.title }}" aria-label="{{ link.title }}">
+                            <a is="simple-menu-item" class="text-black nav-link d-flex align-items-center" href="{{ link.url }}" title="{{ link.title }}" aria-label="{{ link.title }}">
                                 {{ link.title }}
                             </a>
                         </li>
@@ -133,19 +133,19 @@
             <ul class="list-unstyled list-inline social-icons">
                 {% if section.settings.social_icon_facebook %}
                 <li class="list-inline-item">
-                    <a href="{{ settings.social_facebook_link }}" title="Facebook" rel="nofollow" aria-label="Facebook"><span class="icon-facebook"></span></a>
+                    <a href="{{ settings.social_facebook_link }}" title="Facebook" rel="nofollow" aria-label="Facebook" class="text-black"><span class="icon-facebook"></span></a>
                 </li>
                 {% endif %}
         
                 {% if section.settings.social_icon_twitter %}
                 <li class="list-inline-item">
-                    <a href="{{ settings.social_twitter_link }}" title="Twitter" rel="nofollow" aria-label="Twitter"><span class="icon-twitter"></span></a>
+                    <a href="{{ settings.social_twitter_link }}" title="Twitter" rel="nofollow" aria-label="Twitter" class="text-black"><span class="icon-twitter"></span></a>
                 </li>
                 {% endif %}
         
                 {% if section.settings.social_icon_instagram %}
                 <li class="list-inline-item">
-                    <a href="{{ settings.social_instagram_link }}" title="Instagram" rel="nofollow" aria-label="Instagram"><span class="icon-instagram"></span></a>
+                    <a href="{{ settings.social_instagram_link }}" title="Instagram" rel="nofollow" aria-label="Instagram" class="text-black"><span class="icon-instagram"></span></a>
                 </li>
                 {% endif %}
             </ul>

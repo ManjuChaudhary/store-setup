@@ -617,13 +617,13 @@ padding: 2.5rem 0;
 
 @media (min-width: 768px) {
 .section-content {
-    padding: 3rem 0;
+    padding: 3.75rem 0;
 }
 }
 
 @media (min-width: 992px) {
 .section-content {
-    padding: 5rem 0;
+    padding: 3.75rem 0;
 }
 }
 
@@ -684,7 +684,9 @@ background-color: transparent;
 -webkit-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
 transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
 }
-
+.btn:hover {
+    text-decoration: none;
+}
 .btn-sm {
 font-size: var(--bs-font-size-button-sm);
 padding: var(--bs-y-padding-button-sm) var(--bs-x-padding-button-sm);
@@ -835,12 +837,13 @@ transition: .25s ease-in-out;
 display: inline-block;
 font-family: var(--bs-font-family-heading);
 font-weight: 600;
+padding-bottom: 3px;
 }
 
 .btn-link:hover{
 color:var(--bs-color-primary);
 border-bottom: 1px solid var(--bs-body-color);
-padding-bottom: 3px;
+padding-bottom: 5px;
 }
 
 .shopify-challenge__button{
@@ -11991,7 +11994,6 @@ width: 100%;
     line-height:1.47;
     font-style: var(--bs-base-font-style);
     color: var(--bs-body-color);
-    background-color: var(--bs-body-bg);
     letter-spacing:var(--bs-letter-spacing-base);
 }
 

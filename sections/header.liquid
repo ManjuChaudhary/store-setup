@@ -38,14 +38,23 @@
           </div>
 
           <div class="nav navbar-mobile w-100 d-flex align-items-center list-unstyled py-3 d-lg-none">
-            <div class="col-4 col-sm-4 px-0 text-left navbar-icon-links">
-                <div class="nav-item">
+            <div class="col-3 col-sm-4 px-0 text-left">
+            <ul class="align-items-center d-flex justify-content-start list-unstyled mb-0 ms-auto navbar-icon-links">
+                <li class="nav-item px-1">
                     <a class="nav-link" href="#" id="mobile-menu" title="menu" rel="nofollow" aria-label="Menu" role="button" aria-expanded="false" aria-controls="mobile-menu-drawer">
                         <span class="icon-menu"></span>
                     </a>
-                </div>
+                </li>
+                {% if shop.customer_accounts_enabled %}
+                        <li class="nav-item px-1">
+                            <a class="nav-link" href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}" title="account" rel="nofollow" aria-label="Account">
+                                <span class="icon-user"></span>
+                            </a>
+                        </li>
+                    {% endif %}
+              </ul>
             </div>
-            <div class="col-4 col-sm-4 text-center">
+            <div class="col-6 col-sm-4 text-center">
                 {%- if request.page_type == 'index' -%}
                 <div class="header__heading mb-0">
                 {%- endif -%}
@@ -72,23 +81,16 @@
                 </div>
                 {%- endif -%}
             </div>
-            <div class="col-4 col-sm-4 px-0 text-right">
+            <div class="col-3 col-sm-4 px-0 text-right">
                 <ul class="align-items-center d-flex justify-content-end list-unstyled mb-0 ms-auto navbar-icon-links">
-                    {% if shop.customer_accounts_enabled %}
-                        <li class="nav-item px-2">
-                            <a class="nav-link" href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}" title="account" rel="nofollow" aria-label="Account">
-                                <span class="icon-user"></span>
-                            </a>
-                        </li>
-                    {% endif %}
                     {%- if settings.enable_search -%}
-                    <li class="nav-item px-2">
+                    <li class="nav-item px-1">
                       <a href="{{ routes.search_url }}" class="nav-link modal__toggle open-searchform" aria-haspopup="dialog" aria-label="{{ 'general.search.title' | t }}">
                         <span class="icon-search"></span>
                       </a>
                     </li>
                     {%- endif -%}
-                    <li class="nav-item px-2">
+                    <li class="nav-item px-1">
                         <a href="{{ routes.cart_url }}" class="nav-link header__icon--cart position-relative" focusable="false" id="cart-icon-mobile" rel="nofollow" title="cart" rel="nofollow" aria-label="Cart">
                         <span class="icon-bag align-middle"></span>
                         <span class="visually-hidden">{{ 'templates.cart.title' | t }}</span>
@@ -197,13 +199,8 @@
       "content": "t:sections.header.settings.header_stlying.label"
     },
     {
-      "type": "range",
+      "type": "text",
       "id": "logo_width",
-      "min": 50,
-      "max": 250,
-      "step": 10,
-      "default": 100,
-      "unit": "t:sections.header.settings.logo_width.unit",
       "label": "t:sections.header.settings.logo_width.label"
     },
     {

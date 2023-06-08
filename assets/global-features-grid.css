@@ -1,0 +1,13 @@
+.featured-grid{
+padding: 4.063rem 0 3.75rem 0;
+}
+
+@media screen and (min-width:992px) {
+    .features-heading-text{
+        min-width: 900px;
+    }
+    .lead-text{
+        max-width: 345px;
+        margin: 0 auto;
+    }
+}

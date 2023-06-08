@@ -1,0 +1,25 @@
+.image-with-text .banner-img img{
+  mix-blend-mode: multiply;
+}
+.image-with-text .inside-block strong{
+    font-size: 18px;
+    font-family: "Inter";
+    font-weight: 600;
+    line-height: 1.5;
+}
+
+@media screen and (min-width:992px) and (max-width:1450px){
+    .inside-block{
+            max-width: 477px;
+    }
+    .image-with-text .banner-img img{
+        width: 702px !important;
+        height: 547px;
+        object-fit: contain;
+    }
+    .featured-image-with-text-wrapper{
+        padding-right:2.2rem;
+        padding-left: 2.8rem;
+    }
+    
+}
