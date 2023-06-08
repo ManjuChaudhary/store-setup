@@ -25,10 +25,10 @@
             "btn_type": "",
             "btn_variant": "primary",
             "btn_size": "",
-            "btn_txt_2": "Shop Best Sellers",
+            "btn_txt_2": "",
             "btn_link_2": "",
-            "btn_type_2": "link",
-            "btn_variant_2": "link",
+            "btn_type_2": "",
+            "btn_variant_2": "dark",
             "btn_size_2": ""
           }
         },
@@ -214,12 +214,30 @@
         "btn_txt_see_all": "",
         "btn_txt_see_all_url": ""
       }
+    },
+    "e3f1c954-9f9a-48c0-a054-5e9f6128b80a": {
+      "type": "global-featured-collection",
+      "settings": {
+        "fluid_layout": false,
+        "collection_grid_type": "grid-4",
+        "nav_dots": false,
+        "nav_arrows": true,
+        "nav_arrows_outside": false,
+        "heading_txt": "Best Sellers",
+        "lead_txt": "",
+        "home_featured_collection": "best-seller",
+        "shop_all_button_text": "shop all best sellers",
+        "shop_all_button_link": "",
+        "section_bg_color": "#ffffff",
+        "section_txt_color": "#000000"
+      }
     }
   },
   "order": [
     "16270344513581fee7",
     "16270420142c0cafe8",
     "a36e7b6b-8350-4953-9bf5-743b0b3637e3",
-    "e163469b-03ca-4ccf-bcc5-c53786311b1d"
+    "e163469b-03ca-4ccf-bcc5-c53786311b1d",
+    "e3f1c954-9f9a-48c0-a054-5e9f6128b80a"
   ]
 }

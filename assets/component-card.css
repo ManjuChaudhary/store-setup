@@ -6,7 +6,7 @@
 
 .card-product .card-img>a {
     position: relative;
-    padding-top: 120%;
+    padding-top: 70%;
     display: block;
 }
 .card-product .card-img>a img{
@@ -15,7 +15,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
 }
 .card-product .card-img>a img:nth-child(2) {
     z-index: -1;
