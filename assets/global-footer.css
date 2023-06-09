@@ -1,0 +1,38 @@
+.footer-navigation a:hover{
+    text-decoration: none;
+    color: #C2C3C4 !important;
+}
+.toggle-footer-menu{
+    border-bottom: 1px solid #4C4C4C;
+    padding:14px 10px 14px 0;
+    cursor: pointer;
+}
+.footer_dropdown.open .toggle-footer-menu .icon-plus:before{
+    content: "\e912";
+}
+.footer_dropdown .dropdown-menu.open{
+    border-bottom: 1px solid #4C4C4C;
+}
+.newsletter-text h4{
+  margin-bottom: 5px;
+}
+.footer-bottom p{
+    font-size: 11px;
+}
+@media screen and (min-width:992px){
+    .toggle-footer-menu{
+        pointer-events: none;
+        border: 0;
+        padding: 0;
+    }
+    .footer_dropdown .dropdown-menu.open{
+        border: 0;
+    }
+    .footer_dropdown .toggle-content{
+        display: block;
+        height: auto !important;
+    }
+    .social-links .list-inline-item:not(:last-child) {
+        margin-right: 25px;
+    }
+}

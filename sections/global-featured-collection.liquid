@@ -13,12 +13,12 @@
                           </p>
                       {% endif %}
                       {% if section.settings.heading_txt != blank %}
-                          <h3 class="section-title mb-0">{{ section.settings.heading_txt | escape }}</h3>
+                          <h2 class="section-title mb-0">{{ section.settings.heading_txt | escape }}</h2>
                       {% endif %}
                   </div>
                   {% if section.settings.shop_all_button_text != blank %}
                   <div class="col-6 col-md-4 ms-auto ps-1 text-end pb-1">
-                      <a href="{{ section.settings.shop_all_button_link }}" class="btn btn-primary ">{{ section.settings.shop_all_button_text }}</a>
+                      <a href="{{ section.settings.shop_all_button_link }}" class="btn-link text-decoration-none">{{ section.settings.shop_all_button_text }}</a>
                   </div>
                   {% endif %}
               </div>

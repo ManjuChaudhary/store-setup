@@ -1648,7 +1648,7 @@ width: 16.66667%;
 }
 }
 
-@media (min-width: 1400px) {
+@media (min-width: 1500px) {
 .col-xxl {
     -webkit-box-flex: 1;
     -ms-flex: 1 0 0%;
@@ -2168,7 +2168,7 @@ width: 100%;
 }
 }
 
-@media (min-width: 1400px) {
+@media (min-width: 1500px) {
 .col-xxl-auto {
     -webkit-box-flex: 0;
     -ms-flex: 0 0 auto;
@@ -2332,7 +2332,7 @@ z-index: 1020;
 }
 }
 
-@media (min-width: 1400px) {
+@media (min-width: 1500px) {
 .sticky-xxl-top {
     position: -webkit-sticky;
     position: sticky;
@@ -11709,15 +11709,12 @@ font-size: 2rem;
 }
 
 .social-links li a{
-width:36px;
-height: 36px;
-background-color: var(--bs-color-primary-500);
-border-radius: 50%;
 display: inline-flex;
 align-items: center;
 justify-content: center;
 line-height: 1;
 color: var(--bs-color-white) !important;
+font-size: 24px;
 }
 
 
