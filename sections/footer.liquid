@@ -5,23 +5,23 @@
 <footer class="site-footer" data-section-id="{{ section.id }}">
       {%- comment -%} Newsletter Section {%- endcomment -%}
       <div class="footer-newsletter" style="background-color: {{ section.settings.footer_top_bg_color }}; color: {{ section.settings.footer_top_txt_color }};">
-          <div class="{% if section.settings.fluid_footer %}container-fluid{% else %}container{% endif %}">
-              <div class="py-5 border-bottom" style="border-color: {{ section.settings.footer_border_color }} !important;"> 
+          <div class="py-5 py-md-7 border-bottom" style="border-color: {{ section.settings.footer_border_color }} !important;"> 
+            <div class="{% if section.settings.fluid_footer %}container-fluid{% else %}container px-md-6{% endif %}">
                   <div class="row align-items-center">
                       <div class="newsletter-text col-12 col-md-6 col-lg-7 text-md-start text-center">
                           {% if section.settings.newsletter_heading != blank %}
                               <h3>{{ section.settings.newsletter_heading }}</h3>
                           {% endif %}
                           {% if section.settings.newsletter_txt != blank %}
-                              <p class="mb-0 font-size-md">{{ section.settings.newsletter_txt }}</p>
+                              <p class="mb-3 mb-md-0">{{ section.settings.newsletter_txt }}</p>
                           {% endif %}
                       </div>
                       {% if section.settings.show_newsletter %}
                           {% form 'customer', id: 'NewsletterFooter', class: 'col-12 col-md-6 col-lg-5' %}
-                              <div class="input-group overflow-hidden rounded-pill w-100"> 
+                              <div class="input-group overflow-hidden w-100"> 
                                   <input type="email" name="contact[email]" aria-label="email" id="newsletterFooterCustomerEmail" class="form-control  border-1 text-white" placeholder="{{ 'general.social.newsletter_form.newsletter_email' | t }}" value="{% if customer %}{{ customer.email }}{% endif %}" autocorrect="off" autocapitalize="off" required>
                                   <input type="hidden" name="contact[tags]" value="newsletter">
-                                  <button type="submit" name="btnSubmit" aria-label="submit" class="newsletter-submit btn btn-dark btn-sm">Subscribe</button>
+                                  <button type="submit" name="btnSubmit" aria-label="submit" class="newsletter-submit btn btn-white">sign up</button>
                               </div>
                               {% if form.errors %}
                                   <p class="text-danger mt-2 mb-0">{{ form.errors | default_errors }}</p>
@@ -32,20 +32,21 @@
               </div>   
           </div>
       </div>
+      
       {%- comment -%} Top Footer {%- endcomment -%}
-      <div data-footer-top class="footer-top pt-8 pb-3" style="background-color: {{ section.settings.footer_top_bg_color }}; color: {{ section.settings.footer_top_txt_color }};">
-          <div class="{% if section.settings.fluid_footer %}container-fluid{% else %}container{% endif %}">
+      <div data-footer-top class="footer-top pb-3" style="background-color: {{ section.settings.footer_top_bg_color }}; color: {{ section.settings.footer_top_txt_color }};">
+          <div class="{% if section.settings.fluid_footer %}container-fluid{% else %}container px-md-6{% endif %}">
               <div class="row">
-                  <div class="col-lg-4">      
+                  <div class="col-lg-4 mt-md-0 mt-5 mb-md-0 mb-5">      
                       <a href="{{ routes.root_url }}" name="{{ shop.name | escape }}" title="{{ shop.name | escape }}" aria-label="{{ shop.name | escape }}">
                           {%- if logo_svg != blank -%}
-                              <img src="{{ logo_svg }}" alt="{{ shop.name | escape }}" class="img-fluid mb-4 d-inline-block" loading="lazy" width="200" height="80" style="max-width: {{ section.settings.logo_max_width }}px"
+                              <img src="{{ logo_svg }}" alt="{{ shop.name | escape }}" class="img-fluid mb-md-4 mb-0 d-inline-block" loading="lazy" width="200" height="80" style="max-width: {{ section.settings.logo_max_width }}px"
                               width="{{ section.settings.logo_max_width }}"
                               height="40">
                           {%- elsif section.settings.footer_logo != blank -%}
                               <img srcset="{{ section.settings.footer_logo | image_url: width: 500 }}"
                                   src="{{ section.settings.footer_logo | image_url: 'pico' }}"
-                                  loading="lazy" class="img-fluid mb-4 lazyload"
+                                  loading="lazy" class="img-fluid mb-md-4 mb-0 lazyload"
                                   width="{{ section.settings.footer_logo.width }}"
                                   height="{{ section.settings.footer_logo.height }}"
                                   alt="{{ section.settings.footer_logo.alt | default: shop.name | escape }}"
@@ -55,7 +56,7 @@
                           {%- endif -%}
                       </a>
                     {% if section.settings.show_social_links %}
-                          <div class="col-12 d-flex justify-content-start mb-6">
+                          <div class="col-12 d-flex justify-content-start mb-md-8 mb-0">
                               {% render 'social-media-links' %}
                           </div>
                       {% endif %}
@@ -68,7 +69,7 @@
                               <div class="footer_dropdown">
                                   {% if section.settings.col_2_heading != blank %}
                                       <div class="d-flex justify-content-between align-items-center toggle-footer-menu">
-                                          <h6 class="text-uppercase mb-0 pb-lg-2 text-gray-600 font-size-xs">{{ section.settings.col_2_heading }}</h6>
+                                          <h6 class="text-uppercase mb-0 text-gray-600 font-size-xs">{{ section.settings.col_2_heading }}</h6>
                                           <i class="icon-plus d-block d-lg-none"></i>
                                       </div>
                                   {% endif %}
@@ -76,7 +77,7 @@
                                       <div class="dropdown-menu toggle-content text-start" data-type="content">
                                           <ul class="list-unstyled footer-navigation py-lg-0 py-3">
                                               {% for link in linklists[footer_linklist_2].links %}
-                                                  <li class="{% unless forloop.index == 1 %}my-2{% endunless %}">
+                                                  <li class="{% unless forloop.index == 1 %}footer-nav{% endunless %}">
                                                       <a href="{{ link.url }}" style="color: {{ section.settings.footer_top_link_color }};" name="{{ link.title }}" title="{{ link.title }}" aria-label="{{ link.title }}" class="font-size-md font-weight-medium font-family-heading">{{ link.title }}</a>
                                                   </li>
                                               {% endfor %}
@@ -90,7 +91,7 @@
                               <div class="footer_dropdown">
                                   {% if section.settings.col_3_heading != blank %}
                                       <div class="d-flex justify-content-between align-items-center toggle-footer-menu">
-                                          <h6 class="text-uppercase mb-0 pb-lg-2 text-gray-600 font-size-xs">{{ section.settings.col_3_heading }}</h6>
+                                          <h6 class="text-uppercase mb-0 text-gray-600 font-size-xs">{{ section.settings.col_3_heading }}</h6>
                                           <i class="icon-plus d-block d-lg-none"></i>
                                       </div>
                                   {% endif %}
@@ -98,7 +99,7 @@
                                       <div class="dropdown-menu toggle-content text-start" data-type="content">
                                           <ul class="list-unstyled footer-navigation py-lg-0 py-3">
                                               {% for link in linklists[footer_linklist_3].links %}
-                                                  <li class="{% unless forloop.index == 1 %}my-2{% endunless %}">
+                                                  <li class="{% unless forloop.index == 1 %}footer-nav{% endunless %}">
                                                       <a href="{{ link.url }}" style="color: {{ section.settings.footer_top_link_color }};" name="{{ link.title }}" title="{{ link.title }}" aria-label="{{ link.title }}" class="font-size-md font-weight-medium font-family-heading">{{ link.title }}</a>
                                                   </li>
                                               {% endfor %}
@@ -112,10 +113,11 @@
                               <div class="footer_dropdown">
                                   {% if section.settings.col_4_heading != blank %}
                                       <div class="d-flex justify-content-between align-items-center toggle-footer-menu">
-                                          <h6 class="text-uppercase mb-0 pb-lg-2 text-gray-600 font-size-xs">{{ section.settings.col_4_heading }}</h6>
+                                          <h6 class="text-uppercase mb-0 text-gray-600 font-size-xs">{{ section.settings.col_4_heading }}</h6>
                                           <i class="icon-plus d-block d-lg-none"></i>
                                       </div>
                                   {% endif %}
+                    <div class="dropdown-menu toggle-content text-start" data-type="content">
                         <ul class="list-unstyled footer-navigation font-size-md ls-0 mt-2"  style="color: {{ section.settings.footer_top_txt_color }};">
                           <li class="pb-3 d-flex">
                               <i class="icon-phone text-white icon-size-18 me-3"></i>
@@ -126,22 +128,23 @@
                           <li class="pb-3 d-flex">
                               <i class="icon-phone text-white icon-size-18 me-3"></i>
                               {% if section.settings.store_phone !='' %}
-                                  <a href="tel:{{ section.settings.store_phone }}" title="{{ section.settings.store_phone }}" aria-label="{{ section.settings.store_phone }}" name="{{ section.settings.store_phone }}" style="color: {{ section.settings.footer_top_txt_color }};">{{ section.settings.store_phone }}</a>
+                                  <a href="tel:{{ section.settings.store_phone }}" class="text-decoration-none" title="{{ section.settings.store_phone }}" aria-label="{{ section.settings.store_phone }}" name="{{ section.settings.store_phone }}" style="color: {{ section.settings.footer_top_txt_color }};">{{ section.settings.store_phone }}</a>
                               {% endif %}
                           </li>
                           <li class="my-2 d-flex">
                               <i class="icon-email text-white icon-size-18 me-3"></i>
                               {% if section.settings.customer_email !='' %}
-                                  <a href="mailto:{{ section.settings.customer_email }}" title="{{ section.settings.customer_email }}" aria-label="{{ section.settings.customer_email }}" name="{{ section.settings.customer_email }}"  style="color: {{ section.settings.footer_top_txt_color }};">{{ section.settings.customer_email }}</a>
+                                  <a href="mailto:{{ section.settings.customer_email }}" class="text-decoration-none" title="{{ section.settings.customer_email }}" aria-label="{{ section.settings.customer_email }}" name="{{ section.settings.customer_email }}"  style="color: {{ section.settings.footer_top_txt_color }};">{{ section.settings.customer_email }}</a>
                               {% endif %}
                           </li>
                           <li class="my-2 d-flex">
                               <i class="icon-email text-white icon-size-18 me-3"></i>
                               {% if section.settings.store_email !='' %}
-                                  <a href="mailto:{{ section.settings.store_email }}" title="{{ section.settings.store_email }}" aria-label="{{ section.settings.store_email }}" name="{{ section.settings.store_email }}"  style="color: {{ section.settings.footer_top_txt_color }};">{{ section.settings.store_email }}</a>
+                                  <a href="mailto:{{ section.settings.store_email }}" class="text-decoration-none" title="{{ section.settings.store_email }}" aria-label="{{ section.settings.store_email }}" name="{{ section.settings.store_email }}"  style="color: {{ section.settings.footer_top_txt_color }};">{{ section.settings.store_email }}</a>
                               {% endif %}
                           </li>
                       </ul>
+                      </div>
                               </div>
                           </div>
                       </div>
@@ -153,8 +156,8 @@
       </div>
       {%- comment -%} Bottom Footer {%- endcomment -%}
       {% if section.settings.bottom_text != blank %}
-      <div data-footer-bottom class="footer-bottom py-3" style="background-color: {{ section.settings.footer_bottom_bg_color }}; color: {{ section.settings.footer_bottom_txt_color }}; ">
-          <div class="container">
+      <div data-footer-bottom class="footer-bottom pt-3 pb-5" style="background-color: {{ section.settings.footer_bottom_bg_color }}; color: {{ section.settings.footer_bottom_txt_color }}; ">
+          <div class="container px-md-6">
               <div class="row d-flex align-items-center">
                   <div class="col-12 b-3 text-center text-lg-start d-md-flex align-items-center text-gray-600 justify-content-lg-start justify-content-center">
                     {{ section.settings.bottom_text }}
@@ -166,6 +169,19 @@
       </div>
       {% endif %}
   </footer>
+  <script>
+    const footerAccordions = document.querySelectorAll('.toggle-footer-menu');
+    footerAccordions.forEach((menuIcon)=>{
+    menuIcon.addEventListener('click', (e)=>{
+        const parentElement = e.target.closest('.footer_dropdown');
+        if(parentElement.classList.contains('open')){
+        Utility.toggleElement(parentElement, 'close');
+        }else{
+        Utility.toggleElement(parentElement, 'open');
+        }
+    });
+    });
+</script>
   {% schema %}
       {
           "name": "Footer",

@@ -1276,3 +1276,10 @@ if(document.querySelectorAll('.product-thumb--image').length > 0) {
   });
 }
 {%- endif -%}
+
+
+document.querySelectorAll(".quick-shop").forEach(function(btn) {
+  btn.addEventListener("click", function(){
+     this.closest(".card-product").querySelector(".quick-shop-content").style.display = "block";
+  });
+})

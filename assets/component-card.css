@@ -117,3 +117,12 @@
 .card-product .card-body{
    padding: 30px 0 0;
 }
+.card-product  .card-title{
+  min-height: 52px;
+}
+.quick-shop{
+   margin-top: 1.25rem;
+}
+.quick-shop-content{
+    display: none;
+}

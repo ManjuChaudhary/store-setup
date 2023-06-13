@@ -19,11 +19,41 @@
 .footer-bottom p{
     font-size: 11px;
 }
+
+.footer-nav{
+    margin: 12px 0 !important;
+}
+
+form#NewsletterFooter input{
+        margin-right: 0.625rem;
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+        background-color: transparent;
+        border-color: #D6D7D8;
+}
+form#NewsletterFooter input::placeholder{
+    color: #fff;
+}
+form#NewsletterFooter .input-group .btn{
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+form#NewsletterFooter .input-group .btn:hover{
+background:#E5E6E6;
+color: #000;
+}
+
 @media screen and (min-width:992px){
     .toggle-footer-menu{
         pointer-events: none;
         border: 0;
         padding: 0;
+    }
+    .toggle-footer-menu h6 {
+        padding-bottom: 14px !important;
+    }
+    .footer-top{
+        padding-top: 68px;
     }
     .footer_dropdown .dropdown-menu.open{
         border: 0;
@@ -34,5 +64,15 @@
     }
     .social-links .list-inline-item:not(:last-child) {
         margin-right: 25px;
+    }
+    form#NewsletterFooter {
+        max-width: 510px;
+        margin: 0 0 0 auto;
+    }
+}
+
+@media screen and (max-width:992px) {
+    .footer_dropdown.open .toggle-footer-menu{
+      border-bottom: 0 !important;
     }
 }

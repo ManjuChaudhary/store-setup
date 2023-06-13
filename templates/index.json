@@ -251,6 +251,57 @@
         "alignment": "text-left",
         "image_alignment": "left"
       }
+    },
+    "5af8a243-9159-436b-94d8-f80aeaf678a9": {
+      "type": "global-featured-columns",
+      "blocks": {
+        "00d4265d-b8c3-463f-b878-49f0476356f3": {
+          "type": "content",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Group_1630_2x_3900a343-187e-4d91-b597-1fa18ebdc449.jpg",
+            "enable_overlay": false,
+            "alignment": "text-start",
+            "subheading": "WHO’S BEHIND ALL THIS?",
+            "heading": "Dr. Barry Sears.",
+            "caption": "Dr. Barry Sears started the field of Metabolic Engineering™ more than 25 years ago with the publication of his #1 New York Times best-seller, The Zone.",
+            "txt_color": "#231f20",
+            "btn_txt": "History Of The Zone",
+            "btn_link": "",
+            "btn_type": "",
+            "btn_variant": "dark",
+            "btn_size": ""
+          }
+        },
+        "0393b97e-6467-4f2e-8f4a-ec4a024480f2": {
+          "type": "content",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Group_1729_2x_ba71fdad-29c7-4f32-bf82-497b57416498.jpg",
+            "enable_overlay": false,
+            "alignment": "text-start",
+            "subheading": "INSULIN RESISTANCE QUIZ",
+            "heading": "Estimate your current level of Insulin Resistance.",
+            "caption": "The one thing stopping your metabolism from giving you all those benefits.",
+            "txt_color": "#231f20",
+            "btn_txt": "Take The Quiz",
+            "btn_link": "",
+            "btn_type": "",
+            "btn_variant": "dark",
+            "btn_size": ""
+          }
+        }
+      },
+      "block_order": [
+        "00d4265d-b8c3-463f-b878-49f0476356f3",
+        "0393b97e-6467-4f2e-8f4a-ec4a024480f2"
+      ],
+      "settings": {
+        "fluid_layout": true,
+        "fluid_padding": false,
+        "heading": "",
+        "txt": "",
+        "section_bg_color": "#ffffff",
+        "section_txt_color": "#222222"
+      }
     }
   },
   "order": [
@@ -259,6 +310,7 @@
     "a36e7b6b-8350-4953-9bf5-743b0b3637e3",
     "e163469b-03ca-4ccf-bcc5-c53786311b1d",
     "e3f1c954-9f9a-48c0-a054-5e9f6128b80a",
-    "74d613b6-5486-4c26-8485-c28115552c75"
+    "74d613b6-5486-4c26-8485-c28115552c75",
+    "5af8a243-9159-436b-94d8-f80aeaf678a9"
   ]
 }

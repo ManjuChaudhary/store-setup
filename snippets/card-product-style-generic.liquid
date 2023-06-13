@@ -147,7 +147,7 @@
             <span class="price small money fw-semibold font-family-heading font-size-md" data-comparePrice>{{ current_variant.compare_at_price | money }}</span>
           {% elsif product.compare_at_price > product.price %}
             <span class="price small  money fw-semibold font-family-heading font-size-md" data-comparePrice>{{ product.compare_at_price | money }}</span>
-          {% endif %}
+       {% endif %}
         </div>
         <div class="col-12">
         <span class="price money {% if product.compare_at_price > product.price %} text-secondary-200 {% endif %} fw-semibold font-family-heading font-size-lg" data-currentPrice>
@@ -165,6 +165,9 @@
             {% endif %}
           </span>
         </div>
+        <div class="col-12 quick-shop">
+        <button class="btn btn-outline-primary w-100 btn-sm">{{ 'quick shop' }}</button>
+        </div>
         {%- for block in section.blocks -%}
           {%- case block.type -%}
           {%- when '@app' -%}
@@ -176,10 +179,6 @@
     {%- if settings.show_vendor -%}
         <p>{{ product.vendor }}</p>
     {%- endif -%}
+    {% render 'quick-shop-popup', product: product, current_variant: current_variant  %}
   </div>
-  {%- if settings.enable_product_card_swatches -%}
-    <div class="card-footer bg-transparent border-0 p-0">
-      {%- render 'form-product-grid', product: product, current_variant: current_variant -%}
-    </div>
-  {%- endif -%}
 </div>
