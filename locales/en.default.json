@@ -44,7 +44,7 @@
     },
     "search": {
       "title": "Search Store",
-      "placeholder": "Search",
+      "placeholder": "What can we help with?",
       "submit": "Submit"
     },
     "breadcrumbs": {

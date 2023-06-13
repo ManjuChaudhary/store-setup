@@ -303,8 +303,14 @@
         width: 144px;
         height: 50px;
     }
+ 
     @media (max-width: 767.98px) {
         .topbar  div >div{
             font-size: 11px !important;
+        }
+    }
+    @media (max-width: 1110px) and (min-width:991px) {
+        .navbar-main .navbar-nav>.nav-item {
+            padding: 27px 1.5rem;
         }
     }

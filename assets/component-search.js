@@ -64,7 +64,7 @@ class SearchModal extends HTMLElement {
     this.onBodyClickEvent = this.onBodyClickEvent || this.onBodyClick.bind(this);
     this.searchFormContainer.setAttribute('open', true);
     this.classList.add('open__modal');
-    this.removeAttribute('style');
+    this.style.removeProperty('display');
     document.body.addEventListener('click', this.onBodyClickEvent);
 
     Utility.trapFocus(this);

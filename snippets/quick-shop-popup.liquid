@@ -1,7 +1,7 @@
 {% assign current_variant = product.selected_or_first_available_variant %}
-<div class="quick-shop-content">
-<div class="card-body px-0">
+<div class="quick-shop-content bg-white position-absolute">
     <div class="row no-gutter">
+       <span class="icon-close quik-shop-close-icon"></span>
         <div class="col-12">
             <h5 class="card-title m-0 font-family-heading">
                 <a class="product-link lh-base text-black text-decoration-none" role="button" href="{{ product.url | within: collection }}">{{ product.title }}</a>
@@ -52,7 +52,6 @@
     {%- if settings.show_vendor -%}
         <p>{{ product.vendor }}</p>
     {%- endif -%}
-  </div>
   {%- if settings.enable_product_card_swatches -%}
     <div class="card-footer bg-transparent border-0 p-0">
       {%- render 'form-product-grid', product: product, current_variant: current_variant -%}

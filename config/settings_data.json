@@ -36,7 +36,7 @@
     "h4_font_size": "18px",
     "h5_font_size": "17px",
     "h6_font_size": "14px",
-    "h1_font_size_md": "356px",
+    "h1_font_size_md": "36px",
     "h2_font_size_md": "30px",
     "h3_font_size_md": "20px",
     "h4_font_size_md": "16px",
@@ -90,8 +90,8 @@
     "main_logo_socials": "shopify:\/\/shop_images\/wp3850825-4k-pc-wallpapers.jpg",
     "enable_cart_drawer": true,
     "enable_search": true,
-    "enable_swatches": true,
-    "enable_quickshop": true,
+    "enable_swatches": false,
+    "enable_quickshop": false,
     "enable_search_article": false,
     "no_image_replacement": "shopify:\/\/shop_images\/mlouye-brick-macaron-s1.jpg",
     "product_exclude_tag_text": "hidden",
@@ -248,6 +248,24 @@
     },
     "content_for_index": [
 
-    ]
+    ],
+    "blocks": {
+      "17151115064775110295": {
+        "type": "shopify:\/\/apps\/recharge-subscriptions\/blocks\/recharge-theme\/371eed76-0b44-4869-9813-730372ea378e",
+        "disabled": false,
+        "settings": {
+          "color_brand": "#467C99",
+          "contrast_color": "#FFFFFF",
+          "color_brand_secondary": "#467C99",
+          "corners": "8px",
+          "app_background": "#f9f8f4",
+          "app_container": 1200,
+          "app_vertical_padding": 32,
+          "images_aspect_ratio": "1",
+          "cards_background": "#FFFFFF",
+          "cards_border_color": "rgba(0,0,0,0)"
+        }
+      }
+    }
   }
 }
