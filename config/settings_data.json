@@ -122,17 +122,21 @@
           "121df697-f913-49f3-b503-4268235000d0": {
             "type": "megamenu",
             "settings": {
-              "title": "Men",
+              "title": "Shop",
+              "image": "shopify:\/\/shop_images\/Share_Your_Story_2x_7fea4e60-7799-483d-9d2f-d9476f85dbcb.jpg",
               "link_text": "Shop Now",
-              "link_url": "shopify:\/\/collections\/men"
+              "link_url": "shopify:\/\/collections\/men",
+              "column": "row-cols-3"
             }
           },
           "791f0d9a-5f5f-4938-af7d-0811b105b3ff": {
             "type": "megamenu",
             "settings": {
-              "title": "Women",
+              "title": "Zone Tools",
+              "image": "shopify:\/\/shop_images\/AdobeStock_253704537_2x_bbfe61eb-3452-4b2b-89b9-b9fc78d8ff3c.jpg",
               "link_text": "Shop Now",
-              "link_url": "shopify:\/\/collections\/women"
+              "link_url": "shopify:\/\/collections\/women",
+              "column": "row-cols-3"
             }
           }
         },

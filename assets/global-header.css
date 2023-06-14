@@ -222,9 +222,17 @@
     .navbar-main .nav-item .nav-link:hover {
         color: var(--bs-color-primary);
         text-decoration: none;
-        border-bottom: 1px solid #000000;
-        padding-bottom: 6px;   
+        position: relative; 
      }
+     .navbar-main .nav-item .nav-link:hover:after {
+        content: "";
+        position: absolute;
+        background: #000;
+        right: 0;
+        left: 0;
+        height: 1px;
+        top: 26px;
+    }
      .navbar-icon-links  .nav-item .nav-link:hover {
         border-bottom: 0;
         padding-bottom: 0;
@@ -247,14 +255,14 @@
         visibility: hidden;
         top: 100%;
         white-space: nowrap;
-        padding: 0.5rem 0rem;
+        padding: 18px 26px 17px 10px;
         margin: 0;
         font-size: 1rem;
         color: var(--bs-body-color);
         text-align: left;
         list-style: none;
         background-color: #fff;
-        box-shadow: var(--bs-shadow);
+        border: 1px solid #E5E6E6;
         transition: all 0.2s ease-in-out;
     }
     .navbar-main .megamenu .dropdown-menu{
@@ -263,7 +271,7 @@
         right: 0;
     }
     .navbar-main .dropdown-menu .nav-item .nav-link{
-        padding: 0.5rem 1rem;
+        padding: 0.34rem 1rem;
     }
 
     .dropdown.open > .dropdown-menu{
@@ -303,7 +311,27 @@
         width: 144px;
         height: 50px;
     }
- 
+    .navbar-main .dropdown-menu .nav-item .nav-link:hover{
+        color: #595959;
+    }
+    .navbar-main .dropdown-menu .nav-item .nav-link:hover:after{
+        background-color: #fff;
+    }
+    .megamenu-img{
+        padding-top: 110%;
+        display: block;
+        position: relative;
+    }
+    .megamenu-img img{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+  
+  
     @media (max-width: 767.98px) {
         .topbar  div >div{
             font-size: 11px !important;
