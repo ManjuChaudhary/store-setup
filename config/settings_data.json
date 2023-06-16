@@ -124,9 +124,16 @@
             "settings": {
               "title": "Shop",
               "image": "shopify:\/\/shop_images\/Share_Your_Story_2x_7fea4e60-7799-483d-9d2f-d9476f85dbcb.jpg",
-              "link_text": "Shop Now",
-              "link_url": "shopify:\/\/collections\/men",
-              "column": "row-cols-3"
+              "heading": "Easy-to-make recipes just for you.",
+              "link_text": "Browse Our Recipes",
+              "link_url": "#",
+              "title_2": "Shop",
+              "image_2": "shopify:\/\/shop_images\/AdobeStock_202776562_2x_02277438-cc8c-4c50-b9db-3332bb395bd7.jpg",
+              "heading_2": "What’s your insulin resistance?",
+              "link_text_2": "Take The Quiz",
+              "link_url_2": "",
+              "menu_columns": "col-md-6",
+              "column": "col-md-3"
             }
           },
           "791f0d9a-5f5f-4938-af7d-0811b105b3ff": {
@@ -134,9 +141,16 @@
             "settings": {
               "title": "Zone Tools",
               "image": "shopify:\/\/shop_images\/AdobeStock_253704537_2x_bbfe61eb-3452-4b2b-89b9-b9fc78d8ff3c.jpg",
-              "link_text": "Shop Now",
-              "link_url": "shopify:\/\/collections\/women",
-              "column": "row-cols-3"
+              "heading": "The Zone Body Fat Calculator",
+              "link_text": "Calculate Now",
+              "link_url": "#",
+              "title_2": "Zone Tools",
+              "image_2": "shopify:\/\/shop_images\/Group_1843_2x_cc2dcfc8-3ed8-4fff-9fb2-ca0de9bb7bbe.jpg",
+              "heading_2": "The Zone Food Block Guide",
+              "link_text_2": "Learn more",
+              "link_url_2": "#",
+              "menu_columns": "col-md-4",
+              "column": "col-md-4"
             }
           }
         },
@@ -150,8 +164,10 @@
           "header_bg_color": "#ffffff",
           "show_line_separator": false,
           "logo_svg": "",
-          "logo": "shopify:\/\/shop_images\/Zone_logo-pms_stroke_2_c3b1b7d0-082f-460e-b8db-683ac68e5e7e.svg",
+          "logo": "shopify:\/\/shop_images\/Zone_logo-pms_stroke_2.png",
           "logo_width": "144",
+          "mobile_logo_svg": "shopify:\/\/shop_images\/mobile_logo_zone.svg",
+          "mobile_logo_width": 100,
           "menu": "new-mainu"
         }
       },
@@ -189,7 +205,7 @@
           "store_phone": "978-539-0100 (outside US)",
           "customer_email": "customersupport@zoneliving.com",
           "store_email": "internationalorders@zoneliving.com",
-          "bottom_text": "<p>*Anti-inflammatory nutrition and supplements from Zone Labs, Inc. help reduce diet-induced inflammation, improve athletic performance, and lose excess body fat. Claims on our website have not been evaluated by the Food and Drug Administration. Zone Labs products are not intended to diagnose, treat, cure, or prevent disease. Individual results may vary. Information contained within our blogs are not intended for medical diagnosis or treatment. If you have a medical concern or issue, please consult your physician. <br\/><br\/>***Promo offer discounts cannot be combined with other offers or discounts. Discounts not valid on previous orders. Discount offers valid on first shipment and not for subsequent Advantage shipments if Advantage is selected as an option. Offers not valid for Health Care Professional or International case purchases. When ordering on-line, add the products to your shopping cart, then continue shopping or proceed to secure check-out and enter the promotional code. If calling 1.800.404.8171 to order, you must mention the promotional code to a Zone Customer Service Representative to receive this special offer.<\/p>"
+          "bottom_text": "<p>© 2023 Zone Labs Inc., All Rights Reserved.<\/p><p>*Anti-inflammatory nutrition and supplements from Zone Labs, Inc. help reduce diet-induced inflammation, improve athletic performance, and lose excess body fat. Claims on our website have not been evaluated by the Food and Drug Administration. Zone Labs products are not intended to diagnose, treat, cure, or prevent disease. Individual results may vary. Information contained within our blogs are not intended for medical diagnosis or treatment. If you have a medical concern or issue, please consult your physician. <br\/><br\/>***Promo offer discounts cannot be combined with other offers or discounts. Discounts not valid on previous orders. Discount offers valid on first shipment and not for subsequent Advantage shipments if Advantage is selected as an option. Offers not valid for Health Care Professional or International case purchases. When ordering on-line, add the products to your shopping cart, then continue shopping or proceed to secure check-out and enter the promotional code. If calling 1.800.404.8171 to order, you must mention the promotional code to a Zone Customer Service Representative to receive this special offer.<\/p>"
         }
       },
       "newsletter": {
@@ -219,16 +235,15 @@
       "mobile-nav-drawer": {
         "type": "mobile-nav-drawer",
         "settings": {
-          "logo_svg": "",
-          "logo": "shopify:\/\/shop_images\/Zone_logo-pms_stroke_2_c3b1b7d0-082f-460e-b8db-683ac68e5e7e.svg",
-          "logo_width": 50,
           "main_menu_linklist": "new-mainu",
-          "secondary_menu_linklist": "footer",
-          "mobilemenu_style": "slide-submenu",
-          "mobile_nav_show_social_links": true,
+          "secondary_menu_linklist": "secondary-menu",
           "social_icon_facebook": true,
           "social_icon_twitter": true,
-          "social_icon_instagram": true
+          "social_icon_instagram": true,
+          "social_icon_youtube": true,
+          "social_icon_linkedin": true,
+          "social_icon_pinterest": true,
+          "social_icon_tiktok": true
         }
       },
       "search-layer": {

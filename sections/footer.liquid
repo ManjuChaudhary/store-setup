@@ -8,7 +8,7 @@
           <div class="py-5 py-md-7 border-bottom" style="border-color: {{ section.settings.footer_border_color }} !important;"> 
             <div class="{% if section.settings.fluid_footer %}container-fluid{% else %}container px-md-6{% endif %}">
                   <div class="row align-items-center">
-                      <div class="newsletter-text col-12 col-md-6 col-lg-7 text-md-start text-center">
+                      <div class="newsletter-text col-12 col-md-6 col-lg-7 text-md-start text-left">
                           {% if section.settings.newsletter_heading != blank %}
                               <h3>{{ section.settings.newsletter_heading }}</h3>
                           {% endif %}
@@ -37,7 +37,7 @@
       <div data-footer-top class="footer-top pb-3" style="background-color: {{ section.settings.footer_top_bg_color }}; color: {{ section.settings.footer_top_txt_color }};">
           <div class="{% if section.settings.fluid_footer %}container-fluid{% else %}container px-md-6{% endif %}">
               <div class="row">
-                  <div class="col-lg-4 mt-md-0 mt-5 mb-md-0 mb-5">      
+                  <div class="col-lg-4 mt-lg-0 mt-5 mb-md-0 mb-5">      
                       <a href="{{ routes.root_url }}" name="{{ shop.name | escape }}" title="{{ shop.name | escape }}" aria-label="{{ shop.name | escape }}">
                           {%- if logo_svg != blank -%}
                               <img src="{{ logo_svg }}" alt="{{ shop.name | escape }}" class="img-fluid mb-md-4 mb-0 d-inline-block" loading="lazy" width="200" height="80" style="max-width: {{ section.settings.logo_max_width }}px"
@@ -60,21 +60,20 @@
                               {% render 'social-media-links' %}
                           </div>
                       {% endif %}
-                       <span class="small font-size-xs fw-normal font-family-haeding text-gray-600">{{ 'sections.footer.copyright' | t }} - {{ 'sections.footer.all_rights_reserved' | t }}</span>
+                       <span class="small font-size-xs fw-normal font-family-haeding text-gray-600 footer-subheading">{{ 'sections.footer.copyright' | t }} - {{ 'sections.footer.all_rights_reserved' | t }}</span>
                   </div>
                   <div class="col-lg-8">
                       <div class="row">
                           {%- comment -%} col-2 {%- endcomment -%}
-                          <div class="col-lg-4">
+                          <div class="col-lg-4 col-6">
                               <div class="footer_dropdown">
                                   {% if section.settings.col_2_heading != blank %}
-                                      <div class="d-flex justify-content-between align-items-center toggle-footer-menu">
+                                      <div class="d-flex justify-content-between align-items-center">
                                           <h6 class="text-uppercase mb-0 text-gray-600 font-size-xs">{{ section.settings.col_2_heading }}</h6>
-                                          <i class="icon-plus d-block d-lg-none"></i>
-                                      </div>
+                                       </div>
                                   {% endif %}
                                   {% if linklists[footer_linklist_2].links.size > 0 %}
-                                      <div class="dropdown-menu toggle-content text-start" data-type="content">
+                                      <div class="text-start" data-type="content">
                                           <ul class="list-unstyled footer-navigation py-lg-0 py-3">
                                               {% for link in linklists[footer_linklist_2].links %}
                                                   <li class="{% unless forloop.index == 1 %}footer-nav{% endunless %}">
@@ -87,16 +86,15 @@
                               </div>
                           </div>
                           {%- comment -%} col-3 {%- endcomment -%}
-                          <div class="col-lg-4">
+                          <div class="col-lg-4 col-6">
                               <div class="footer_dropdown">
                                   {% if section.settings.col_3_heading != blank %}
-                                      <div class="d-flex justify-content-between align-items-center toggle-footer-menu">
+                                      <div class="d-flex justify-content-between align-items-center">
                                           <h6 class="text-uppercase mb-0 text-gray-600 font-size-xs">{{ section.settings.col_3_heading }}</h6>
-                                          <i class="icon-plus d-block d-lg-none"></i>
                                       </div>
                                   {% endif %}
                                   {% if linklists[footer_linklist_3].links.size > 0 %}
-                                      <div class="dropdown-menu toggle-content text-start" data-type="content">
+                                      <div class="text-start" data-type="content">
                                           <ul class="list-unstyled footer-navigation py-lg-0 py-3">
                                               {% for link in linklists[footer_linklist_3].links %}
                                                   <li class="{% unless forloop.index == 1 %}footer-nav{% endunless %}">
@@ -112,33 +110,32 @@
                           <div class="col-lg-4">
                               <div class="footer_dropdown">
                                   {% if section.settings.col_4_heading != blank %}
-                                      <div class="d-flex justify-content-between align-items-center toggle-footer-menu">
-                                          <h6 class="text-uppercase mb-0 text-gray-600 font-size-xs">{{ section.settings.col_4_heading }}</h6>
-                                          <i class="icon-plus d-block d-lg-none"></i>
-                                      </div>
+                                      <div class="d-flex justify-content-between align-items-center">
+                                          <h6 class="text-uppercase mb-lg-0 mb-3 text-gray-600 font-size-xs">{{ section.settings.col_4_heading }}</h6>
+                                       </div>
                                   {% endif %}
-                    <div class="dropdown-menu toggle-content text-start" data-type="content">
-                        <ul class="list-unstyled footer-navigation font-size-md ls-0 mt-2"  style="color: {{ section.settings.footer_top_txt_color }};">
-                          <li class="pb-3 d-flex">
-                              <i class="icon-phone text-white icon-size-18 me-3"></i>
+                    <div class="text-start" data-type="content">
+                        <ul class="list-unstyled footer-navigation font-size-md ls-0 mt-2 mb-0"  style="color: {{ section.settings.footer_top_txt_color }};">
+                          <li class="pb-3 d-flex align-items-center">
+                             {% render 'icon-phone' %}
                               {% if section.settings.phone_number != '' %}
                                   <p class="mb-0">{{ section.settings.phone_number }}</p>
                               {% endif %}
                           </li>
-                          <li class="pb-3 d-flex">
-                              <i class="icon-phone text-white icon-size-18 me-3"></i>
+                          <li class="pb-3 d-flex align-items-center">
+                              {% render 'icon-universal-phone' %}
                               {% if section.settings.store_phone !='' %}
                                   <a href="tel:{{ section.settings.store_phone }}" class="text-decoration-none" title="{{ section.settings.store_phone }}" aria-label="{{ section.settings.store_phone }}" name="{{ section.settings.store_phone }}" style="color: {{ section.settings.footer_top_txt_color }};">{{ section.settings.store_phone }}</a>
                               {% endif %}
                           </li>
-                          <li class="my-2 d-flex">
-                              <i class="icon-email text-white icon-size-18 me-3"></i>
+                          <li class="pb-3 d-flex align-items-center">
+                              {% render 'icon-mail' %}
                               {% if section.settings.customer_email !='' %}
                                   <a href="mailto:{{ section.settings.customer_email }}" class="text-decoration-none" title="{{ section.settings.customer_email }}" aria-label="{{ section.settings.customer_email }}" name="{{ section.settings.customer_email }}"  style="color: {{ section.settings.footer_top_txt_color }};">{{ section.settings.customer_email }}</a>
                               {% endif %}
                           </li>
-                          <li class="my-2 d-flex">
-                              <i class="icon-email text-white icon-size-18 me-3"></i>
+                          <li class="pb-0 d-flex align-items-center">
+                              {% render 'icon-universal-mail' %}
                               {% if section.settings.store_email !='' %}
                                   <a href="mailto:{{ section.settings.store_email }}" class="text-decoration-none" title="{{ section.settings.store_email }}" aria-label="{{ section.settings.store_email }}" name="{{ section.settings.store_email }}"  style="color: {{ section.settings.footer_top_txt_color }};">{{ section.settings.store_email }}</a>
                               {% endif %}
@@ -159,7 +156,7 @@
       <div data-footer-bottom class="footer-bottom pt-3 pb-5" style="background-color: {{ section.settings.footer_bottom_bg_color }}; color: {{ section.settings.footer_bottom_txt_color }}; ">
           <div class="container px-md-6">
               <div class="row d-flex align-items-center">
-                  <div class="col-12 b-3 text-center text-lg-start d-md-flex align-items-center text-gray-600 justify-content-lg-start justify-content-center">
+                  <div class="col-12 b-3 text-start text-lg-start text-gray-600">
                     {{ section.settings.bottom_text }}
                   </div>
               </div>

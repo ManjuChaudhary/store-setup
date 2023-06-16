@@ -118,7 +118,8 @@ padding: 30px 20px 27px;
 padding: 30px 0 0;
 }
 .card-product  .card-title{
-min-height: 52px;
+  height: 52px;
+  overflow: hidden;
 }
 .quick-shop{
 margin-top: 1.25rem;
@@ -154,4 +155,69 @@ span.icon-close.quik-shop-close-icon {
     left: -16px;
     text-align: end;
     cursor: pointer;
+}
+.price-wrapper{
+    min-height: 46px;
+}
+.stamped-badge-caption[data-reviews][data-label][data-version="2"]>span{
+    display: none !important;
+}
+
+@media screen and (max-width:767px) {
+   .card.card-product{
+    padding: 0;
+    }
+    span.price.money {
+        font-size: 14px;
+    }
+    span.price.money span{
+        font-size: 11px !important;
+    }
+    span.price.small.money{
+        font-size: 13px;
+    }
+    .card-product .card-title {
+        overflow: hidden;
+        height: 70px;
+    }
+    .card.card-product:hover {
+        border: 0px solid #E5E6E6!important;
+    }
+    .card{
+        position: inherit;
+    }
+    .quick-shop{
+        margin-top: 0.8rem;
+    }
+    .card-product .card-body{
+        padding: 26px 0 0;
+    }
+    .price-wrapper {
+        min-height: 65px;
+    }
+   
+}
+@media screen and (max-width:400px) {
+    .featured-collection-slider{
+        height: 395px;
+    }
+    .featured-collection-slider .swiper-pagination-fraction,
+    .featured-collection-slider .swiper-pagination-custom, 
+    .featured-collection-slider .swiper-horizontal > .swiper-pagination-bullets, 
+    .featured-collection-slider .swiper-pagination-bullets.swiper-pagination-horizontal {
+        bottom: var(--swiper-pagination-bottom, 0);
+    }
+    .index-featured-collection .swiper-button-prev,
+    .index-featured-collection .swiper-button-next{
+        display: none !important;
+    }
+    .index-featured-collection .swiper-pagination{
+       display: block !important;
+    }
+    .price-wrapper{
+        min-height: auto;
+    }
+    .card-img{
+       height: 123px;
+    }
 }

@@ -1,5 +1,5 @@
 {% if section.settings.enabled %}
-<section data-section-id="{{ section.id }}" data-type="slider" class="header-slider bg-gray-100">
+<section data-section-id="{{ section.id }}" data-type="slider" class="header-slider">
   {% comment %}Carousel for larger screens {% endcomment %}
     <slider-element class="d-block" role="tree">
         <div class="swiper swiper-slider header-slider-desktop {{ section.settings.height }}" data-slider='{
@@ -32,7 +32,7 @@
                     {%- endif -%}
 
                     {% if block.type == 'image' %}
-                        <div class="swiper-slide d-flex align-items-center slide-{{ block.id }}"
+                        <div class="swiper-slide header-image-slide  {% if section.settings.show_text_below %} text-below {% endif %} d-flex align-items-center slide-{{ block.id }}"
                             role="treeitem" {{ block.shopify_attributes }}
                             data-block-id="{{ block.id }}"
                             data-slide-type="image">
@@ -118,7 +118,7 @@
                             {% endif %}
                         </div>
                     {% elsif block.type == 'video-slide' %} 
-                        <div class="custom-video-container {% unless block.settings.play_icon %}full-video-layout{% endunless %} header-video-slide w-100 swiper-slide d-flex align-items-center slide-{{ block.id }}">
+                        <div class="custom-video-container {% unless block.settings.play_icon %}full-video-layout{% endunless %} header-video-slide {% if section.settings.show_text_below %} text-below {% endif %} w-100 swiper-slide d-flex align-items-center slide-{{ block.id }}">
                             <custom-video class="video-with--text position-relative d-block w-100 h-100 placement--{{ block.settings.placement }}" 
                                 data-loop="{{ block.settings.loop }}" data-autoplay="true" data-controls="{{ block.settings.controls }}" data-muted="{{ block.settings.muted }}"
                                 data-video-type="{{ block.settings.video_type }}"  data-placement="{{ block.settings.placement }}"
@@ -281,6 +281,12 @@
                     }
                 ],
                 "default": "tallheight"
+            },
+            {
+                "type": "checkbox",
+                "id": "show_text_below",
+                "default": true,
+                "label": "Show text below banner"
             }
         ],
         "presets": [

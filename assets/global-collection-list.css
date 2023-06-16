@@ -54,3 +54,40 @@
   .collections-list .short-description p {
     margin-bottom: 4px;
 }
+@media screen and (max-width:480px) {
+  .card-collection {
+    background-color: #F5F5F5;
+  }
+  .short-description p{
+  font-size: 15px;
+  }
+  .collections-list .section-title{
+   margin-bottom: 9px;
+  }
+  .collections-list .heading-wrapper p{
+    margin-bottom: 24px;
+  }
+  .card-collection-wrapper{
+    margin-bottom: 20px !important;
+  }
+  .card-collection-wrapper:last-child{
+    margin-bottom: 0 !important;
+  }
+  .card-collection .card-collection-img img{
+    min-height: 167px;
+   }
+   .card-collection{
+    min-height: 167px;
+    position: relative;
+   }
+   .card-collection .btn-link{
+     position: absolute;
+     bottom: 14px;
+   }
+   .collections-list .card-collection-body{
+     padding: 11px 15px 0;
+   }
+   .card-collection{
+    background-color: #F5F5F5 !important;
+   }
+}

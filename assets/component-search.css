@@ -67,6 +67,11 @@
     min-height: 81px;
     top:20%;
   }
+  @media screen and (max-width:992px) {
+    .search-modal__content {
+      min-height: 59px;
+    }
+  }
   
   .search-modal__form {
     width: 100%;
@@ -126,3 +131,4 @@
     font-weight: 700;
     border-bottom: 1px solid;
   }
+

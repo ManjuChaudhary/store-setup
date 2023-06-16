@@ -35,18 +35,31 @@
                   <div class="swiper swiper-slider featured-collection-slider card-carousel" data-slider='{
                         "loop": false,
                         "slidesPerView": "auto",
-                        "spaceBetween": 18,
+                        "spaceBetween": 15,
                         "shortSwipes": false,
                         "grabCursor": true,
                         "breakpoints": {
-                          "768": {
-                              "spaceBetween": 30
+                        "320":{
+                             "spaceBetween": 15,
+                               "slidesPerView": "2"
+                        },
+                        "500": {
+                              "spaceBetween": 15,
+                              "slidesPerView": "3"
+                          },
+                           "992": {
+                              "spaceBetween": 15,
+                              "slidesPerView": "4"
                           }
                         },
                         "navigation": {
                             "nextEl": ".collection-style-5-next",
                             "prevEl": ".collection-style-5-prev"
-                        }
+                        },
+                        "pagination": {
+                          "el": ".swiper-pagination",
+                          "clickable": true
+                       }
                     }'>
                       <div class="swiper-wrapper">
                           {% for product in collections[section.settings.home_featured_collection].products limit: 8 %}
@@ -57,10 +70,16 @@
                               {% endunless %}
                           {% endfor %}
                       </div>
+                   <div class="swiper-pagination d-none"></div>
+
                   </div>
                   {% if section.settings.nav_arrows %}
-                      <div class="swiper-button-next collection-style-5-next icon-next"></div>
-                      <div class="swiper-button-prev collection-style-5-prev icon-previous"></div>
+                      <div class="swiper-button-next collection-style-5-next d-none d-lg-block">
+                         {% render 'icon-right-arrow'%}
+                      </div>
+                      <div class="swiper-button-prev collection-style-5-prev  d-none d-lg-block">
+                       {% render 'icon-left-arrow'%}
+                      </div>
                   {% endif %}
               </slider-element>
         {% endif %}

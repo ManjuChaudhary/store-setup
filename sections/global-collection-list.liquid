@@ -14,8 +14,8 @@
             <div class="row">
                 {%- for block in section.blocks -%}
                     <div class="col-md-4 mb-md-0 mb-4 card-collection-wrapper" {{ block.shopify_attributes }} data-block-id="{{ block.id }}">
-                        <a class="d-block bg-white h-100  card-collection text-decoration-none" {% if block.settings.collection_url != blank and block.settings.collection.all_products_count > 0 %} href="{{ block.settings.collection_url }}"{% else %} href="{{ block.settings.collection.url }}"{% endif %}>
-                            <div class="card-collection-img position-relative d-block {{ section.settings.image_ratio }}">
+                        <a class="d-md-block d-flex align-items-start bg-white h-100  card-collection text-decoration-none" {% if block.settings.collection_url != blank and block.settings.collection.all_products_count > 0 %} href="{{ block.settings.collection_url }}"{% else %} href="{{ block.settings.collection.url }}"{% endif %}>
+                            <div class="col-6 col-md-12 card-collection-img position-relative d-block {{ section.settings.image_ratio }}">
                                 {%- if block.settings.collection.image != blank -%}
                                     <img 
                                     srcset="
@@ -32,7 +32,7 @@
                                     class="w-100" >
                                 {%- endif -%}
                             </div>
-                            <div class="card-collection-body text-start w-100" style="color:{{ block.settings.section_txt_color }}">
+                            <div class="col-6 col-md-12 card-collection-body text-start" style="color:{{ block.settings.section_txt_color }}">
                                 <h3 class="h3 mb-0 text-capitalize">
                                     <span class="position-relative text-line-anim d-inline-block">
                                     {%- if block.settings.collection.title != blank -%}

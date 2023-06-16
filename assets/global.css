@@ -418,7 +418,6 @@ color: var(--bs-link-color);
 
 a:hover {
 color: var(--bs-link-hover-color);
-text-decoration: underline;
 }
 
 a:not([href]):not([class]),
@@ -610,7 +609,12 @@ margin-left: auto;
 .container {
 max-width: var(--bs-container-width);
 }
-
+@media (max-width: 576px) {
+    .container{
+     padding-right: 16px;
+     padding-left: 16px;
+  }
+}
 .section-content {
 padding: 2.5rem 0;
 }
@@ -829,7 +833,7 @@ display: block;
 
 .btn-link{
 text-transform: capitalize;
-font-size: var(--bs-font-size-lg);
+font-size: var(--bs-font-size-md);
 color: var(--bs-body-color);
 border-bottom: 1px solid;
 border-color: var(--bs-body-color);
@@ -838,6 +842,7 @@ display: inline-block;
 font-family: var(--bs-font-family-heading);
 font-weight: 600;
 padding-bottom: 3px;
+width: max-content;
 }
 
 .btn-link:hover{

@@ -52,3 +52,11 @@
     }
    
 }
+@media (max-width:767px){
+    .caption_txt{
+        font-size: 15px;
+    }
+    .collection-card-body {
+        padding-top: 5px !important;
+    }
+}

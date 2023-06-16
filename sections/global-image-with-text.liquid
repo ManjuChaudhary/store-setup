@@ -27,13 +27,13 @@
 
                 </div>
             </div>
-            <div class="col-12 {% if section.settings.image_alignment == 'left' %}col-lg-6 {% else %}col-lg-5 col-xxl-6 {% endif %} mt-4 mt-md-0 {% if section.settings.image_alignment == 'left' %}order-lg-2{% else %}order-lg-1{% endif %} {% if section.settings.image_alignment == 'left' %}text-right{% else %}text-left{%endif%}">
+            <div class="col-12 {% if section.settings.image_alignment == 'left' %}col-lg-6 {% else %}col-lg-5 col-xxl-6 {% endif %} mt-0 mt-md-0 {% if section.settings.image_alignment == 'left' %}order-lg-2{% else %}order-lg-1{% endif %} {% if section.settings.image_alignment == 'left' %}text-right{% else %}text-left{%endif%}">
                 <div class="inside-block {{ section.settings.alignment }}">
                     {% if section.settings.heading_txt != blank %}
-                        <h2 class="mb-1">{{ section.settings.heading_txt }}</h2> 
+                        <h2 class="mb-2">{{ section.settings.heading_txt }}</h2> 
                     {% endif %}
                     {% if section.settings.txt != blank %}
-                        <div class="mb-3 mb-lg-6">{{ section.settings.txt }}</div>
+                        <div class="mb-3 mb-lg-4">{{ section.settings.txt }}</div>
                     {% endif %}    
                     {% if section.settings.step_heading != blank %}
                         <h6 class="mb-2 mb-md-3 text-uppercase">{{ section.settings.step_heading }}</h6>
@@ -82,10 +82,9 @@
                 "default": "Awesome Heading"
             },
             {
-                "type": "richtext",
+                "type": "textarea",
                 "id": "txt",
-                "label": "Text",
-                "default": "<p>Lipsum dolor sit amet, consectetur adipiscing elit. Aliquam pulvinar ac tortor imperdiet commodo.</p>"
+                "label": "Text"
             },
             {
                 "type": "text",

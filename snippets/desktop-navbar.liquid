@@ -26,15 +26,15 @@
           <ul class="dropdown-menu py-4 border-0 rounded-0 my-0">
               <div class="container">
                   <div class="row">
-                      <div class="col-md-6">
-                          <ul class="list-unstyled row {{ megaMenuBlock.column }}">
+                      <div class="{% if megaMenuBlock != null %}{{ megaMenuBlock.menu_columns }} {% endif %}">
+                          <ul class="list-unstyled row">
                               {%- for childlink in menus[child_list_handle].links -%}
                               {%- assign third_list_handle = childlink.title | handleize -%}
-                              <li class="col">
-                                  <h6 class="mb-3 font-size-lg">{{ childlink.title }}</h6>
+                              <li class="col-5">
+                                  <h6 class="mb-1 font-size-lg fw-semibold">{{ childlink.title }}</h6>
                                   <ul class="list-unstyled">
                                       {%- for thirdlink in menus[third_list_handle].links -%}
-                                      <li class="nav-item py-1">
+                                      <li class="nav-item">
                                           <a href="{{ thirdlink.url }}" class="nav-link px-0" name="{{ thirdlink.title }}" title="{{ thirdlink.title }}" aria-label="{{ thirdlink.title }}">{{ thirdlink.title }}</a>
                                       </li>
                                       {%- endfor -%}
@@ -44,11 +44,10 @@
                           </ul>
                       </div>
                       {% if megaMenuBlock != null %}
-                      <div class="col-md-3">
-                          <div class="text-center d-flex flex-column">
+                      <div class="{{ megaMenuBlock.column }}">
+                          <div class="text-left d-flex flex-column">
                               {% if megaMenuBlock.image %}
                                   <div class="megamenu-img">
-                                  {{ megaMenuBlock.image.width }}
                                       <img
                                           src="{{ megaMenuBlock.image | img_url: 'master' }}" 
                                           srcset="
@@ -61,6 +60,9 @@
                                           height="300" 
                                           width="300" />
                                   </div>
+                              {% endif %}
+                               {% if megaMenuBlock.heading %}
+                              <p class="font-family-heading mb-2">{{ megaMenuBlock.heading }}</p>
                               {% endif %}
                               {% if megaMenuBlock.link_text != '' %}
                                   <a href="{{ megaMenuBlock.link_url }}" class="btn-link">{{ megaMenuBlock.link_text }}</a>
@@ -69,16 +71,15 @@
                       </div>
                       {% endif %}
                        {% if megaMenuBlock != null %}
-                      <div class="col-md-3">
-                          <div class="text-center d-flex flex-column">
-                              {% if megaMenuBlock.image %}
+                      <div class="{{ megaMenuBlock.column }}">
+                          <div class="text-left d-flex flex-column">
+                              {% if megaMenuBlock.image_2 %}
                                   <div class="megamenu-img">
-                                  {{ megaMenuBlock.image.width }}
                                       <img
-                                          src="{{ megaMenuBlock.image | img_url: 'master' }}" 
+                                          src="{{ megaMenuBlock.image_2 | img_url: 'master' }}" 
                                           srcset="
-                                          {%- if megaMenuBlock.image.width >= 360 -%}{{ megaMenuBlock.image | img_url: width: 360 }} 360w,{%- endif -%}
-                                          {%- if megaMenuBlock.image.width >= 570 -%}{{ megaMenuBlock.image | img_url: width: 570 }} 570w,{%- endif -%}"
+                                          {%- if megaMenuBlock.image_2.width >= 360 -%}{{ megaMenuBlock.image_2 | img_url: width: 360 }} 360w,{%- endif -%}
+                                          {%- if megaMenuBlock.image_2.width >= 570 -%}{{ megaMenuBlock.image_2 | img_url: width: 570 }} 570w,{%- endif -%}"
                                           loading="lazy" 
                                           sizes="(min-width: 992px) 1000px, 400px"
                                           alt="Megamenu for {{ link.title }}" 
@@ -87,8 +88,11 @@
                                           width="300" />
                                   </div>
                               {% endif %}
+                              {% if megaMenuBlock.heading_2 %}
+                              <p class="font-family-heading mb-2">{{ megaMenuBlock.heading_2 }}</p>
+                              {% endif %}
                               {% if megaMenuBlock.link_text != '' %}
-                                  <a href="{{ megaMenuBlock.link_url }}" class="btn-link">{{ megaMenuBlock.link_text }}</a>
+                                  <a href="{{ megaMenuBlock.link_url_2 }}" class="btn-link text-start text-decoration-none">{{ megaMenuBlock.link_text_2 }}</a>
                               {% endif %}
                           </div>
                       </div>
@@ -141,20 +145,20 @@
       {%- if settings.enable_search -%}
           <li class="nav-item" role="menuitem">
               <a href="{{ routes.search_url }}" class="nav-link modal__toggle open-searchform" aria-haspopup="dialog" aria-label="{{ 'general.search.title' | t }}">
-                  <span class="icon-search"></span>
+                  {% render 'icon-search' %}
               </a>
           </li>
       {%- endif -%}
       {% if shop.customer_accounts_enabled %}
           <li class="nav-item" role="menuitem">
               <a class="nav-link" href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}" title="account" rel="nofollow" aria-label="Account">
-                  <span class="icon-user"></span>
+                 {% render 'icon-user' %}
               </a>
           </li>
       {% endif %}
       <li class="nav-item" role="menuitem">
           <a href="{{ routes.cart_url }}" class="nav-link header__icon--cart position-relative" id="cart-icon-desktop" rel="nofollow" title="cart" rel="nofollow" aria-label="Cart">
-              <span class="icon-bag align-middle"></span>
+              {% render 'icon-cart' , class:"align-middle" %}
               <span class="visually-hidden">{{ 'templates.cart.title' | t }}</span>
               {%- if cart != empty -%}
                   {%- if cart.item_count < 100 -%}

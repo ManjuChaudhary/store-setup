@@ -7,14 +7,15 @@
           "type": "image",
           "settings": {
             "image": "shopify:\/\/shop_images\/Group_1727_2x_b73ac57b-0e75-4385-854b-8dd32523645a.jpg",
+            "image_mobile": "shopify:\/\/shop_images\/Group_1845_2x_a83ca14d-a583-471f-af57-8379a2c7245c.jpg",
             "slide_bg_color": "#000000",
             "enable_overlay": false,
             "overlay_bg_color": "#000000",
             "overlay_opacity": 0.1,
             "caption_alignment": "justify-content-lg-start",
             "alignment": "text-lg-start",
-            "mobile_caption_alignment": "justify-content-center",
-            "mobile_alignment": "text-center",
+            "mobile_caption_alignment": "justify-content-start",
+            "mobile_alignment": "text-start",
             "heading": "<span>Your metabolism controls your weight.<\/span> And way, way more.",
             "caption": "See just how much we can help you control weight, get more physical energy and mental focus, and slow aging by getting into the Zone.",
             "heading_txt_color": "#000000",
@@ -98,7 +99,8 @@
         "enabled": true,
         "nav_arrows": false,
         "nav_dots": true,
-        "height": "tallheight"
+        "height": "tallheight",
+        "show_text_below": true
       }
     },
     "16270420142c0cafe8": {
@@ -137,7 +139,7 @@
       "settings": {
         "fluid_layout": false,
         "grid_size": "4",
-        "sub_txt": "Awesome Heading",
+        "sub_txt": "Why zone labs?",
         "heading_txt": "We can help you control weight, increase physical and mental energy and slow down aging, simply and easily.",
         "lead_txt": "",
         "btn_txt": "Why You Want To Be In The Zone",
@@ -154,7 +156,7 @@
       "settings": {
         "fluid_layout": false,
         "heading_txt": "How To Get In The Zone",
-        "txt": "<p>Reduce, resolve, repair and reprogram your health.<br\/><br\/><strong>Reduce.<br\/><\/strong>Follow the Zone diet to reduce your calorie intake without hunger or fatigue.<br\/><br\/><strong>Resolve.<br\/><\/strong>Consume adequate levels of omega-3 fatty acids. Omega-3 fatty acids resolve inflammation which is a driving force for developing insulin resistance.<br\/><br\/><strong>Repair.<br\/><\/strong>Consume adequate levels of polyphenols. Polyphenols help repair the damage caused by inflammation.<\/p>",
+        "txt": "<p>Reduce, resolve, repair and reprogram your health.<\/p><strong>Reduce<\/strong>\n<p>Follow the Zone diet to reduce your calorie intake without hunger or fatigue.<\/p><strong>Resolve<\/strong>\n<p>Consume adequate levels of omega-3 fatty acids. Omega-3 fatty acids resolve inflammation which is a driving force for developing insulin resistance.<\/p><strong>Repair<\/strong>\n<p>Consume adequate levels of polyphenols. Polyphenols help repair the damage caused by inflammation.<\/p>",
         "step_heading": "",
         "steps_captions": "",
         "btn_txt": "Learn More",
@@ -237,7 +239,7 @@
       "settings": {
         "fluid_layout": false,
         "heading_txt": "What a healthy metabolism really does.",
-        "txt": "<p><strong><br\/>Controls weight.<br\/><\/strong>Yes, you know about this benefit. But did you know, when your metabolism is performing optimally, the weight comes off and stabilizes without sacrifice, starvation, or grueling workouts? It’s true.<br\/><br\/><strong>Provides physical energy and mental focus.<br\/><\/strong>Your metabolism’s job is to turn food into energy. Do you get tired shortly after meals or in the afternoon? Do you have brain fog or trouble concentrating? That means something’s in the way of that energy creation.<br\/><br\/><strong>Slows the aging process to maintain wellness.<br\/><\/strong>Humans are designed to be lean, strong, and vital for way longer than you might think. Again, when a poorly functioning metabolism isn’t providing enough energy to your cells, aging speeds up; wellness goes down.<\/p>",
+        "txt": "<strong>Controls weight<\/strong>\n<p>Yes, you know about this benefit. But did you know, when your metabolism is performing optimally, the weight comes off and stabilizes without sacrifice, starvation, or grueling workouts? It’s true.<\/p>\n<strong>Provides physical energy and mental focus<\/strong>\n<p>Your metabolism’s job is to turn food into energy. Do you get tired shortly after meals or in the afternoon? Do you have brain fog or trouble concentrating? That means something’s in the way of that energy creation.<\/p><strong>Slows the aging process to maintain wellness.<\/strong>\n<p>Humans are designed to be lean, strong, and vital for way longer than you might think. Again, when a poorly functioning metabolism isn’t providing enough energy to your cells, aging speeds up; wellness goes down.<\/p>",
         "step_heading": "",
         "steps_captions": "",
         "btn_txt": "Zone Science",
@@ -259,6 +261,7 @@
           "type": "content",
           "settings": {
             "image": "shopify:\/\/shop_images\/Group_1630_2x_3900a343-187e-4d91-b597-1fa18ebdc449.jpg",
+            "image_mobile": "shopify:\/\/shop_images\/Mask_Group_35_21180803-37d2-4159-8bc4-c42463ad3be2.jpg",
             "enable_overlay": false,
             "alignment": "text-start",
             "subheading": "WHO’S BEHIND ALL THIS?",
