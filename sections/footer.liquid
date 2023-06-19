@@ -13,7 +13,7 @@
                               <h3>{{ section.settings.newsletter_heading }}</h3>
                           {% endif %}
                           {% if section.settings.newsletter_txt != blank %}
-                              <p class="mb-3 mb-md-0">{{ section.settings.newsletter_txt }}</p>
+                              <p class="mb-4 mb-md-0">{{ section.settings.newsletter_txt }}</p>
                           {% endif %}
                       </div>
                       {% if section.settings.show_newsletter %}
@@ -37,7 +37,7 @@
       <div data-footer-top class="footer-top pb-3" style="background-color: {{ section.settings.footer_top_bg_color }}; color: {{ section.settings.footer_top_txt_color }};">
           <div class="{% if section.settings.fluid_footer %}container-fluid{% else %}container px-md-6{% endif %}">
               <div class="row">
-                  <div class="col-lg-4 mt-lg-0 mt-5 mb-md-0 mb-5">      
+                  <div class="col-lg-4 mt-lg-0 mt-5 mb-md-0 mb-3">      
                       <a href="{{ routes.root_url }}" name="{{ shop.name | escape }}" title="{{ shop.name | escape }}" aria-label="{{ shop.name | escape }}">
                           {%- if logo_svg != blank -%}
                               <img src="{{ logo_svg }}" alt="{{ shop.name | escape }}" class="img-fluid mb-md-4 mb-0 d-inline-block" loading="lazy" width="200" height="80" style="max-width: {{ section.settings.logo_max_width }}px"
@@ -74,7 +74,7 @@
                                   {% endif %}
                                   {% if linklists[footer_linklist_2].links.size > 0 %}
                                       <div class="text-start" data-type="content">
-                                          <ul class="list-unstyled footer-navigation py-lg-0 py-3">
+                                          <ul class="list-unstyled footer-navigation py-lg-0 py-2">
                                               {% for link in linklists[footer_linklist_2].links %}
                                                   <li class="{% unless forloop.index == 1 %}footer-nav{% endunless %}">
                                                       <a href="{{ link.url }}" style="color: {{ section.settings.footer_top_link_color }};" name="{{ link.title }}" title="{{ link.title }}" aria-label="{{ link.title }}" class="font-size-md font-weight-medium font-family-heading">{{ link.title }}</a>
@@ -111,7 +111,7 @@
                               <div class="footer_dropdown">
                                   {% if section.settings.col_4_heading != blank %}
                                       <div class="d-flex justify-content-between align-items-center">
-                                          <h6 class="text-uppercase mb-lg-0 mb-3 text-gray-600 font-size-xs">{{ section.settings.col_4_heading }}</h6>
+                                          <h6 class="text-uppercase mb-lg-0 mb-2 text-gray-600 font-size-xs">{{ section.settings.col_4_heading }}</h6>
                                        </div>
                                   {% endif %}
                     <div class="text-start" data-type="content">

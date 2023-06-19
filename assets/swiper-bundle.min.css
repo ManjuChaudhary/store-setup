@@ -628,7 +628,11 @@ button.swiper-pagination-bullet {
     backface-visibility: hidden;
     overflow: hidden;
 }
-
+.swiper-button-next:hover svg path,
+.swiper-button-prev:hover svg path {
+    fill: black;
+    stroke: white;
+}
 @media (min-width: 1450px) {
     .carousel.arrow-outside .swiper-button-next{
         right: -46px;

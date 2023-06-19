@@ -21,7 +21,7 @@
 }
 
 .footer-nav{
-    margin: 12px 0 !important;
+    margin: 8px 0 !important;
 }
 
 form#NewsletterFooter input{
@@ -109,5 +109,8 @@ color: #000;
     }
     .footer-bottom p:first-child{
         margin-bottom: 31px;
+      }
+      .footer-bottom p:first-child{
+        margin-bottom: 24px;
       }
 }
