@@ -1,9 +1,13 @@
-<section class="section-content"  data-section-id="{{ section.id }}" style="background-color: {{ section.settings.section_bg_color }}; color: {{ section.settings.section_txt_color }}">
+<link href="{{ 'global-features-grid.css' | asset_url }}" rel="stylesheet">
+<section class="featured-grid"  data-section-id="{{ section.id }}" style="background-color: {{ section.settings.section_bg_color }}; color: {{ section.settings.section_txt_color }}">
     <div class="{% if section.settings.fluid_layout %}container-fluid{% else %}container{% endif %}">
         <div class="row">
-            <div class="col-12 col-lg-6 col-md-8 text-center mb-md-5 mb-4 mx-auto">
+            <div class="col-12 col-lg-6 col-md-8 text-center mb-md-6 mb-4 mx-auto features-heading-text">
+                {% if section.settings.sub_txt != blank %}
+                <h6 class="sub-text mb-sm-3 mb-2 text-uppercase">{{ section.settings.sub_txt }}</h6>
+                {% endif %}
                 {% if section.settings.heading_txt != blank %}
-                  <h3 class="section-title mb-3">{{ section.settings.heading_txt }}</h3>
+                  <h3 class="section-title mb-0">{{ section.settings.heading_txt }}</h3>
                 {% endif %}
 
                 {% if section.settings.lead_txt != blank %}
@@ -19,18 +23,18 @@
         {% if blocks_size > 0 %}
           <div class="row">
               {% for block in section.blocks %}
-              <div class="{% unless section.settings.grid_size == '12' %}col-6{% endunless %} col-md-{{ section.settings.grid_size }}" {{ block.shopify_attributes }} data-block-id="{{ block.id }}">
+              <div class="col-12 col-sm-{{ section.settings.grid_size }}" {{ block.shopify_attributes }} data-block-id="{{ block.id }}">
                   <div class="feature d-flex flex-column {% if forloop.last == true %} mb-0 {% else %} mb-sm-0 mb-4{% endif %}">
-                      <div class="text-center mb-4">
+                      <div class="text-center mb-sm-4 mb-3">
                         {% if block.settings.icon_img != blank %}
-                          <img src="{{ block.settings.icon_img }}" alt="{{ block.settings.title }}"
+                          <img src="{{ block.settings.icon_img  | img_url }}" alt="{{ block.settings.title }}"
                             width="150"
                             height="150" loading="lazy"/>
                         {% else %}
                           {{ 'image' | placeholder_svg_tag: 'bg-gray-100' }}
                         {% endif %}
                       </div>
-                      <div class="text-center px-4">
+                      <div class="text-center px-5 lead-text">
                             {% if block.settings.title != blank %}
                                 <h4 class="mb-3 font-size-lg text-uppercase fw-normal lh-base">{{ block.settings.title }}</h4>
                             {% endif %}
@@ -47,7 +51,7 @@
         {% if section.settings.btn_txt != blank %}
           <div class="row">
               <div class="col-12 text-center">
-                  <a class="btn btn{% if section.settings.btn_type == 'outline' %}-{% endif %}{{ section.settings.btn_type }}-{{ section.settings.btn_variant }} {{ section.settings.btn_size }} mt-5" href="{{ section.settings.btn_url }}">{{ section.settings.btn_txt }}</a>
+                  <a class="btn btn{% if section.settings.btn_type == 'outline' %}-{% endif %}{{ section.settings.btn_type }}-{{ section.settings.btn_variant }} {{ section.settings.btn_size }} mt-sm-5 mt-6" href="{{ section.settings.btn_url }}">{{ section.settings.btn_txt }}</a>
               </div>
           </div>
         {% endif %}
@@ -100,6 +104,12 @@
       {
         "type": "header",
         "content": "Content"
+      },
+      {
+        "type": "textarea",
+        "id": "sub_txt",
+        "label": "Subheading Text",
+        "default": "Awesome Heading"
       },
       {
         "type": "textarea",
@@ -209,7 +219,7 @@
         "name": "Feature Block",
         "settings": [
           {
-            "type": "text",
+            "type": "image_picker",
             "id": "icon_img",
             "label": "Icon Image"
           },

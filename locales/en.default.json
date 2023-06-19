@@ -14,7 +14,7 @@
     },
     "social": {
       "newsletter_form": {
-        "newsletter_email": "Enter Your email",
+        "newsletter_email": "Email Address",
         "newsletter_confirmation": "Thanks for subscribing",
         "button": "Submit"
       },
@@ -44,7 +44,7 @@
     },
     "search": {
       "title": "Search Store",
-      "placeholder": "Search",
+      "placeholder": "What can we help with?",
       "submit": "Submit"
     },
     "breadcrumbs": {

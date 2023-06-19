@@ -1,0 +1,60 @@
+{% assign current_variant = product.selected_or_first_available_variant %}
+<div class="quick-shop-content bg-white position-absolute">
+    <div class="row no-gutter">
+       <span class="icon-close quik-shop-close-icon"></span>
+        <div class="col-12">
+            <h5 class="card-title m-0 font-family-heading">
+                <a class="product-link lh-base text-black text-decoration-none" role="button" href="{{ product.url | within: collection }}">{{ product.title }}</a>
+            </h5>
+        </div>
+        <div class="col-12">
+        <!-- Stamped - Begin Star Rating Badge -->
+        <span 
+          class="stamped-product-reviews-badge stamped-main-badge" 
+          data-id="{{ product.id }}" 
+          data-product-sku="{{ product.handle }}" 
+          data-product-title="{{product.title}}" 
+          data-product-type="{{product.type}}" 
+          style="display: block;">
+        </span>
+       <!-- Stamped - End Star Rating Badge --></div>
+        <div class="col-12">
+          {% if current_variant and current_variant.compare_at_price > current_variant.price %}
+            <span class="price small money fw-semibold font-family-heading font-size-md" data-comparePrice>{{ current_variant.compare_at_price | money }}</span>
+          {% elsif product.compare_at_price > product.price %}
+            <span class="price small  money fw-semibold font-family-heading font-size-md" data-comparePrice>{{ product.compare_at_price | money }}</span>
+       {% endif %}
+        </div>
+        <div class="col-12">
+        <span class="price money {% if product.compare_at_price > product.price %} text-secondary-200 {% endif %} fw-semibold font-family-heading font-size-lg" data-currentPrice>
+            {% if current_variant %}
+              {{ current_variant.price | money }}
+            {% elsif product.price_varies %}
+              {% assign minPrice = product.price_min | money %}
+              {% assign maxPrice = product.price_max | money %}
+              {{ 'products.product.price_range' | t: min: minPrice, max: maxPrice | escape }}
+            {% else %}
+              {{ product.price | money }}
+            {% endif %}
+            {% if product.compare_at_price > product.price %}
+            <span class="font-size-xs">{{ 'Advantage Price '}}</span>
+            {% endif %}
+          </span>
+        </div>
+        {%- for block in section.blocks -%}
+          {%- case block.type -%}
+          {%- when '@app' -%}
+              {% render block %}
+          {%- endcase -%}
+        {%- endfor -%}
+    </div>
+    
+    {%- if settings.show_vendor -%}
+        <p>{{ product.vendor }}</p>
+    {%- endif -%}
+  {%- if settings.enable_product_card_swatches -%}
+    <div class="card-footer bg-transparent border-0 p-0">
+      {%- render 'form-product-grid', product: product, current_variant: current_variant -%}
+    </div>
+  {%- endif -%}
+  </div>

@@ -1,8 +1,9 @@
+<link href="{{ 'global-image-with-text.css' | asset_url }}" rel="stylesheet">
 <section class="section-content image-with-text"  data-section-id="{{ section.id }}" style="background:{{ section.settings.section_bg_color }}; color:{{ section.settings.section_txt_color }}">
     <div class="{% if section.settings.fluid_layout %}container-fluid{% else %}container{% endif %}">
-        <div class="row align-items-center">
-            <div class="col-12 col-md-6 col-lg-7 {% if section.settings.image_alignment == 'left' %}order-md-1{% else %}order-md-2{% endif %}">
-                <div class="banner-img {{ section.settings.height }}">
+        <div class="row align-items-center featured-image-with-text-wrapper {% if section.settings.image_alignment == 'left' %}featured-image-left{% else %}featured-image-right{% endif %}">
+            <div class="col-12  {% if section.settings.image_alignment == 'left' %}col-lg-6 {% else %}col-lg-7 col-xxl-6 {% endif %}{% if section.settings.image_alignment == 'left' %}order-lg-1{% else %}order-lg-2{% endif %} mb-6 mb-lg-0 {% if section.settings.image_alignment == 'left' %}image-left{% else %}image-right{%endif%}">
+                <div class="banner-img {{ section.settings.height }}" style="background:{{ section.settings.section_bg_color }};">
                     {%- if section.settings.image != blank -%}
                         <img
                             srcset="
@@ -26,13 +27,13 @@
 
                 </div>
             </div>
-            <div class="col-12 col-md-6 col-lg-5 mt-4 mt-md-0 {% if section.settings.image_alignment == 'left' %}order-md-2{% else %}order-md-1{% endif %}">
+            <div class="col-12 {% if section.settings.image_alignment == 'left' %}col-lg-6 {% else %}col-lg-5 col-xxl-6 {% endif %} mt-0 mt-md-0 {% if section.settings.image_alignment == 'left' %}order-lg-2{% else %}order-lg-1{% endif %} {% if section.settings.image_alignment == 'left' %}text-right{% else %}text-left{%endif%}">
                 <div class="inside-block {{ section.settings.alignment }}">
                     {% if section.settings.heading_txt != blank %}
-                        <h3 class="mb-3">{{ section.settings.heading_txt }}</h3> 
+                        <h2 class="mb-2">{{ section.settings.heading_txt }}</h2> 
                     {% endif %}
                     {% if section.settings.txt != blank %}
-                        <div class="mb-3 mb-lg-5">{{ section.settings.txt }}</div>
+                        <div class="mb-3 mb-lg-4">{{ section.settings.txt }}</div>
                     {% endif %}    
                     {% if section.settings.step_heading != blank %}
                         <h6 class="mb-2 mb-md-3 text-uppercase">{{ section.settings.step_heading }}</h6>
@@ -81,10 +82,9 @@
                 "default": "Awesome Heading"
             },
             {
-                "type": "richtext",
+                "type": "textarea",
                 "id": "txt",
-                "label": "Text",
-                "default": "<p>Lipsum dolor sit amet, consectetur adipiscing elit. Aliquam pulvinar ac tortor imperdiet commodo.</p>"
+                "label": "Text"
             },
             {
                 "type": "text",

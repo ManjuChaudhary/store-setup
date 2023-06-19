@@ -6,45 +6,59 @@
         "e5811002-6f6b-488d-a9a4-803d62a8f03e": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/mlouye-sera-tote-macaron-desk1.jpg",
-            "image_mobile": "shopify://shop_images/multi-colored-twists-of-yarn.jpg",
-            "slide_bg_color": "#ffffff",
+            "image": "shopify:\/\/shop_images\/Group_1727_2x_b73ac57b-0e75-4385-854b-8dd32523645a.jpg",
+            "image_mobile": "shopify:\/\/shop_images\/Mask_Group_35.jpg",
+            "slide_bg_color": "#000000",
             "enable_overlay": false,
             "overlay_bg_color": "#000000",
             "overlay_opacity": 0.1,
-            "caption_alignment": "justify-content-center",
-            "alignment": "text-center",
-            "heading": "Awesome Hero Slider",
-            "caption": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
-            "heading_txt_color": "#ffffff",
-            "caption_txt_color": "#ffffff",
-            "btn_txt": "Shop Now",
+            "caption_alignment": "justify-content-lg-start",
+            "alignment": "text-lg-start",
+            "mobile_caption_alignment": "justify-content-center",
+            "mobile_alignment": "text-center",
+            "heading": "<span>Your metabolism controls your weight.<\/span> And way, way more.",
+            "caption": "See just how much we can help you control weight, get more physical energy and mental focus, and slow aging by getting into the Zone.",
+            "heading_txt_color": "#000000",
+            "caption_txt_color": "#000000",
+            "head-bg-color": "",
+            "btn_txt": "What Is The Zone?",
             "btn_link": "#",
             "btn_type": "",
-            "btn_variant": "white",
-            "btn_size": ""
+            "btn_variant": "primary",
+            "btn_size": "",
+            "btn_txt_2": "Shop Best Sellers",
+            "btn_link_2": "",
+            "btn_type_2": "link",
+            "btn_variant_2": "link",
+            "btn_size_2": ""
           }
         },
         "5f138ef3-db88-4ec2-9c76-525b0af787bf": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/mlouye-thelma-louise-homepage-1.jpg",
-            "image_mobile": "shopify://shop_images/mlouye-thelma-louise-homepage-2.jpg",
             "slide_bg_color": "#ffffff",
             "enable_overlay": true,
             "overlay_bg_color": "#ffffff",
             "overlay_opacity": 0.1,
             "caption_alignment": "justify-content-center",
             "alignment": "text-center",
+            "mobile_caption_alignment": "justify-content-center",
+            "mobile_alignment": "text-center",
             "heading": "Awesome Hero Slider",
             "caption": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
             "heading_txt_color": "",
             "caption_txt_color": "",
+            "head-bg-color": "",
             "btn_txt": "Shop Now",
             "btn_link": "#",
             "btn_type": "",
             "btn_variant": "dark",
-            "btn_size": ""
+            "btn_size": "",
+            "btn_txt_2": "",
+            "btn_link_2": "",
+            "btn_type_2": "",
+            "btn_variant_2": "dark",
+            "btn_size_2": ""
           }
         },
         "21b79b13-165a-4ae3-9277-e3091171e49d": {
@@ -54,7 +68,7 @@
             "controls": true,
             "loop": false,
             "title": "Awesome Heading",
-            "subtitle": "<p>Lipsum dolor sit amet, consectetur adipiscing elit. Aliquam pulvinar ac tortor imperdiet commodo.</p>",
+            "subtitle": "<p>Lipsum dolor sit amet, consectetur adipiscing elit. Aliquam pulvinar ac tortor imperdiet commodo.<\/p>",
             "play_icon": false,
             "play_btn": true,
             "btn_txt": "",
@@ -63,14 +77,12 @@
             "btn_variant": "dark",
             "btn_size": "",
             "poster_type": "",
-            "bg_video": "https://cdn.shopify.com/videos/c/o/v/aa72308259d0435488922d55c49c5398.mp4",
+            "bg_video": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/aa72308259d0435488922d55c49c5398.mp4",
             "mobile_bg_video": "",
-            "image": "shopify://shop_images/video_cover.jpg",
-            "image_mobile": "shopify://shop_images/video_cover.jpg",
             "video_type": "local",
             "placement": "grid",
-            "video_id": "https://cdn.shopify.com/s/files/1/0581/7663/5061/files/Seedsheet_-_Four_Steps_to_Fresh_Food.mp4?v=1629442501",
-            "mobile_video_id": "https://cdn.shopify.com/s/files/1/0581/7663/5061/files/Seedsheet_-_Four_Steps_to_Fresh_Food.mp4?v=1629442501",
+            "video_id": "https:\/\/cdn.shopify.com\/s\/files\/1\/0581\/7663\/5061\/files\/Seedsheet_-_Four_Steps_to_Fresh_Food.mp4?v=1629442501",
+            "mobile_video_id": "https:\/\/cdn.shopify.com\/s\/files\/1\/0581\/7663\/5061\/files\/Seedsheet_-_Four_Steps_to_Fresh_Food.mp4?v=1629442501",
             "section_bg_color": "#fafaf7",
             "section_text_color": "#000000",
             "alignment": "text-start",
@@ -85,50 +97,10 @@
       ],
       "settings": {
         "enabled": true,
-        "nav_arrows": true,
+        "nav_arrows": false,
         "nav_dots": true,
-        "height": "tallheight"
-      }
-    },
-    "2b865f5c-7e70-4f62-8620-e3471df1555f": {
-      "type": "global-auto-slider",
-      "blocks": {
-        "466af5de-e9d3-4c53-a471-764098e65fdd": {
-          "type": "content",
-          "settings": {
-            "content": "Free Standard Shipping on Orders of $75+"
-          }
-        },
-        "79a2355f-7c6d-4578-b5b6-e2322aedb30d": {
-          "type": "content",
-          "settings": {
-            "content": "30 days money back guarantee"
-          }
-        },
-        "aad1ff5e-9173-4a68-9665-c8664d6457a7": {
-          "type": "content",
-          "settings": {
-            "content": "Free Shipping on all Orders $100"
-          }
-        },
-        "1eb4d067-27d9-449a-9698-ef234bc223f4": {
-          "type": "content",
-          "settings": {
-            "content": "Spooky stickers have arrived!"
-          }
-        }
-      },
-      "block_order": [
-        "466af5de-e9d3-4c53-a471-764098e65fdd",
-        "79a2355f-7c6d-4578-b5b6-e2322aedb30d",
-        "aad1ff5e-9173-4a68-9665-c8664d6457a7",
-        "1eb4d067-27d9-449a-9698-ef234bc223f4"
-      ],
-      "settings": {
-        "fluid_layout": false,
-        "section_bg_color": "#fdeff1",
-        "section_txt_color": "#000000",
-        "scroll_time": "200s"
+        "height": "tallheight",
+        "show_text_below": true
       }
     },
     "16270420142c0cafe8": {
@@ -137,66 +109,40 @@
         "16270420142c0cafe8-0": {
           "type": "content",
           "settings": {
-            "icon_img": "https://cdn.shopify.com/s/files/1/0581/7663/5061/files/naturally_preserved.svg?v=1632919288",
-            "title": "naturally preserved",
-            "txt": ""
+            "icon_img": "shopify:\/\/shop_images\/Group_1724.svg",
+            "title": "",
+            "txt": "<p>No one’s ever told you what your “metabolism” really does. <em>We will.<\/em><\/p>"
           }
         },
         "beea9bb0-d601-4956-83a1-f2d38787618b": {
           "type": "content",
           "settings": {
-            "icon_img": "https://cdn.shopify.com/s/files/1/0581/7663/5061/files/organics_based.svg?v=1632919287",
-            "title": "organics based",
-            "txt": ""
+            "icon_img": "shopify:\/\/shop_images\/Group_1725.svg",
+            "title": "",
+            "txt": "<p>Your metabolism controls your weight. And way, way more. <em>We tell you why.<\/em><\/p>"
           }
         },
         "798431da-59c8-4c8e-92d3-73e2aac83e38": {
           "type": "content",
           "settings": {
-            "icon_img": "https://cdn.shopify.com/s/files/1/0581/7663/5061/files/vegan.svg?v=1632919287",
-            "title": "vegan",
-            "txt": ""
-          }
-        },
-        "a9a29ecb-1e86-4c8a-be5e-8a146e4e9a49": {
-          "type": "content",
-          "settings": {
-            "icon_img": "https://cdn.shopify.com/s/files/1/0581/7663/5061/files/peta_cruelty_free.svg?v=1632919287",
-            "title": "peta cruelty free",
-            "txt": ""
-          }
-        },
-        "81136cdc-7195-4ea6-abe7-31f4df772124": {
-          "type": "content",
-          "settings": {
-            "icon_img": "https://cdn.shopify.com/s/files/1/0581/7663/5061/files/clean_pure.svg?v=1632919287",
-            "title": "clean & pure",
-            "txt": ""
-          }
-        },
-        "cf990352-fa89-462e-9b30-ba28b8d1bead": {
-          "type": "content",
-          "settings": {
-            "icon_img": "https://cdn.shopify.com/s/files/1/0581/7663/5061/files/trust_love.svg?v=1632919287",
-            "title": "trust & love",
-            "txt": ""
+            "icon_img": "shopify:\/\/shop_images\/Group_1726.svg",
+            "title": "",
+            "txt": "<p>Metabolism controls your future wellness. <em>We show you how.<\/em><\/p>"
           }
         }
       },
       "block_order": [
         "16270420142c0cafe8-0",
         "beea9bb0-d601-4956-83a1-f2d38787618b",
-        "798431da-59c8-4c8e-92d3-73e2aac83e38",
-        "a9a29ecb-1e86-4c8a-be5e-8a146e4e9a49",
-        "81136cdc-7195-4ea6-abe7-31f4df772124",
-        "cf990352-fa89-462e-9b30-ba28b8d1bead"
+        "798431da-59c8-4c8e-92d3-73e2aac83e38"
       ],
       "settings": {
         "fluid_layout": false,
-        "grid_size": "2",
-        "heading_txt": "Where nature meets science.",
-        "lead_txt": "We use cutting-edge technologies in natural ingredient formulations to offer skin-healthy makeup and skincare that’s results-driven yet gentle and kind to our earth.",
-        "btn_txt": "Learn More",
+        "grid_size": "4",
+        "sub_txt": "Awesome Heading",
+        "heading_txt": "We can help you control weight, increase physical and mental energy and slow down aging, simply and easily.",
+        "lead_txt": "",
+        "btn_txt": "Why You Want To Be In The Zone",
         "btn_url": "#",
         "section_bg_color": "#ffffff",
         "section_txt_color": "#222222",
@@ -205,385 +151,168 @@
         "btn_size": ""
       }
     },
-    "162710985888a5f3c0": {
-      "type": "global-image-banner",
-      "blocks": {
-        "162710985888a5f3c0-0": {
-          "type": "heading",
-          "settings": {
-            "heading": "Nature inspired colors. Science powered formulas."
-          }
-        },
-        "162710985888a5f3c0-1": {
-          "type": "text",
-          "settings": {
-            "text": "Our products are formulated with state-of-the-art, naturally-derived ingredients that are healthy for your skin and conscientious of our planet."
-          }
-        },
-        "be1a2f63-a362-420c-be09-0e620e2de86a": {
-          "type": "countdown",
-          "settings": {
-            "countdown_enable": true,
-            "countdown_pretext": "Time Running Out",
-            "countdown_text": "March 20, 2022 23:59",
-            "countdown_bg_color": "#9b6a45",
-            "countdown_text_color": "#ffffff"
-          }
-        },
-        "162710985888a5f3c0-2": {
-          "type": "buttons",
-          "settings": {
-            "button_label_1": "shop our products",
-            "button_link_1": "#",
-            "btn_type_1": "",
-            "btn_variant_1": "white",
-            "btn_size_1": "",
-            "button_label_2": "",
-            "button_link_2": "#",
-            "btn_type_2": "",
-            "btn_variant_2": "dark",
-            "btn_size_2": ""
-          }
-        }
-      },
-      "block_order": [
-        "162710985888a5f3c0-0",
-        "162710985888a5f3c0-1",
-        "be1a2f63-a362-420c-be09-0e620e2de86a",
-        "162710985888a5f3c0-2"
-      ],
-      "settings": {
-        "image": "shopify://shop_images/mlouye-puff-desktop-1.jpg",
-        "image_mobile": "shopify://shop_images/mlouye-puff-mobile-1.jpg",
-        "txt_color": "#ffffff",
-        "enable_overlay": true,
-        "overlay_bg_color": "#000000",
-        "overlay_opacity": 0.1,
-        "height": "tallheight",
-        "desktop_text_box_position": "center",
-        "text_caption_align": "justify-content-start",
-        "text_align": "text-left",
-        "section_padding": false
-      }
-    },
-    "16273012625e8a6f4e": {
-      "type": "global-collection-list",
-      "blocks": {
-        "16273012625e8a6f4e-0": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "women",
-            "show_view_all": "Shop Now",
-            "section_txt_color": "#000000"
-          }
-        },
-        "16273012625e8a6f4e-1": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "men",
-            "show_view_all": "Shop Now",
-            "section_txt_color": "#000000"
-          }
-        },
-        "75b8530c-55ba-421c-8e38-0f2ed94ded2e": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "t-shirt",
-            "show_view_all": "Shop Now",
-            "section_txt_color": "#000000"
-          }
-        }
-      },
-      "block_order": [
-        "16273012625e8a6f4e-0",
-        "16273012625e8a6f4e-1",
-        "75b8530c-55ba-421c-8e38-0f2ed94ded2e"
-      ],
-      "settings": {
-        "title": "Collections",
-        "txt": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam pulvinar ac tortor imperdiet commodo.",
-        "section_bg_color": "#fafaf7",
-        "section_txt_color": "#222222",
-        "grid_size": "4",
-        "image_ratio": "adapt",
-        "enable_overlay": false,
-        "overlay_bg_color": "#000000",
-        "overlay_opacity": 0.5
-      }
-    },
-    "162703446299aaa8de": {
-      "type": "global-featured-collection",
-      "settings": {
-        "fluid_layout": false,
-        "collection_grid_type": "grid",
-        "heading_txt": "Featured Collection",
-        "lead_txt": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam pulvinar ac tortor imperdiet commodo.",
-        "home_featured_collection": "t-shirt",
-        "section_bg_color": "#ffffff",
-        "section_txt_color": "#222222"
-      }
-    },
-    "16271097114d5db4ef": {
-      "type": "global-logo-list",
-      "blocks": {
-        "3985dafd-8fbe-495c-a78d-17788cc28cb2": {
-          "type": "content",
-          "settings": {
-            "logo_img": "https://cdn.shopify.com/s/files/1/0581/7663/5061/files/Byrdie_Logo.svg?v=1633088478",
-            "logo_url": ""
-          }
-        },
-        "2c2f7a1a-e97d-4315-a0d6-2b357320264d": {
-          "type": "content",
-          "settings": {
-            "logo_img": "https://cdn.shopify.com/s/files/1/0581/7663/5061/files/Glamour_Logo.svg?v=1633088478",
-            "logo_url": ""
-          }
-        },
-        "5c384d1d-15bc-4d8a-b411-54440fe6475c": {
-          "type": "content",
-          "settings": {
-            "logo_img": "https://cdn.shopify.com/s/files/1/0581/7663/5061/files/New_Beauty_Logo.svg?v=1633088478",
-            "logo_url": ""
-          }
-        },
-        "1cf12a9a-a950-4b88-94d8-d4b64a084978": {
-          "type": "content",
-          "settings": {
-            "logo_img": "https://cdn.shopify.com/s/files/1/0581/7663/5061/files/YahooLifestyle_Logo.svg?v=1633088478",
-            "logo_url": ""
-          }
-        },
-        "18b7a918-9ecf-47e3-8da7-6d93a7a330e6": {
-          "type": "content",
-          "settings": {
-            "logo_img": "https://cdn.shopify.com/s/files/1/0581/7663/5061/files/Hynt_Logo.svg?v=1633088478",
-            "logo_url": ""
-          }
-        },
-        "2dc4650f-8c4f-439c-adf1-6e23854d3945": {
-          "type": "content",
-          "settings": {
-            "logo_img": "https://cdn.shopify.com/s/files/1/0581/7663/5061/files/Byrdie_Logo.svg?v=1633088478",
-            "logo_url": ""
-          }
-        },
-        "65899402-a15a-469b-b33b-68f8b34d239b": {
-          "type": "content",
-          "settings": {
-            "logo_img": "https://cdn.shopify.com/s/files/1/0581/7663/5061/files/New_Beauty_Logo.svg?v=1633088478",
-            "logo_url": ""
-          }
-        }
-      },
-      "block_order": [
-        "3985dafd-8fbe-495c-a78d-17788cc28cb2",
-        "2c2f7a1a-e97d-4315-a0d6-2b357320264d",
-        "5c384d1d-15bc-4d8a-b411-54440fe6475c",
-        "1cf12a9a-a950-4b88-94d8-d4b64a084978",
-        "18b7a918-9ecf-47e3-8da7-6d93a7a330e6",
-        "2dc4650f-8c4f-439c-adf1-6e23854d3945",
-        "65899402-a15a-469b-b33b-68f8b34d239b"
-      ],
-      "settings": {
-        "fluid_layout": false,
-        "heading": "Awesome Heading",
-        "txt": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam pulvinar ac tortor imperdiet commodo.</p>",
-        "section_bg_color": "#ffffff",
-        "section_txt_color": "#222222",
-        "nav_arrows": true,
-        "nav_dots": true
-      }
-    },
-    "16270454495feb2a63": {
+    "a36e7b6b-8350-4953-9bf5-743b0b3637e3": {
       "type": "global-image-with-text",
       "settings": {
         "fluid_layout": false,
-        "heading_txt": "Natural beauty brand you can fully trust & love.",
-        "txt": "<p>We employ cutting-edge, clean ingredient technologies as well as certified organic ingredients that are rich in antioxidants, skin-energizing vitamins and peptides to deliver glowing results while being gentle on even the most sensitive skin types. <br/><br/>We are committed to educating you on how to best support a feeling of healthy, naturally balanced skin, so that you can feel confident and comfortable in your everyday beauty and lifestyle choices.</p>",
+        "heading_txt": "How To Get In The Zone",
+        "txt": "<p>Reduce, resolve, repair and reprogram your health.<\/p><strong>Reduce<\/strong>\n<p>Follow the Zone diet to reduce your calorie intake without hunger or fatigue<\/p><strong>Resolve.<\/strong>\n<p>Consume adequate levels of omega-3 fatty acids. Omega-3 fatty acids resolve inflammation which is a driving force for developing insulin resistance.<\/p>\n<strong>Repair.<\/strong>\n<p>Consume adequate levels of polyphenols. Polyphenols help repair the damage caused by inflammation.<\/p>",
         "step_heading": "",
         "steps_captions": "",
         "btn_txt": "Learn More",
-        "btn_link": "#",
+        "btn_link": "",
         "btn_type": "",
         "btn_variant": "primary",
         "btn_size": "",
-        "image": "shopify://shop_images/mlouye-new-small-naomi-mob.jpg",
-        "section_bg_color": "#fafaf7",
+        "image": "shopify:\/\/shop_images\/Group_1618_2x_28288b6c-3213-4827-8def-280734e23216.jpg",
+        "section_bg_color": "#f5f5f5",
+        "section_text_color": "#000000",
+        "alignment": "text-left",
+        "image_alignment": "right"
+      }
+    },
+    "e163469b-03ca-4ccf-bcc5-c53786311b1d": {
+      "type": "global-collection-list",
+      "blocks": {
+        "template--19288146084118__e163469b-03ca-4ccf-bcc5-c53786311b1d-1686140258a0daf2a3-0": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "zone-foods",
+            "short_description": "<p><em>Reduce diet-induced inflammation<\/em><\/p>",
+            "button_text": "shop now",
+            "section_txt_color": "#000000"
+          }
+        },
+        "template--19288146084118__e163469b-03ca-4ccf-bcc5-c53786311b1d-1686140258a0daf2a3-1": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "omega-3-fatty-acids",
+            "short_description": "<p><em>Resolve residual diet-induced inflammation<\/em><\/p>",
+            "button_text": "shop now",
+            "section_txt_color": "#000000"
+          }
+        },
+        "template--19288146084118__e163469b-03ca-4ccf-bcc5-c53786311b1d-1686140258a0daf2a3-2": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "polyphenols",
+            "short_description": "<p><em>Repair the damage caused by inflammation<\/em><\/p>",
+            "button_text": "shop now",
+            "section_txt_color": "#000000"
+          }
+        }
+      },
+      "block_order": [
+        "template--19288146084118__e163469b-03ca-4ccf-bcc5-c53786311b1d-1686140258a0daf2a3-0",
+        "template--19288146084118__e163469b-03ca-4ccf-bcc5-c53786311b1d-1686140258a0daf2a3-1",
+        "template--19288146084118__e163469b-03ca-4ccf-bcc5-c53786311b1d-1686140258a0daf2a3-2"
+      ],
+      "settings": {
+        "title": "Shop by Category",
+        "txt": "Dietary products to help get you in the zone.",
+        "section_bg_color": "#e5e6e6",
+        "section_txt_color": "#000000",
+        "image_ratio": "square",
+        "btn_txt_see_all": "",
+        "btn_txt_see_all_url": ""
+      }
+    },
+    "e3f1c954-9f9a-48c0-a054-5e9f6128b80a": {
+      "type": "global-featured-collection",
+      "settings": {
+        "fluid_layout": false,
+        "collection_grid_type": "grid-4",
+        "nav_dots": false,
+        "nav_arrows": true,
+        "nav_arrows_outside": false,
+        "heading_txt": "Best Sellers",
+        "lead_txt": "",
+        "home_featured_collection": "best-seller",
+        "shop_all_button_text": "shop all best sellers",
+        "shop_all_button_link": "",
+        "section_bg_color": "#ffffff",
+        "section_txt_color": "#000000"
+      }
+    },
+    "74d613b6-5486-4c26-8485-c28115552c75": {
+      "type": "global-image-with-text",
+      "settings": {
+        "fluid_layout": false,
+        "heading_txt": "What a healthy metabolism really does.",
+        "txt": "<strong>Controls weight<\/strong>\n<p>Yes, you know about this benefit. But did you know, when your metabolism is performing optimally, the weight comes off and stabilizes without sacrifice, starvation, or grueling workouts? It’s true.<\/p>\n<strong>Provides physical energy and mental focus<\/strong>\n<p>Your metabolism’s job is to turn food into energy. Do you get tired shortly after meals or in the afternoon? Do you have brain fog or trouble concentrating? That means something’s in the way of that energy creation.<\/p><strong>Slows the aging process to maintain wellness.<\/strong>\n<p>Humans are designed to be lean, strong, and vital for way longer than you might think. Again, when a poorly functioning metabolism isn’t providing enough energy to your cells, aging speeds up; wellness goes down.<\/p>",
+        "step_heading": "",
+        "steps_captions": "",
+        "btn_txt": "Zone Science",
+        "btn_link": "",
+        "btn_type": "",
+        "btn_variant": "primary",
+        "btn_size": "",
+        "image": "shopify:\/\/shop_images\/Group_1622_2x_680b3907-5038-4796-a48e-b62d72613d77.jpg",
+        "section_bg_color": "#ffffff",
         "section_text_color": "#000000",
         "alignment": "text-left",
         "image_alignment": "left"
       }
     },
-    "1633694875e64c966c": {
-      "type": "global-testimonial",
+    "5af8a243-9159-436b-94d8-f80aeaf678a9": {
+      "type": "global-featured-columns",
       "blocks": {
-        "bec19606-fd7b-4892-94c8-895d17e708a7": {
-          "type": "logowidthtext",
+        "00d4265d-b8c3-463f-b878-49f0476356f3": {
+          "type": "content",
           "settings": {
-            "quote_logo": "https://cdn.shopify.com/s/files/1/0581/7663/5061/files/Glamour_Logo.svg?v=1633088478",
-            "title": "<p>“People are raving about this botanical-infused concealer for calming their cystic acne.”</p>",
-            "author_name": "",
-            "alignment": "text-center"
+            "image": "shopify:\/\/shop_images\/Group_1630_2x_3900a343-187e-4d91-b597-1fa18ebdc449.jpg",
+            "enable_overlay": false,
+            "alignment": "text-start",
+            "subheading": "WHO’S BEHIND ALL THIS?",
+            "heading": "Dr. Barry Sears.",
+            "caption": "Dr. Barry Sears started the field of Metabolic Engineering™ more than 25 years ago with the publication of his #1 New York Times best-seller, The Zone.",
+            "txt_color": "#231f20",
+            "btn_txt": "History Of The Zone",
+            "btn_link": "",
+            "btn_type": "",
+            "btn_variant": "dark",
+            "btn_size": ""
           }
         },
-        "ac18a9c2-3ee3-40a7-aa27-5a0b6ea0826a": {
-          "type": "logowidthtext",
+        "0393b97e-6467-4f2e-8f4a-ec4a024480f2": {
+          "type": "content",
           "settings": {
-            "quote_logo": "https://cdn.shopify.com/s/files/1/0581/7663/5061/files/Byrdie_Logo.svg?v=1633088478",
-            "title": "<p>“People are raving about this botanical-infused concealer for calming their cystic acne.”</p>",
-            "author_name": "",
-            "alignment": "text-center"
-          }
-        },
-        "3039a1d6-b656-43e3-b390-988ee1cedac5": {
-          "type": "logowidthtext",
-          "settings": {
-            "quote_logo": "https://cdn.shopify.com/s/files/1/0581/7663/5061/files/New_Beauty_Logo.svg?v=1633088478",
-            "title": "<p>“People are raving about this botanical-infused concealer for calming their cystic acne.”</p>",
-            "author_name": "",
-            "alignment": "text-center"
-          }
-        },
-        "735daa80-06f6-48fb-97ef-0b3ca8569805": {
-          "type": "logowidthtext",
-          "settings": {
-            "quote_logo": "https://cdn.shopify.com/s/files/1/0581/7663/5061/files/YahooLifestyle_Logo.svg?v=1633088478",
-            "title": "<p>“People are raving about this botanical-infused concealer for calming their cystic acne.”</p>",
-            "author_name": "",
-            "alignment": "text-center"
+            "image": "shopify:\/\/shop_images\/Group_1729_2x_ba71fdad-29c7-4f32-bf82-497b57416498.jpg",
+            "enable_overlay": false,
+            "alignment": "text-start",
+            "subheading": "INSULIN RESISTANCE QUIZ",
+            "heading": "Estimate your current level of Insulin Resistance.",
+            "caption": "The one thing stopping your metabolism from giving you all those benefits.",
+            "txt_color": "#231f20",
+            "btn_txt": "Take The Quiz",
+            "btn_link": "",
+            "btn_type": "",
+            "btn_variant": "dark",
+            "btn_size": ""
           }
         }
       },
       "block_order": [
-        "bec19606-fd7b-4892-94c8-895d17e708a7",
-        "ac18a9c2-3ee3-40a7-aa27-5a0b6ea0826a",
-        "3039a1d6-b656-43e3-b390-988ee1cedac5",
-        "735daa80-06f6-48fb-97ef-0b3ca8569805"
+        "00d4265d-b8c3-463f-b878-49f0476356f3",
+        "0393b97e-6467-4f2e-8f4a-ec4a024480f2"
       ],
       "settings": {
-        "fluid_layout": false,
-        "heading_txt": "in the press",
-        "lead_txt": "",
+        "fluid_layout": true,
+        "fluid_padding": false,
+        "heading": "",
+        "txt": "",
         "section_bg_color": "#ffffff",
-        "section_text_color": "#000000",
-        "enable": false,
-        "overlay_color": "#000000",
-        "opacity": 0.5,
-        "nav_arrows": false,
-        "nav_dots": true
-      }
-    },
-    "162943776301163939": {
-      "type": "global-video-with-text",
-      "settings": {
-        "fluid_layout": false,
-        "muted": true,
-        "controls": true,
-        "loop": true,
-        "title": "Awesome Heading",
-        "subtitle": "<p>Lipsum dolor sit amet, consectetur adipiscing elit. Aliquam pulvinar ac tortor imperdiet commodo.</p>",
-        "btn_txt": "",
-        "btn_link": "",
-        "btn_type": "",
-        "btn_variant": "white",
-        "btn_size": "",
-        "poster_type": "",
-        "bg_video": "",
-        "mobile_bg_video": "",
-        "poster_image": "shopify://shop_images/mlouye-thelma-louise-homepage-1.jpg",
-        "fluid_video_layout": true,
-        "video_type": "youtube",
-        "placement": "grid",
-        "video_id": "XqZsoesa55w",
-        "mobile_video_id": "",
-        "section_bg_color": "rgba(0,0,0,0)",
-        "section_text_color": "#ffffff",
-        "alignment": "text-left",
-        "video_alignment": "justify-content-center"
-      }
-    },
-    "1627036040e9086143": {
-      "type": "global-blog-posts",
-      "settings": {
-        "fluid_layout": false,
-        "blog_handles": "News",
-        "heading_txt": "News & Views",
-        "lead_txt": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam pulvinar ac tortor imperdiet commodo.",
-        "btn_txt": "",
-        "btn_url": "",
-        "section_bg_color": "#ffffff",
-        "section_txt_color": "#212529",
-        "btn_type": "outline",
-        "btn_variant": "primary",
-        "btn_size": ""
-      }
-    },
-    "163403325190e9c2fd": {
-      "type": "global-split-image-banner",
-      "blocks": {
-        "163403325190e9c2fd-0": {
-          "type": "heading",
-          "settings": {
-            "heading": "Image banner"
-          }
-        },
-        "163403325190e9c2fd-1": {
-          "type": "text",
-          "settings": {
-            "text": "Give customers details about the banner image(s) or content on the template."
-          }
-        },
-        "163403325190e9c2fd-2": {
-          "type": "buttons",
-          "settings": {
-            "button_label_1": "Button label",
-            "button_link_1": "",
-            "btn_type_1": "",
-            "btn_variant_1": "primary",
-            "btn_size_1": "",
-            "button_label_2": "Button label",
-            "button_link_2": "",
-            "btn_type_2": "",
-            "btn_variant_2": "primary",
-            "btn_size_2": ""
-          }
-        }
-      },
-      "block_order": [
-        "163403325190e9c2fd-0",
-        "163403325190e9c2fd-1",
-        "163403325190e9c2fd-2"
-      ],
-      "settings": {
-        "image_small": "shopify://shop_images/mlouye-sera-tote-macaron-desk1.jpg",
-        "image_mobile": "shopify://shop_images/mlouye-sera-tote-macaron-mob2.jpg",
-        "image_small_2": "shopify://shop_images/mlouye-new-small-naomi-desktop.jpg",
-        "image_mobile_2": "shopify://shop_images/mlouye-new-small-naomi-mob.jpg",
-        "image_overlay_opacity": 0,
-        "height": "tallheight",
-        "show_text_box": true,
-        "text_caption_align": "justify-content-center",
-        "vertical_caption_align": "align-items-center",
-        "text_align": "text-center",
-        "color_scheme": "#ffffff",
-        "stack_images_on_mobile": false,
-        "show_text_below": true
+        "section_txt_color": "#222222"
       }
     }
   },
   "order": [
     "16270344513581fee7",
-    "2b865f5c-7e70-4f62-8620-e3471df1555f",
     "16270420142c0cafe8",
-    "162710985888a5f3c0",
-    "16273012625e8a6f4e",
-    "162703446299aaa8de",
-    "16271097114d5db4ef",
-    "16270454495feb2a63",
-    "1633694875e64c966c",
-    "162943776301163939",
-    "1627036040e9086143",
-    "163403325190e9c2fd"
+    "a36e7b6b-8350-4953-9bf5-743b0b3637e3",
+    "e163469b-03ca-4ccf-bcc5-c53786311b1d",
+    "e3f1c954-9f9a-48c0-a054-5e9f6128b80a",
+    "74d613b6-5486-4c26-8485-c28115552c75",
+    "5af8a243-9159-436b-94d8-f80aeaf678a9"
   ]
 }

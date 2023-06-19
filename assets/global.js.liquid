@@ -82,6 +82,20 @@ function bodyTouchMove(event){
   }
 }
 
+setTimeout(() => {
+        updateTopinRoot();
+  }, 300);
+  function updateTopinRoot(){
+      let headerEle = document.querySelector('.site-header');
+      let topbar = document.querySelector('.topbar');
+      if(headerEle != undefined && topbar != undefined ){
+          let headerHeight = headerEle.clientHeight;
+          let topbarHeight = topbar.clientHeight;
+          let totalHeight = headerHeight + topbarHeight;
+          document.documentElement.style.setProperty('--bs-navdrawer',`${totalHeight}px`);
+      }
+}
+
 /**
   * Limit the number of times a function is called within defined timeout
   *
@@ -291,7 +305,7 @@ class MobileNavigation extends HTMLElement {
     this.touchendX = 0;
 
     this.openeBy = document.querySelector('#mobile-menu');
-    this.closeBy = this.querySelector('.close-mobile--navbar');
+    this.closeBy = document.querySelector('.close-mobile--navbar');
     this.navDrawer = this.querySelector('#mobile-menu-drawer');
     this.bindEvents();
   }
@@ -344,6 +358,7 @@ class MobileNavigation extends HTMLElement {
       event.preventDefault();
       let openBy = event.currentTarget;
       openBy.setAttribute('aria-expanded', true);
+      document.body.classList.add('mobile-nav-open');
       Utility.trapFocus(this.navDrawer, this.querySelector('.mobile-header--logo'));
       Utility.forceFocus(this.querySelector('.mobile-header--logo'));
     }
@@ -357,6 +372,7 @@ class MobileNavigation extends HTMLElement {
   closeMenuDrawer(event, elementToFocus = false) {
     if (event !== undefined) {
       event.preventDefault();
+      document.body.classList.remove('mobile-nav-open');
       this.navDrawer.classList.remove('opened-drawer');
       siteOverlay.prototype.hideOverlay();
 
@@ -1276,3 +1292,27 @@ if(document.querySelectorAll('.product-thumb--image').length > 0) {
   });
 }
 {%- endif -%}
+
+
+document.querySelectorAll(".quick-shop").forEach(function(btn) {
+  btn.addEventListener("click", function(){
+     this.closest(".card-product").querySelector(".quick-shop-content").style.display = "block";
+  });
+})
+document.querySelectorAll(".quik-shop-close-icon").forEach(function(btn) {
+  btn.addEventListener("click", function(){
+     this.closest(".card-product").querySelector(".quick-shop-content").style.display = "none";
+  });
+})
+let topbarHeight = document.querySelector(".topbar").offsetHeight;
+let headerHeight = document.querySelector(".site-header").offsetHeight;
+let totalHeight = topbarHeight + headerHeight;
+document.querySelector(".header__search").style.top = totalHeight+'px';
+
+
+window.onresize = function() {
+    let topbarHeight = document.querySelector(".topbar").offsetHeight;
+let headerHeight = document.querySelector(".site-header").offsetHeight;
+let totalHeight = topbarHeight + headerHeight;
+document.querySelector(".header__search").style.top = totalHeight+'px';
+}

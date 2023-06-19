@@ -1,0 +1,31 @@
+.featured-grid{
+padding: 4.063rem 0 3.75rem 0;
+}
+
+@media screen and (min-width:992px) {
+    .features-heading-text{
+        min-width: 900px;
+    }
+    .lead-text{
+        max-width: 345px;
+        margin: 0 auto;
+    }
+}
+
+@media screen and (max-width:576px) {
+    .featured-grid .feature p{
+      font-size: 15px;
+      margin-bottom: -7px;
+    }
+    .featured-grid{
+       padding:0 0 40px; 
+    }
+    .featured-grid .section-title{
+        padding: 0 6px;
+        margin-bottom: -5px !important;
+    }
+    .featured-grid .feature img{
+        width: 85px;
+        height: 85px;
+    }
+}

@@ -11,7 +11,7 @@
           {%- if request.page_type == 'index' -%}
             <div class="header__heading mb-0">
           {%- endif -%}
-              <a href="{{ routes.root_url }}" class="navbar-brand me-5 d-none d-lg-block" title="{{ shop.name | escape }}" aria-label="{{ shop.name | escape }}">
+              <a href="{{ routes.root_url }}" class="navbar-brand me-7 d-none d-lg-block" title="{{ shop.name | escape }}" aria-label="{{ shop.name | escape }}">
                 {%- if logo_svg != blank -%}
                   <img src="{{ section.settings.logo_svg }}" alt="{{ shop.name | escape }}" class="img-fluid" height="auto" width="150" loading="lazy" style="width: {{ section.settings.logo_width }}px" >
                 {%- elsif section.settings.logo != blank -%}
@@ -37,60 +37,63 @@
             {% render 'desktop-navbar' %}
           </div>
 
-          <div class="nav navbar-mobile w-100 d-flex align-items-center list-unstyled py-3 d-lg-none">
-            <div class="col-4 col-sm-4 px-0 text-left navbar-icon-links">
-                <div class="nav-item">
+          <div class="nav navbar-mobile w-100 d-flex align-items-center list-unstyled py-md-3 d-lg-none">
+            <div class="col-6 col-sm-6 px-0 text-left">
+            <ul class="align-items-center d-flex justify-content-start list-unstyled mb-0 ms-auto navbar-icon-links">
+                <li class="nav-item px-1">
                     <a class="nav-link" href="#" id="mobile-menu" title="menu" rel="nofollow" aria-label="Menu" role="button" aria-expanded="false" aria-controls="mobile-menu-drawer">
-                        <span class="icon-menu"></span>
+                        {% render 'icon-menu' %}
                     </a>
-                </div>
-            </div>
-            <div class="col-4 col-sm-4 text-center">
+                     <a class="close-mobile--navbar" href="#" title="close-menu" rel="nofollow" aria-label="close-menu" role="button" aria-expanded="false" aria-controls="close-mobile--navbar">
+                    {% render 'icon-close', class:"btn-close" %}
+                     </a>
+                </li>
                 {%- if request.page_type == 'index' -%}
-                <div class="header__heading mb-0">
+                <li class="nav-item header__heading mb-0">
                 {%- endif -%}
                     <a href="{{ routes.root_url }}" class="navbar-brand nav-item" title="{{ shop.name | escape }}" aria-label="{{ shop.name | escape }}">
-                        {%- if logo_svg != blank -%}
-                            <img src="{{ logo_svg }}" alt="{{ shop.name | escape }}" class="img-fluid" style="width: {{ section.settings.logo_width }}px" loading="lazy" 
-                            width="{{ section.settings.logo_width }}"
+                        {%- if section.settings.mobile_logo_svg != blank -%}
+                            <img src="{{ section.settings.mobile_logo_svg | img_url }}" alt="{{ shop.name | escape }}" class="img-fluid" style="width: {{ section.settings.mobile_logo_width }}px" loading="lazy" 
+                            width="{{ section.settings.mobile_logo_width }}"
                             height="40"
                         >
                         {%- elsif section.settings.logo != blank -%}
-                          <img srcset="{{ section.settings.logo | image_url: width: 500 }}"
-                            src="{{ section.settings.logo | image_url }}"
+                          <img srcset="{{ section.settings.mobile_logo_svg | image_url: width: 500 }}"
+                            src="{{ section.settings.mobile_logo_svg | image_url }}"
                             loading="lazy"
                             class="img-fluid"
-                            width="{{ section.settings.logo.width }}"
-                            height="{{ section.settings.logo.height }}"
-                            alt="{{ section.settings.logo.alt | default: shop.name | escape }}" 
-                            style="max-width: {{ section.settings.logo_width }}px">
+                            width="{{ section.settings.mobile_logo_svg.width }}"
+                            height="{{ section.settings.mobile_logo_svg.height }}"
+                            alt="{{ section.settings.mobile_logo_svg.alt | default: shop.name | escape }}" 
+                            style="max-width: {{ section.settings.mobile_logo_width }}px">
                         {%- else -%}
                             <span class="h5 text-primary">{{ shop.name }}</span>
                         {%- endif -%}
                     </a>
                 {%- if request.page_type == 'index' -%}
-                </div>
+                </li>
                 {%- endif -%}
+              </ul>
             </div>
-            <div class="col-4 col-sm-4 px-0 text-right">
+            <div class="col-6 col-sm-46 px-0 text-right mobile-header-icons">
                 <ul class="align-items-center d-flex justify-content-end list-unstyled mb-0 ms-auto navbar-icon-links">
-                    {% if shop.customer_accounts_enabled %}
-                        <li class="nav-item px-2">
-                            <a class="nav-link" href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}" title="account" rel="nofollow" aria-label="Account">
-                                <span class="icon-user"></span>
-                            </a>
-                        </li>
-                    {% endif %}
                     {%- if settings.enable_search -%}
-                    <li class="nav-item px-2">
+                    <li class="nav-item">
                       <a href="{{ routes.search_url }}" class="nav-link modal__toggle open-searchform" aria-haspopup="dialog" aria-label="{{ 'general.search.title' | t }}">
-                        <span class="icon-search"></span>
+                          {% render 'icon-search' %}
                       </a>
                     </li>
                     {%- endif -%}
-                    <li class="nav-item px-2">
+                    {% if shop.customer_accounts_enabled %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}" title="account" rel="nofollow" aria-label="Account">
+                               {% render 'icon-user' %}
+                            </a>
+                        </li>
+                    {% endif %}
+                    <li class="nav-item">
                         <a href="{{ routes.cart_url }}" class="nav-link header__icon--cart position-relative" focusable="false" id="cart-icon-mobile" rel="nofollow" title="cart" rel="nofollow" aria-label="Cart">
-                        <span class="icon-bag align-middle"></span>
+                       {% render 'icon-cart', class:"align-middle" %}
                         <span class="visually-hidden">{{ 'templates.cart.title' | t }}</span>
                         {%- if cart != empty -%}
                             {%- if cart.item_count < 100 -%}
@@ -197,8 +200,27 @@
       "content": "t:sections.header.settings.header_stlying.label"
     },
     {
-      "type": "range",
+      "type": "text",
       "id": "logo_width",
+      "label": "t:sections.header.settings.logo_width.label"
+    },
+    {
+      "type": "header",
+      "content": "Mobile Header"
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_logo_svg",
+      "label": "t:sections.header.settings.logo_svg.label",
+      "info": "t:sections.header.settings.logo_svg.info"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.header.settings.header_stlying.label"
+    },
+   {
+      "type": "range",
+      "id": "mobile_logo_width",
       "min": 50,
       "max": 250,
       "step": 10,
@@ -218,32 +240,118 @@
     }
   ],
   "blocks": [
-    {
+      {
       "type": "megamenu",
-      "name": "MegaMenu",
+      "name": "Megamenu with Image",
       "settings": [
-        {
-          "type": "text",
-          "id": "title",
-          "label": "Menu Title",
-          "info": "Use Exact string as header"
-        },
-        {
-            "type":"image_picker",
-            "id":"image",
-            "label": "Image",
-            "info": "Use 480x480 sized image."
-        },
-        {
-            "type":"text",
-            "id":"link_text",
-            "label":"Link text"
-        },
-        {
-            "type":"url",
-            "id":"link_url",
-            "label":"URL"
-        }
+          {
+            "type":"header",
+            "content":"Image Block 1"
+          },
+          {
+              "type": "text",
+              "id": "title",
+              "label": "Menu Title",
+              "info": "Use Exact string as header"
+          },
+          {
+              "type":"image_picker",
+              "id":"image",
+              "label": "Image"
+          },
+          {
+              "type":"text",
+              "id":"heading",
+              "label":"Heading"
+          },
+          {
+              "type":"text",
+              "id":"link_text",
+              "label":"Link text"
+          },
+          {
+              "type":"url",
+              "id":"link_url",
+              "label":"URL"
+          },
+          {
+            "type":"header",
+            "content":"Image Block 2"
+          },
+          {
+              "type": "text",
+              "id": "title_2",
+              "label": "Menu Title",
+              "info": "Use Exact string as header"
+          },
+          {
+              "type":"image_picker",
+              "id":"image_2",
+              "label": "Image"
+          },
+          {
+             "type":"text",
+             "id":"heading_2",
+             "label":"Heading"
+          },
+          {
+              "type":"text",
+              "id":"link_text_2",
+              "label":"Link text"
+          },
+          {
+              "type":"url",
+              "id":"link_url_2",
+              "label":"URL"
+          },
+          {
+              "type": "select",
+              "id": "menu_columns",
+              "label": "Menu Columns Size",
+              "options": [
+                  {
+                      "value": "col-md-3",
+                      "label": "3"
+                  },
+                  {
+                      "value": "col-md-4",
+                      "label": "4"
+                  },
+                  {
+                      "value": "col-md-5",
+                      "label": "5"
+                  },
+                  {
+                      "value": "col-md-6",
+                      "label": "6"
+                  }
+              ],
+              "default": "col-md-4"
+          },
+          {
+              "type": "select",
+              "id": "column",
+              "label": "Image Columns Size",
+              "options": [
+                  {
+                      "value": "col-md-3",
+                      "label": "3"
+                  },
+                  {
+                      "value": "col-md-4",
+                      "label": "4"
+                  },
+                  {
+                      "value": "col-md-5",
+                      "label": "5"
+                  },
+                  {
+                      "value": "col-md-6",
+                      "label": "6"
+                  }
+              ],
+              "default": "col-md-4"
+          }
       ]
     }
   ]

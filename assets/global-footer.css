@@ -1,0 +1,113 @@
+.footer-navigation a:hover{
+    text-decoration: none;
+    color: #C2C3C4 !important;
+}
+.toggle-footer-menu{
+    border-bottom: 1px solid #4C4C4C;
+    padding:14px 10px 14px 0;
+    cursor: pointer;
+}
+.footer_dropdown.open .toggle-footer-menu .icon-plus:before{
+    content: "\e912";
+}
+.footer_dropdown .dropdown-menu.open{
+    border-bottom: 1px solid #4C4C4C;
+}
+.newsletter-text h4{
+  margin-bottom: 5px;
+}
+.footer-bottom p{
+    font-size: 11px;
+}
+
+.footer-nav{
+    margin: 12px 0 !important;
+}
+
+form#NewsletterFooter input{
+        margin-right: 0.625rem;
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+        background-color: transparent;
+        border-color: #D6D7D8;
+}
+form#NewsletterFooter input::placeholder{
+    color: #fff;
+}
+form#NewsletterFooter .input-group .btn{
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+form#NewsletterFooter .input-group .btn:hover{
+background:#E5E6E6;
+color: #000;
+}
+
+
+@media screen and (min-width:992px){
+    .toggle-footer-menu{
+        pointer-events: none;
+        border: 0;
+        padding: 0;
+    }
+    .footer_dropdown h6 {
+        padding-bottom: 14px !important;
+    }
+    .footer-top{
+        padding-top: 68px;
+    }
+    .footer_dropdown .dropdown-menu.open{
+        border: 0;
+    }
+    .footer_dropdown .toggle-content{
+        display: block;
+        height: auto !important;
+    }
+    .social-links .list-inline-item:not(:last-child) {
+        margin-right: 25px;
+    }
+    form#NewsletterFooter {
+        max-width: 510px;
+        margin: 0 0 0 auto;
+    }
+    .footer-bottom p:first-child{
+        display: none;
+      }
+      .footer_dropdown svg {
+        margin-right: 17px;
+    }
+}
+
+@media screen and (max-width:991px) {
+    .footer_dropdown.open .toggle-footer-menu{
+      border-bottom: 0 !important;
+    }
+    .newsletter-text p{
+        font-size: 15px;
+    }
+    form#NewsletterFooter input{
+        margin-right: 0;
+        width: 100%;
+        margin-bottom: 12px;
+    }
+    form#NewsletterFooter .input-group .btn{
+        width: 100%;
+    }
+    .footer-subheading{
+        display: none;
+    }
+    .footer_dropdown a {
+        font-size: 14px;
+        font-family: 'Inter';
+        font-weight: 500;
+    }
+    .footer_dropdown svg {
+        margin-right: 17px;
+    }
+    .footer-bottom p{
+        margin-bottom: 0;
+    }
+    .footer-bottom p:first-child{
+        margin-bottom: 31px;
+      }
+}

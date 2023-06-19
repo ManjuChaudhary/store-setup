@@ -1,82 +1,172 @@
 .header-slider .shortheight .swiper-slide{
-    height: 40vh;
-    min-height: 400px;
+height: 40vh;
+min-height: 400px;
 }
 
 .header-slider .tallheight .swiper-slide{
-    height: 60vh;
-    min-height: 600px;
+height: 60vh;
+min-height: 595px;
 }
 
 .header-slider .fullheight .swiper-slide{
-    height: 100vh;
-    min-height: 700px;
+height: 100vh;
+min-height: 700px;
 }
 
 .header-slider .swiper-slide img,
 .header-slider .swiper-slide svg{
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
+position: absolute;
+top: 0;
+bottom: 0;
+left: 0;
+right: 0;
+width: 100%;
+height: 100%;
+object-fit: cover;
+object-position: center;
 }
 .slider-content{
-    position: relative;
-    z-index: 2;
+position: relative;
+z-index: 2;
 }
 .overlay {
-    position: absolute;
-    z-index: 1;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    display: block !important;
-    width: 100%;
-    height: 100%;
+position: absolute;
+z-index: 1;
+top: 0;
+right: 0;
+bottom: 0;
+left: 0;
+display: block !important;
+width: 100%;
+height: 100%;
 }
 .header-slider .swiper-button-next, 
 .header-slider  .swiper-button-prev{
-    z-index: 3;
+z-index: 3;
 }  
 
 .header-slider .swiper-button-next{
-    right: 20px;
+right: 20px;
 } 
 
 .header-slider  .swiper-button-prev{
-    left: 20px;
+left: 20px;
 }
 
 .header-video-slide .content-section, 
 .header-video-slide .video-section{
-    padding-top: 0;
-    height: 100%;
-    position: relative;
+padding-top: 0;
+height: 100%;
+position: relative;
 }
 
 .header-video-slide .video-section video{
-    width: 100%;
-    height: 100%;
+width: 100%;
+height: 100%;
 }
 
 .header-video-slide .content-section .poster-image, 
 .header-video-slide .video-section iframe{
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
+width: 100%;
+height: 100%;
+position: absolute;
+top: 0;
+left: 0;
 }
 
 .video-with--text:not(.show--video) .video-section{
-    display: none;
+display: none;
 }
 .video-with--text.placement--grid.show--video .content-section{
-    display: none;
+display: none;
+}
+.slider-content-wrapper h2{
+display: inline-grid;
+}
+.slider-content-wrapper h2 span{
+font-weight: normal;
+}
+.slider-content-wrapper p{
+font-size: 19px;
+max-width: 447px;
+}
+
+
+@media (max-width:767px){
+.slider-content-wrapper p{
+font-size: 17px;
+}
+.slider-content-wrapper h2{
+min-width: 100%;
+margin-bottom: 11px !important;
+}
+.slider-content-wrapper p{
+max-width: 100%;
+    margin-bottom: 4px !important;
+}
+.header-video-slide.text-below,
+.header-image-slide.text-below{
+flex-direction: column;
+}
+.header-video-slide.text-below .slider-content,
+.header-image-slide.text-below .slider-content{
+position: relative;
+top: auto;
+transform: none;
+padding: 25px 0;
+}
+.header-video-slide.text-below .slider-overlay,
+.header-image-slide.text-below .slider-overlay{
+display: none !important;
+}
+.header-video-slide.text-below .poster-image,
+.header-image-slide.text-below picture{
+max-height: 290px;
+position: relative;
+}
+.header-video-slide .poster-image, 
+.header-video-slide .video-section iframe{
+width: 100%;
+height: 100%;
+position: absolute;
+top: 0;
+left: 0;
+}
+.header-video-slide .poster-image video,
+.header-image-slide picture img,
+.header-image-slide picture{
+width: 100%;
+height: 100%;
+object-fit: cover;
+}
+.header-slider .tallheight .swiper-slide{
+height: 70vh;
+min-height: 679px;
+}
+.slider-content .btn{
+        min-width: 194px;
+}
+.slider-content .btn-link{
+        margin-left: -17px;
+}
+.header-slider-desktop .swiper-pagination-fraction, 
+.header-slider-desktop .swiper-pagination-custom, 
+.header-slider-desktop .swiper-horizontal > .swiper-pagination-bullets, 
+.header-slider-desktop .swiper-pagination-bullets.swiper-pagination-horizontal {
+    bottom: var(--swiper-pagination-bottom, 30px);
+}
+}
+@media (min-width:320px) and (max-width:380px){
+    .slider-content .btn {
+        min-width: auto;
+        padding-left: 13px;
+        padding-right: 13x;
+        font-size: 12px;
+    }
+    .slider-content .btn-link{
+        font-size: 11px;
+    }
+    .slider-content-wrapper h2{
+        font-size: 25px;
+    }
 }
