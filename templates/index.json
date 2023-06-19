@@ -99,7 +99,8 @@
         "enabled": true,
         "nav_arrows": false,
         "nav_dots": true,
-        "height": "tallheight"
+        "height": "tallheight",
+        "show_text_below": true
       }
     },
     "16270420142c0cafe8": {
@@ -238,7 +239,7 @@
       "settings": {
         "fluid_layout": false,
         "heading_txt": "What a healthy metabolism really does.",
-        "txt": "<p><strong><br>Controls weight.<br><\/strong>Yes, you know about this benefit. But did you know, when your metabolism is performing optimally, the weight comes off and stabilizes without sacrifice, starvation, or grueling workouts? It’s true.<br><br><strong>Provides physical energy and mental focus.<br><\/strong>Your metabolism’s job is to turn food into energy. Do you get tired shortly after meals or in the afternoon? Do you have brain fog or trouble concentrating? That means something’s in the way of that energy creation.<br><br><strong>Slows the aging process to maintain wellness.<br><\/strong>Humans are designed to be lean, strong, and vital for way longer than you might think. Again, when a poorly functioning metabolism isn’t providing enough energy to your cells, aging speeds up; wellness goes down.<\/p>",
+        "txt": "<strong>Controls weight<\/strong>\n<p>Yes, you know about this benefit. But did you know, when your metabolism is performing optimally, the weight comes off and stabilizes without sacrifice, starvation, or grueling workouts? It’s true.<\/p>\n<strong>Provides physical energy and mental focus<\/strong>\n<p>Your metabolism’s job is to turn food into energy. Do you get tired shortly after meals or in the afternoon? Do you have brain fog or trouble concentrating? That means something’s in the way of that energy creation.<\/p><strong>Slows the aging process to maintain wellness.<\/strong>\n<p>Humans are designed to be lean, strong, and vital for way longer than you might think. Again, when a poorly functioning metabolism isn’t providing enough energy to your cells, aging speeds up; wellness goes down.<\/p>",
         "step_heading": "",
         "steps_captions": "",
         "btn_txt": "Zone Science",
