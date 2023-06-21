@@ -1,5 +1,5 @@
     {{ 'global-featured-columns.css' | asset_url | stylesheet_tag }}
-    <section  style="background: {{ section.settings.section_bg_color }}; color: {{ section.settings.section_txt_color }};" data-section-id="{{ section.id }}">
+    <section  class="featured-columns-section" style="background: {{ section.settings.section_bg_color }}; color: {{ section.settings.section_txt_color }};" data-section-id="{{ section.id }}">
         {% if section.settings.fluid_padding %}<div class="section-content pb-0">{% endif %}
             <div class="{% if section.settings.fluid_layout %}container-fluid p-0 overflow-hidden{% else %}container{% endif %}">
                 {% if section.settings.heading != blank  or section.settings.txt != blank %}
@@ -17,26 +17,63 @@
                 {% if section.blocks.size > 0 %}
                     <div class="row {% if section.settings.fluid_layout %}no-gutter{% endif %}">      
                         {% for block in section.blocks %}
-                            <div class="col-md-6 col-12 mb-md-0 mb-40" data-block-id="{{ block.id }}"> 
-                                <a {% if block.settings.btn_link %} href="{{ block.settings.btn_link }}" {% endif %} class="collection-card d-block">
-                                    {%- if block.settings.image != blank -%}
-                                        <img 
-                                        srcset="
-                                        {%- if block.settings.image.width >= 360 -%}{{ block.settings.image | image_url: width: 360 }} 360w,{%- endif -%}
-                                        {%- if block.settings.image.width >= 535 -%}{{ block.settings.image | image_url: width: 535 }} 535w,{%- endif -%}
-                                        {%- if block.settings.image.width >= 750 -%}{{ block.settings.image | image_url: width: 750 }} 750w,{%- endif -%}
-                                        {{ block.settings.image | image_url }} {{block.settings.image.width}}w"
-                                        src="{{ block.settings.image | image_url: width: 50 }}"
-                                        sizes="(min-width: {{ settings.container_width }}) {{ settings.container_width | minus: 100 | divided_by: 3 }}px, (min-width: 768px) calc((100vw - 130px) / 2), 50vw"
-                                        alt="{{ block.settings.image.alt | default: block.settings.heading  | escape }}"
-                                        height="{{ block.settings.image.height }}"
+                            <div class="col-md-6 col-12 mb-md-0 mb-40 {% if block.settings.show_image_below %} image-below {% endif %}" data-block-id="{{ block.id }}" style="background-color:{{ block.settings.backgroud_color }};"> 
+                                <a {% if block.settings.btn_link %} href="{{ block.settings.btn_link }}" {% endif %} class="collection-card featured-columns-image d-block">
+                                  {% assign mobileImage = block.settings.image_mobile %}
+                                  {% if block.settings.image_mobile != blank %}
+                                    <picture>
+                                        {%- if mobileImage.width >= 375 -%}<source media="(max-width: 375px)" srcset="{{ mobileImage | image_url: width: 375 }}">{%- endif -%}
+                                        {%- if mobileImage.width >= 550 -%}<source media="(max-width: 550px)" srcset="{{ mobileImage | image_url: width: 550 }}">{%- endif -%}
+                                        {%- if mobileImage.width >= 767 -%}<source media="(max-width: 767px)" srcset="{{ mobileImage | image_url: width: 767 }}">{%- endif -%}
+                                        
+                                        {%- if block.settings.image.width >= 3800 -%}<source media="(min-width: 3000px)" srcset="{{ block.settings.image | image_url: width: 3800 }}">{%- endif -%}
+                                        {%- if block.settings.image.width >= 3000 -%}<source media="(min-width: 2560px)" srcset="{{ block.settings.image | image_url: width: 3000 }}">{%- endif -%}
+                                        {%- if block.settings.image.width >= 2560 -%}<source media="(min-width: 1901px)" srcset="{{ block.settings.image | image_url: width: 2560 }}">{%- endif -%}
+                                        {%- if block.settings.image.width >= 1920 -%}<source media="(min-width: 1700px)" srcset="{{ block.settings.image | image_url: width: 1920 }}">{%- endif -%}
+                                        {%- if block.settings.image.width >= 1720 -%}<source media="(min-width: 1500px)" srcset="{{ block.settings.image | image_url: width: 1720 }}">{%- endif -%}
+                                        {%- if block.settings.image.width >= 1500 -%}<source media="(min-width: 1200px)" srcset="{{ block.settings.image | image_url: width: 1500 }}">{%- endif -%}
+                                        {%- if block.settings.image.width >= 1200 -%}<source media="(min-width: 991px)" srcset="{{ block.settings.image | image_url: width: 1200 }}">{%- endif -%}
+                                        {%- if block.settings.image.width >= 991 -%}<source media="(min-width: 768px)" srcset="{{ block.settings.image | image_url: width: 991 }}">{%- endif -%}
+
+                                        <img src="{{ block.settings.image | image_url: width: 50 }}" 
+                                        alt="{{ block.settings.image.alt | default: block.settings.heading | escape }}"
+                                        width="{{ block.settings.image.width }}" 
+                                        {% if forloop.index != 1 %} loading="lazy" {% else %} fetchpriority="high" {% endif %}
+                                        height="{{ block.settings.image.width | divided_by: block.settings.image.aspect_ratio | round }}"
+                                        >
+                                    </picture>
+                          			{% elsif block.settings.image != blank %}
+                          			 <img srcset="
+                                        {%- if mobileImage.width >= 375 -%}{{ mobileImage | image_url: width: 375 }} 375w,{%- endif -%}
+                                        {%- if mobileImage.width >= 550 -%}{{ mobileImage | image_url: width: 550 }} 550w,{%- endif -%}
+                                        {%- if mobileImage.width >= 767 -%}{{ mobileImage | image_url: width: 767 }} 767w,{%- endif -%}
+                                        {%- if block.settings.image.width >= 991 -%}{{ block.settings.image | image_url: width: 991 }} 991w,{%- endif -%}
+                                        {%- if block.settings.image.width >= 1200 -%}{{ block.settings.image | image_url: width: 1200 }} 1200w,{%- endif -%}
+                                        {%- if block.settings.image.width >= 1500 -%}{{ block.settings.image | image_url: width: 1500 }} 1500w,{%- endif -%}
+                                        {%- if block.settings.image.width >= 1780 -%}{{ block.settings.image | image_url: width: 1780 }} 1780w,{%- endif -%}
+                                        {%- if block.settings.image.width >= 1920 -%}{{ block.settings.image | image_url: width: 1920 }} 1920w,{%- endif -%}
+                                        {%- if block.settings.image.width >= 2560 -%}{{ block.settings.image | image_url: width: 2560 }} 2560w,{%- endif -%}
+                                        {%- if block.settings.image.width >= 3800 -%}{{ block.settings.image | image_url: width: 3800 }} 3800w,{%- endif -%}
+                                        {{ block.settings.image | image_url }} {{ block.settings.image.width }}w"
+                                        src="{{ block.settings.image | image_url: width: 1500 }}" {% if forloop.index != 1 %} loading="lazy" {% else %} fetchpriority="high" {% endif %}
+                                        alt="{{ block.settings.image.alt | default: block.settings.heading | escape }}"
                                         width="{{ block.settings.image.width }}"
-                                        loading="lazy" >
-                                    {%- endif -%}
+                                        height="{{ block.settings.image.width | divided_by: block.settings.image.aspect_ratio | round }}"
+                                        sizes="(max-width: 375px) 375px, 
+                                        (max-width: 550px) 550px, 
+                                        (max-width: 767px) 767px, 
+                                        (max-width: 991px) 991px, 
+                                        (max-width: 1200px) 1200px, 
+                                        (max-width: 1500px) 1500px, 
+                                        (max-width: 1780px) 1780px, 
+                                        (max-width: 1920px) 1920px, 
+                                        (max-width: 2560px) 2560px, 
+                                        (max-width: 3800px) 3800px, {{ block.settings.image.width }}px">
+                          			{% endif %}
                                     {% if block.settings.enable_overlay %}
                                         <div class="overlay" style="background: linear-gradient(180deg, rgba(0, 0, 0, 0) 72.2%, rgba(0, 0, 0, 0.325) 100%);"></div>
                                     {% endif %}
-                                    <div class="collection-card-body p-lg-6 p-md-4 p-3 {{block.settings.alignment}}">
+                                    <div class="featured-columns-text collection-card-body p-lg-6 p-md-4 p-3 {{block.settings.alignment}}">
                                         <h6 class="mb-2" style="color: {{ block.settings.txt_color }};">{{block.settings.subheading }}</h6>
                                         <h2 class="heading_txt mb-md-2 mb-1" style="color: {{ block.settings.txt_color }};">{{ block.settings.heading | escape }}</h2>
                                         <p class="caption_txt mb-md-5 mb-3" style="color: {{ block.settings.txt_color }};">{{ block.settings.caption | escape }}</p>
@@ -110,6 +147,11 @@
                     "type": "image_picker",
                     "id": "image",
                     "label": "Select Image"
+                },
+                {
+                    "type": "image_picker",
+                    "id": "image_mobile",
+                    "label": "Select Mobile Image"
                 },
                 {
                     "type": "checkbox",
@@ -239,6 +281,17 @@
                         }
                     ],
                     "default": ""
+                },
+                {
+                   "type": "checkbox",
+                   "id": "show_image_below",
+                    "default": true,
+                   "label": "Show image below banner"
+                },
+                {
+                    "type":"color",
+                    "id":"backgroud_color",
+                    "label":"Background Color"
                 }
                 ]
             }

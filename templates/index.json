@@ -164,12 +164,11 @@
         "btn_type": "",
         "btn_variant": "primary",
         "btn_size": "",
-        "image": "shopify:\/\/shop_images\/AdobeStock_523519877_49bcc00c-32d5-4099-bf50-26e06ed41ef8.png",
-        "circle_color": "#FFDA27",
+        "image": "shopify:\/\/shop_images\/AdobeStock_523519877.jpg",
+        "circle_color": "#ffda27",
         "section_bg_color": "#f5f5f5",
         "section_text_color": "#000000",
-        "alignment": "text-left",
-        "image_alignment": "right"
+        "alignment": "text-left"
       }
     },
     "e163469b-03ca-4ccf-bcc5-c53786311b1d": {
@@ -262,6 +261,7 @@
           "type": "content",
           "settings": {
             "image": "shopify:\/\/shop_images\/Group_1630_2x_3900a343-187e-4d91-b597-1fa18ebdc449.jpg",
+            "image_mobile": "shopify:\/\/shop_images\/Mask_Group_35_31c7ce2d-5d2b-40ef-b8c9-3833ec99b0f1.jpg",
             "enable_overlay": false,
             "alignment": "text-start",
             "subheading": "WHO’S BEHIND ALL THIS?",
@@ -272,7 +272,9 @@
             "btn_link": "",
             "btn_type": "",
             "btn_variant": "dark",
-            "btn_size": ""
+            "btn_size": "",
+            "show_image_below": true,
+            "backgroud_color": "#f5f5f5"
           }
         },
         "0393b97e-6467-4f2e-8f4a-ec4a024480f2": {
@@ -289,7 +291,9 @@
             "btn_link": "",
             "btn_type": "",
             "btn_variant": "dark",
-            "btn_size": ""
+            "btn_size": "",
+            "show_image_below": false,
+            "backgroud_color": ""
           }
         }
       },
