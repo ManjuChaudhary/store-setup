@@ -90,5 +90,6 @@ mix-blend-mode: multiply;
 }
 .featured-columns-section .image-below .collection-card-body{
 padding-top: 39px!important;
+padding-bottom: 7px;
 }
 }

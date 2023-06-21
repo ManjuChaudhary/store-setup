@@ -19,7 +19,7 @@
             "heading": "<span>Your metabolism controls your weight.<\/span> And way, way more.",
             "caption": "See just how much we can help you control weight, get more physical energy and mental focus, and slow aging by getting into the Zone.",
             "heading_txt_color": "#000000",
-            "caption_txt_color": "#000000",
+            "caption_txt_color": "#231f20",
             "head-bg-color": "",
             "btn_txt": "What Is The Zone?",
             "btn_link": "#",
@@ -70,7 +70,7 @@
             "title": "Awesome Heading",
             "subtitle": "<p>Lipsum dolor sit amet, consectetur adipiscing elit. Aliquam pulvinar ac tortor imperdiet commodo.<\/p>",
             "play_icon": false,
-            "play_btn": true,
+            "play_btn": false,
             "btn_txt": "",
             "btn_link": "",
             "btn_type": "",
@@ -109,7 +109,7 @@
         "16270420142c0cafe8-0": {
           "type": "content",
           "settings": {
-            "icon_img": "shopify:\/\/shop_images\/Group_1724.svg",
+            "icon_img": "shopify:\/\/shop_images\/Group_1596.svg",
             "title": "",
             "txt": "<p>No one’s ever told you what your “metabolism” really does. <em>We will.<\/em><\/p>"
           }
@@ -117,7 +117,7 @@
         "beea9bb0-d601-4956-83a1-f2d38787618b": {
           "type": "content",
           "settings": {
-            "icon_img": "shopify:\/\/shop_images\/Group_1725.svg",
+            "icon_img": "shopify:\/\/shop_images\/Group_1593.svg",
             "title": "",
             "txt": "<p>Your metabolism controls your weight. And way, way more. <em>We tell you why.<\/em><\/p>"
           }
@@ -125,7 +125,7 @@
         "798431da-59c8-4c8e-92d3-73e2aac83e38": {
           "type": "content",
           "settings": {
-            "icon_img": "shopify:\/\/shop_images\/Group_1726.svg",
+            "icon_img": "shopify:\/\/shop_images\/Group_1592.svg",
             "title": "",
             "txt": "<p>Metabolism controls your future wellness. <em>We show you how.<\/em><\/p>"
           }

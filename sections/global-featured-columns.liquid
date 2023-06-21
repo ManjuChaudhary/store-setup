@@ -75,7 +75,7 @@
                                     {% endif %}
                                     <div class="featured-columns-text collection-card-body p-lg-6 p-md-4 p-3 {{block.settings.alignment}}">
                                         <h6 class="mb-2" style="color: {{ block.settings.txt_color }};">{{block.settings.subheading }}</h6>
-                                        <h2 class="heading_txt mb-md-2 mb-1" style="color: {{ block.settings.txt_color }};">{{ block.settings.heading | escape }}</h2>
+                                        <h2 class="heading_txt mb-2" style="color: {{ block.settings.txt_color }};">{{ block.settings.heading | escape }}</h2>
                                         <p class="caption_txt mb-md-5 mb-3" style="color: {{ block.settings.txt_color }};">{{ block.settings.caption | escape }}</p>
                                         {% if block.settings.btn_txt != blank %}
                                         <span class="btn btn{% if block.settings.btn_type == 'outline' %}-{% endif %}{{ block.settings.btn_type }}-{{ block.settings.btn_variant }} {{ block.settings.btn_size }}">{{ block.settings.btn_txt }}</span>

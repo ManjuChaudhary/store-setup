@@ -4,13 +4,13 @@
     "banner": {
       "type": "template-collection-banner",
       "settings": {
-        "fluid_layout": false,
+        "fluid_layout": true,
         "show_collection_description": true,
         "show_collection_image": true,
-        "section_bg_color": "#fafaf7",
-        "txt_color": "#212529",
-        "alignment": "text-center",
-        "caption_alignment": "mx-auto"
+        "section_bg_color": "#f5f5f5",
+        "txt_color": "#000000",
+        "alignment": "text-start",
+        "caption_alignment": "me-auto"
       }
     },
     "product-grid": {
@@ -21,11 +21,10 @@
           "settings": {
             "enable": true,
             "block_index": "18",
-            "image": "shopify://shop_images/mlouye-puff-mobile-1.jpg",
-            "heading": "<p>Heading</p>",
-            "subheading": "<p>Subheading</p>",
+            "heading": "<p>Heading<\/p>",
+            "subheading": "<p>Subheading<\/p>",
             "btn_text": "Shop Now",
-            "link": "shopify://collections/dresses-long-sleeve"
+            "link": "shopify:\/\/collections\/dresses-long-sleeve"
           }
         },
         "849060e4-89ba-4703-877d-d55e26313a29": {
@@ -33,11 +32,10 @@
           "settings": {
             "enable": true,
             "block_index": "3",
-            "image": "shopify://shop_images/mlouye-brick-macaron-m1.jpg",
             "heading": "",
             "subheading": "",
             "btn_text": "",
-            "link": "shopify://collections/spring"
+            "link": "shopify:\/\/collections\/spring"
           }
         }
       },
@@ -46,17 +44,18 @@
         "849060e4-89ba-4703-877d-d55e26313a29"
       ],
       "settings": {
-        "products_per_page": 16,
-        "product_per_row": "4",
+        "products_per_page": 8,
+        "product_per_row": "3",
         "pagination_type": "numbers",
-        "enable_sub_collections": true,
-        "sub_collections": "sub-collections",
-        "enable_filtering": true,
+        "enable_sub_collections": false,
+        "sub_collections": "",
+        "enable_filtering": false,
         "filter_type": "default",
         "price_filter_layout": "range_slider",
         "price_filter_values": "",
+        "enable_custom_pagination": false,
         "custom_pagination": "16,24,32",
-        "open_single_accordians": true,
+        "open_single_accordians": false,
         "enable_sorting": true
       }
     }

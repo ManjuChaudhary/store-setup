@@ -54,11 +54,11 @@
                                           {%- if megaMenuBlock.image.width >= 360 -%}{{ megaMenuBlock.image | img_url: width: 360 }} 360w,{%- endif -%}
                                           {%- if megaMenuBlock.image.width >= 570 -%}{{ megaMenuBlock.image | img_url: width: 570 }} 570w,{%- endif -%}"
                                           loading="lazy" 
-                                          sizes="(min-width: 992px) 1000px, 400px"
+                                          sizes="(min-width: 992px){{ collection.image.width }}px"
                                           alt="Megamenu for {{ link.title }}" 
                                           class="mb-3 img-fluid" 
-                                          height="300" 
-                                          width="300" />
+                                          height="{{ megaMenuBlock.image.width }}" 
+                                          width="{{ megaMenuBlock.image.height }}" />
                                   </div>
                               {% endif %}
                                {% if megaMenuBlock.heading %}
@@ -81,11 +81,11 @@
                                           {%- if megaMenuBlock.image_2.width >= 360 -%}{{ megaMenuBlock.image_2 | img_url: width: 360 }} 360w,{%- endif -%}
                                           {%- if megaMenuBlock.image_2.width >= 570 -%}{{ megaMenuBlock.image_2 | img_url: width: 570 }} 570w,{%- endif -%}"
                                           loading="lazy" 
-                                          sizes="(min-width: 992px) 1000px, 400px"
+                                          sizes="(min-width: 992px) {{ collection.image.width }}px"
                                           alt="Megamenu for {{ link.title }}" 
                                           class="mb-3 img-fluid" 
-                                          height="300" 
-                                          width="300" />
+                                          height="{{ megaMenuBlock.image.width }}" 
+                                          width="{{ megaMenuBlock.image.height }}" />
                                   </div>
                               {% endif %}
                               {% if megaMenuBlock.heading_2 %}

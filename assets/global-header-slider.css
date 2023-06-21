@@ -92,19 +92,19 @@ max-width: 447px;
 }
 
 .btn-grp{
-    margin: 0 -25px;
-   }
-   .btn-grp a{
-       margin: 0 25px;
-   }
+    margin: 0 -20px;
+}
+.btn-grp a{
+    margin: 0 20px;
+}
 
 @media (max-width:767px){
 .btn-grp{
     margin: 0 -13px;
-   }
-   .btn-grp a{
+}
+.btn-grp a{
        margin: 0 13px;
-   }
+}
 .slider-content-wrapper p{
 font-size: 17px;
 }

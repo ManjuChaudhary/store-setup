@@ -1,7 +1,14 @@
 .featured-grid{
 padding: 4.063rem 0 3.75rem 0;
 }
-
+.featured-grid .feature img{
+        background: #F5F5F5;
+        width: 110px;
+        height: 110px;
+        position: relative;
+        object-fit: scale-down;
+        border-radius: 50%;
+}
 @media screen and (min-width:992px) {
     .features-heading-text{
         min-width: 900px;
