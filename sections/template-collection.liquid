@@ -76,7 +76,7 @@
                 {%- endpaginate -%}
             </div>
         </div>
-
+     <hr>
     {% if collection.description != blank %}
       <div class="text-center mt-7">
         {{ collection.description }}
@@ -264,26 +264,31 @@
           "label": "Enable"
         },
         {
+          "type": "color",
+          "id": "background_color",
+          "default": "#F5F5F5",
+          "label":"Background Color"
+        },
+        {
           "type": "text",
           "id": "block_index",
           "label": "Block Placement",
           "info": "The block will be added after mentioned index(Must be in Number) in Product listing. Exclude Promo grid while calculating index."
         },
-        {
-          "type": "image_picker",
-          "id": "image",
-          "label": "Image",
-          "info": "Use 480x590 sized image."
-        },
+{
+    "type": "image_picker",
+    "id": "image",
+    "label": "Select Image"
+},
+{
+    "type": "image_picker",
+    "id": "image_mobile",
+    "label": "Select Mobile Image"
+},
         {
           "type": "richtext",
           "id": "heading",
           "label": "Heading"
-        },
-        {
-          "type": "richtext",
-          "id": "subheading",
-          "label": "Subheading"
         },
         {
           "type": "text",

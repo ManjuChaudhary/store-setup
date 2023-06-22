@@ -9,7 +9,7 @@
         <div class="row align-items-center">
             <div class="col-sm-12 col-md-6 collection-description {{ section.settings.alignment }} {{ section.settings.caption_alignment }}" style="color: {{ section.settings.txt_color }};">
                 <div class="fancy-heading">
-                    <h1 class="page-title mb-3"> 
+                    <h1 class="page-title"> 
                         {{- collection.title | escape -}}
                     </h1>
                     {%- if section.settings.show_collection_description -%}
@@ -39,7 +39,7 @@
                 alt="{{ collection.title | escape }}"
                 loading="lazy"
                 width="{{ collection.image.width }}"
-                height="{{ collection.image.height }}"
+                height="{{ collection.image.width | divided_by: collection.image.aspect_ratio | round }}"
                 class="w-100 h-100"
             >
         </div>

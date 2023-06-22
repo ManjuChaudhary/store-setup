@@ -6,37 +6,66 @@
             {% assign currentIndex = block.settings.block_index | strip | plus: 0 %}
             {% if currentIndex > totalProducts or currentIndex == loopIndex %}
                 {%- capture promoBlock -%}
-                    <div class="col-lg-{{ section.settings.product_per_row }} col-md-4 col-sm-6 mb-5 d-flex align-items-stretch justify-content-around">
-                        <div class="card card-product card-product-promo border-0">
-                            <div class="card-img">
-                                <a {% if block.settings.link != blank %}href="{{ block.settings.link }}"{% endif %} class="d-block">
-                                    <img src="{{ block.settings.image | image_url: width: 50 }}"
-                                        srcset="
-                                        {%- if block.settings.image.width >= 360 -%}{{ block.settings.image | image_url: width: 360 }} 360w,{%- endif -%}
-                                        {%- if block.settings.image.width >= 533 -%}{{ block.settings.image | image_url: width: 533 }} 533w,{%- endif -%}
+                    <div class="col-md-6 col-12 mb-md-0 mb-40 promo-block">
+                                <a {% if block.settings.link != blank %}href="{{ block.settings.link }}"{% endif %} class="collection-card featured-columns-image d-block" style="background-color:{{ block.settings.background_color }}">
+                                    {% assign mobileImage = block.settings.image_mobile %}
+                                  {% if block.settings.image_mobile != blank %}
+                                    <picture>
+                                        {%- if mobileImage.width >= 375 -%}<source media="(max-width: 375px)" srcset="{{ mobileImage | image_url: width: 375 }}">{%- endif -%}
+                                        {%- if mobileImage.width >= 550 -%}<source media="(max-width: 550px)" srcset="{{ mobileImage | image_url: width: 550 }}">{%- endif -%}
+                                        {%- if mobileImage.width >= 767 -%}<source media="(max-width: 767px)" srcset="{{ mobileImage | image_url: width: 767 }}">{%- endif -%}
+                                        
+                                        {%- if block.settings.image.width >= 3800 -%}<source media="(min-width: 3000px)" srcset="{{ block.settings.image | image_url: width: 3800 }}">{%- endif -%}
+                                        {%- if block.settings.image.width >= 3000 -%}<source media="(min-width: 2560px)" srcset="{{ block.settings.image | image_url: width: 3000 }}">{%- endif -%}
+                                        {%- if block.settings.image.width >= 2560 -%}<source media="(min-width: 1901px)" srcset="{{ block.settings.image | image_url: width: 2560 }}">{%- endif -%}
+                                        {%- if block.settings.image.width >= 1920 -%}<source media="(min-width: 1700px)" srcset="{{ block.settings.image | image_url: width: 1920 }}">{%- endif -%}
+                                        {%- if block.settings.image.width >= 1720 -%}<source media="(min-width: 1500px)" srcset="{{ block.settings.image | image_url: width: 1720 }}">{%- endif -%}
+                                        {%- if block.settings.image.width >= 1500 -%}<source media="(min-width: 1200px)" srcset="{{ block.settings.image | image_url: width: 1500 }}">{%- endif -%}
+                                        {%- if block.settings.image.width >= 1200 -%}<source media="(min-width: 991px)" srcset="{{ block.settings.image | image_url: width: 1200 }}">{%- endif -%}
+                                        {%- if block.settings.image.width >= 991 -%}<source media="(min-width: 768px)" srcset="{{ block.settings.image | image_url: width: 991 }}">{%- endif -%}
+
+                                        <img src="{{ block.settings.image | image_url: width: 50 }}" 
+                                        alt="{{ block.settings.image.alt | default: block.settings.heading | escape }}"
+                                        width="{{ block.settings.image.width }}" 
+                                        {% if forloop.index != 1 %} loading="lazy" {% else %} fetchpriority="high" {% endif %}
+                                        height="{{ block.settings.image.width | divided_by: block.settings.image.aspect_ratio | round }}"
+                                        >
+                                    </picture>
+                          			{% elsif block.settings.image != blank %}
+                          			 <img srcset="
+                                        {%- if mobileImage.width >= 375 -%}{{ mobileImage | image_url: width: 375 }} 375w,{%- endif -%}
+                                        {%- if mobileImage.width >= 550 -%}{{ mobileImage | image_url: width: 550 }} 550w,{%- endif -%}
+                                        {%- if mobileImage.width >= 767 -%}{{ mobileImage | image_url: width: 767 }} 767w,{%- endif -%}
+                                        {%- if block.settings.image.width >= 991 -%}{{ block.settings.image | image_url: width: 991 }} 991w,{%- endif -%}
+                                        {%- if block.settings.image.width >= 1200 -%}{{ block.settings.image | image_url: width: 1200 }} 1200w,{%- endif -%}
+                                        {%- if block.settings.image.width >= 1500 -%}{{ block.settings.image | image_url: width: 1500 }} 1500w,{%- endif -%}
+                                        {%- if block.settings.image.width >= 1780 -%}{{ block.settings.image | image_url: width: 1780 }} 1780w,{%- endif -%}
+                                        {%- if block.settings.image.width >= 1920 -%}{{ block.settings.image | image_url: width: 1920 }} 1920w,{%- endif -%}
+                                        {%- if block.settings.image.width >= 2560 -%}{{ block.settings.image | image_url: width: 2560 }} 2560w,{%- endif -%}
+                                        {%- if block.settings.image.width >= 3800 -%}{{ block.settings.image | image_url: width: 3800 }} 3800w,{%- endif -%}
                                         {{ block.settings.image | image_url }} {{ block.settings.image.width }}w"
-                                        sizes="(min-width: {{ settings.container_width }}) {{ settings.container_width | minus: 100 | divided_by: 4 }}px, (min-width: 768px) calc((100vw - 130px) / 2), 50vw"
-                                        loading="lazy"
-                                        class="w-100"
-                                        alt="{{ block.settings.image.alt | default: collection.title | escape }}"
+                                        src="{{ block.settings.image | image_url: width: 1500 }}" {% if forloop.index != 1 %} loading="lazy" {% else %} fetchpriority="high" {% endif %}
+                                        alt="{{ block.settings.image.alt | default: block.settings.heading | escape }}"
                                         width="{{ block.settings.image.width }}"
-                                        height="{{ block.settings.image.width | divided_by: block.settings.image.aspect_ratio }}" >
+                                        height="{{ block.settings.image.width | divided_by: block.settings.image.aspect_ratio | round }}"
+                                        sizes="(max-width: 375px) 375px, 
+                                        (max-width: 550px) 550px, 
+                                        (max-width: 767px) 767px, 
+                                        (max-width: 991px) 991px, 
+                                        (max-width: 1200px) 1200px, 
+                                        (max-width: 1500px) 1500px, 
+                                        (max-width: 1780px) 1780px, 
+                                        (max-width: 1920px) 1920px, 
+                                        (max-width: 2560px) 2560px, 
+                                        (max-width: 3800px) 3800px, {{ block.settings.image.width }}px">
+                          			{% endif %}
+                                        <div class="featured-columns-text collection-card-body p-lg-3 p-2 text-start">
+                                            {% if block.settings.heading != blank %}<h3 class="text-black">{{ block.settings.heading }}</h3>{% endif %}
+                                            {% if block.settings.btn_text != blank %}
+                                            <span class="btn-link">{{ block.settings.btn_text }}</span>
+                                             {% endif %}
+                                         </div>
                                 </a>
-                            </div>
-                            <div class="card-body px-0">
-                                <div class="row no-gutter">
-                                    <div class="col-12">
-                                        {% if block.settings.heading != blank %}<h6 class="card-title mb-2 font-family-base">{{ block.settings.heading }}</h6>{% endif %}
-                                        {% if block.settings.subheading != blank %}<div class="cm-0 font-family-base">{{ block.settings.subheading }}</div>{% endif %}
-                                    </div>
-                                </div>
-                            </div>
-                            {% if block.settings.btn_text != blank %}
-                            <div class="card-footer bg-transparent border-0 p-0">
-                                <a {% if block.settings.link != blank %}href="{{ block.settings.link }}"{% endif %} class="btn btn-outline-dark btn-sm flex-grow-1 w-100">{{ block.settings.btn_text }}</a>
-                            </div>
-                            {% endif %}
-                        </div>
                     </div>
                 {%- endcapture -%}
             {% endif %}

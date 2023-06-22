@@ -28,6 +28,9 @@ z-index: 1;
 .card-product-promo p{
 margin-bottom:0;
 }
+.card-product-promo img{
+  mix-blend-mode: multiply;
+}
 
 .card-product .badges {
 position: absolute;
@@ -220,4 +223,93 @@ span.icon-close.quik-shop-close-icon {
     .card-img{
        height: 123px;
     }
+}
+
+.collection-card{
+    overflow: hidden;
+    position: relative;
+    padding-bottom: 104.17%;
+}
+
+.collection-card > img,
+.collection-card picture img{
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    mix-blend-mode: multiply;
+}
+.collection-card-body{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top:2rem;
+    z-index: 2;
+    transition: ease-in-out 0.25s;
+}
+.template-collection .card-product .card-img>a{
+  padding-top: 81.2%;
+}
+.template-collection .card-product .card-body{
+    padding: 26px 0 0;
+}
+.template-collection  .card.card-product
+{
+padding: 30px 22px 27px;
+}
+.template-collection span.stamped-product-reviews-badge.stamped-main-badge {
+    padding-bottom: 4px;
+    padding-top: 4px;
+}
+@media (min-width:992px){
+    .template-collection .collection-card{
+        padding-bottom: 77%;
+    }
+    .collection-card-body{
+        padding-left: 40px !important;
+    }
+    .collection-card-body h3{
+        margin-bottom: 18px;
+        max-width: 420px;
+    }
+}
+@media (max-width:767px){
+.collection-card-body {
+padding-top: 5px !important;
+}
+.featured-columns-section .image-below{
+flex-direction: column;
+}
+.featured-columns-section .image-below .featured-columns-text{
+position: relative;
+top: auto;
+transform: none;
+padding: 25px 0;
+}
+.featured-columns-section .image-below .overlay{
+display: none !important;
+}
+.featured-columns-section .image-below picture{
+max-height: 260px;
+position: relative;
+order: 2;
+}
+.featured-columns-section .image-below .collection-card{
+padding-bottom: 0;
+}
+.featured-columns-section .image-below .collection-card{
+    display: flex !important;
+    flex-direction: column;
+}
+.featured-columns-section .image-below .collection-card > img,
+.featured-columns-section .image-below .collection-card picture img{
+position: inherit;
+mix-blend-mode: multiply;
+}
+.featured-columns-section .image-below .collection-card-body{
+padding-top: 39px!important;
+padding-bottom: 7px;
+}
 }
