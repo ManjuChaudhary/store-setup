@@ -21,10 +21,10 @@
           "type": "promo-blocks",
           "settings": {
             "enable": true,
+            "background_color": "#F5F5F5",
             "block_index": "6",
             "image": "shopify:\/\/shop_images\/Mask_Group_40.jpg",
             "heading": "<p>The one thing stopping your metabolism from giving you all those benefits.<\/p>",
-            "subheading": "",
             "btn_text": "take the quiz",
             "link": ""
           }
@@ -34,9 +34,9 @@
         "569f40d4-52e3-4549-a672-e422dbdff177"
       ],
       "settings": {
-        "products_per_page": 8,
+        "products_per_page": 24,
         "product_per_row": "3",
-        "pagination_type": "numbers",
+        "pagination_type": "loadmore",
         "enable_sub_collections": false,
         "sub_collections": "",
         "enable_filtering": false,

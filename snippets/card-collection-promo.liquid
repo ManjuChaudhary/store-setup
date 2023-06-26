@@ -3,10 +3,11 @@
 {%- for block in section.blocks -%}
     {%- if block.type == 'promo-blocks' -%}
         {% if block.settings.enable == true %}
+            {% assign lastOrder = totalProducts | plus :1 %}
             {% assign currentIndex = block.settings.block_index | strip | plus: 0 %}
             {% if currentIndex > totalProducts or currentIndex == loopIndex %}
                 {%- capture promoBlock -%}
-                    <div class="col-md-6 col-12 mb-md-0 mb-40 promo-block">
+                    <div class="col-md-6 col-12 mb-md-0  promo-block" style="order:{{lastOrder}}">
                                 <a {% if block.settings.link != blank %}href="{{ block.settings.link }}"{% endif %} class="collection-card featured-columns-image d-block" style="background-color:{{ block.settings.background_color }}">
                                     {% assign mobileImage = block.settings.image_mobile %}
                                   {% if block.settings.image_mobile != blank %}

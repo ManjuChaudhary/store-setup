@@ -1,6 +1,6 @@
 <div class="col-12">
-    <div class="row mb-4 align-items-start">
-        {% if section.settings.enable_filtering %}
+    <div class="row mb-5 align-items-center">
+        {%- if section.settings.enable_sorting -%}
             <div data-activeFilters class="{% if section.settings.enable_sorting %}col-lg-4{% else %}col-lg-7{% endif %} d-flex flex-wrap  mt-lg-0 order-lg-3 order-3 mt-3 active-filters active-filters-desktop">
                 <a href="{{ collection.url }}?sort_by={{ sort_by }}" class="active-filter__button font-size-sm me-1 mb-1 px-2 py-1 lh-1 bg-gray-600 text-white filter-option-clear">{{ 'sections.collection_template.clear_all' | t }}</a>
                 {%- for filter in collection.filters -%}
@@ -43,7 +43,7 @@
         {%- endif -%}
 
         {%- if section.settings.enable_sorting -%}
-            <div class="col-xl-3 col-3 ms-auto d-none d-lg-block  order-lg-4">
+            <div data-activefilters class="col-xl-3 col-sm-3 col-6 ms-auto  d-block  order-lg-4 order-2 collection-sorting">
                 {%- render 'template-collection-sorting', sort_by: sort_by, type: 'desktop' -%}
             </div>
         {%- endif -%}
@@ -55,7 +55,7 @@
         {%- endif -%}
 
 
-        {% if section.settings.enable_filtering or section.settings.enable_sorting %}
+        {% if section.settings.enable_filtering  %}
             <div class="{% if section.settings.enable_sorting %}col-12{% else %} col-6 {% endif %} d-lg-none">
                 <div class="d-flex justify-content-between">
                     {% if section.settings.enable_filtering %}
@@ -63,18 +63,13 @@
                             {{ 'templates.collection.filter_lable' | t }}
                         </a>
                     {% endif %}
-                    {% if section.settings.enable_sorting %}
-                        <a href="#" class="btn btn-primary btn-sm" id="sortby-drawer" data-for="sort_by" name="{{ 'templates.collection.sortby_lable' | t }}" title="{{ 'templates.collection.sortby_lable' | t }}" rel="nofollow" aria-label="{{ 'templates.collection.sortby_lable' | t }}" role="button" aria-expanded="false" aria-controls="filtersCollapse">
-                            {{ 'templates.collection.sortby_lable' | t }}
-                        </a>
-                    {% endif %}
                 </div>
             </div>
         {% endif %}
 
-        <div class="col-lg-3 text-lg-start {% if section.settings.enable_sorting %} col-12 {% else %}col-6 text-end{% endif %} order-lg-1">
-            <div class="py-lg-2 pt-3 total-products" data-totalProducts>
-                <p class="m-0">{{ collection.products_count }} {{ 'templates.collection.results_found' | t }}</p>
+        <div class="col-lg-3 text-lg-start {% if section.settings.enable_sorting %} col-6 {% else %}col-6 text-end{% endif %} order-lg-1">
+            <div class="py-lg-2 pt-0 total-products text-gray-800 font-size-md font-family-heading" data-totalProducts>
+                <p class="m-0">1 - {{ collection.products_count }} of {{ collection.products_count }}  {{ 'templates.collection.results_found' | t }}</p>
             </div>
         </div>
 

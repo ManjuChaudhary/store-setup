@@ -128,7 +128,7 @@
     },
     "collection": {
       "no_matches_within_filters": "No Products available.",
-      "results_found": "Results found",
+      "results_found": "Results",
       "refine_search": "Refine Search",
       "reset_filters": "Reset Filters",
       "filter_lable": "Filter",
@@ -142,7 +142,7 @@
       "no_search_term": "No Search term found",
       "no_results": "No results found for “{{ terms }}”. Check the spelling or use a different word or phrase.",
       "no_matches_within_filters": "No results found.",
-      "results_found": "Results found",
+      "results_found": "Results",
       "refine_search": "Refine Search",
       "reset_filters": "Reset Filters",
       "filter_lable": "Filter",

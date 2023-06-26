@@ -52,7 +52,7 @@
                             {% for product in collection.products %}
                               {% unless product.tags contains productExcludeTag %}
                                   {% assign loopIndex = loopIndex | plus: 1 %}
-                                  <div class="col-12 col-lg-{{ section.settings.product_per_row }} col-md-4 col-sm-6 mb-5 d-flex align-items-stretch justify-content-around">
+                                  <div class="col-6 col-lg-{{ section.settings.product_per_row }} col-md-4 col-sm-6 mb-5 d-flex align-items-stretch justify-content-around">
                                       {% render 'card-product-style-generic', product: product %}
                                   </div>
                                   {% render 'card-collection-promo', loopIndex: loopIndex, totalProducts: totalProducts %}
@@ -76,13 +76,23 @@
                 {%- endpaginate -%}
             </div>
         </div>
-     <hr>
-    {% if collection.description != blank %}
-      <div class="text-center mt-7">
-        {{ collection.description }}
+     <hr class="mt-3 border-gray-200">
+    {% if collection.metafields.custom.description != blank %}
+      <div class="text-left collection-meta-description mt-md-6 mt-4">
+        <span data-block-content-wrapper class="show-more-content" data-content-height="313"> 
+        {{ collection.metafields.custom.description.value }}
+        </span>
+        {% assign plength =  collection.metafields.custom.description.value | size %}
+        {% if plength > 200 %}
+        <a href="javascript:void(0)" class="cta-read-more d-flex align-items-center" data-cta-read-more="" rel="nofollow">
+            <span>
+                <h6 class="read-more-txt ls-0 mb-0">Read More</h6>
+                <h6 class="read-less-txt ls-0 mb-0">Read Less</h6>
+            </span>
+        </a>
+        {% endif %}
       </div>
     {% endif %}
-    
   </div>
 </div>
 

@@ -380,9 +380,6 @@ font-size: 17px;
     width: 21px;
     height: 18px;
 }
-.navbar-mobile .nav-item.header__heading{
-    padding-left: 12px
-}
 .navbar-mobile .navbar-brand img {
     width: 97px !important;
     height: 34px;

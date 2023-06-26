@@ -335,7 +335,9 @@ line-height: var(--bs-line-height-base) !important;
 .lh-lg {
 line-height: 2 !important;
 }
-
+.ls-0{
+    letter-spacing: 0;
+}
 .ls-1{
 letter-spacing: 0.1em;
 }
