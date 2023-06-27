@@ -115,7 +115,7 @@
         font-size: 14px;
     }
     .collection-sorting{
-        padding: 0;
+        padding-left: 0;
         max-width:174px;
     }
     .sortby-dropdown .default{
