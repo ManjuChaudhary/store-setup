@@ -55,9 +55,11 @@ class ProductForm extends HTMLElement {
         }
         this.cartElement.getCartData('open_drawer');
         if(qtyInput) qtyInput.value = 1;
+         Rollbar.error('Bad request found on onSubmitHandler.')
       })
       .catch((e) => {
         console.error(e);
+         Rollbar.critical('Bad request found on onSubmitHandler.')
       })
       .finally(() => {
         submitButton.classList.remove('loading');
