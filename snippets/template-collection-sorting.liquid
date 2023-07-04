@@ -13,7 +13,7 @@
     endfor
 -%}
 
-<custom-select class="sortby-dropdown">
+<custom-select class="sortby-dropdown" data-collection-handle="{{ collection.handle }}">
     <fieldset>
         <legend class="visually-hidden-skip">{{ sortBylable }}</legend>
         <div class="d-flex default justify-content-between align-items-center bg-white position-relative"><span class="option_txt">{{ sortBylable }}</span><span class="icon-arrow-down ms-auto lh-1"></span></div>
