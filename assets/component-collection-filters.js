@@ -559,4 +559,5 @@ class CustomCollectionFilters extends HTMLElement {
     location.search = new URLSearchParams(Shopify.queryParams).toString();
 
 }
+}
 customElements.define('custom-collection-filters', CustomCollectionFilters);
