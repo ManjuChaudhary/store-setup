@@ -463,7 +463,7 @@ class CollectionFilters extends HTMLElement {
   }
 }
 
-customElements.define('collection-filters', CollectionFilters);
+customElements.define('custom-collection-filters', CollectionFilters);
 
 class PriceRange extends HTMLElement {
   constructor() {
