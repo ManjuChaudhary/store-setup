@@ -546,9 +546,7 @@ class CustomCollectionFilters extends HTMLElement {
 
     let _this = event.currentTarget;
     // let currentvalue = document.querySelector('[data-sortby] [name="custom_sort_by_mobile"]:checked').value;
-    if (_this.name == 'custom_sort_by_desktop') {
-      currentvalue = document.querySelector('[data-sortby] [name="custom_sort_by_desktop"]:checked').value;
-    }
+    let currentvalue = document.querySelector('[data-sortby] [name="custom_sort_by_desktop"]:checked').value;
 
     this.querySelector('[name="sort_by"]').value = currentvalue;
     this.querySelector('[name="sort_by"]').dispatchEvent(new Event('input', {
