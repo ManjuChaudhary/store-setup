@@ -554,7 +554,8 @@ class CustomCollectionFilters extends HTMLElement {
     // let _this = event.currentTarget;
     document.getElementById('collection-product-grid').classList.add('loading');
 
-    let collectionHandle = this.dataset.collectionHandle;
+    let collectionHandle = document.querySelector.dataset.collectionHandle;
+    
     // if(this.clickFilterDropdownList) {
     //   this.clickFilterDropdownList.forEach((element) => {
     //     if(element.classList.contains('open')){
