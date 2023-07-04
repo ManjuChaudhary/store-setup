@@ -1,5 +1,6 @@
 <div class="{% if section.settings.fluid_layout %}container-fluid{% else %}container{% endif %}">
-<div class="row">
+<custom-collection-filters>
+  <div class="row">
 
         <!-- {%- assign filter_type = section.settings.filter_type -%} -->
 
@@ -22,12 +23,12 @@
           endif
         -%}
 
-        {%- case filter_type -%}
+<!--         {%- case filter_type -%}
           {%- when 'horizontal-filters' -%}
             {%- render 'collection-topbar-filters' , product_count : product_count -%}
           {%- else -%}
             {%- render 'collection-sidebar-filters' , product_count : product_count -%}
-        {%- endcase -%}
+        {%- endcase -%} -->
 
         <div class="col">
             <div id="collection-product-grid">
@@ -84,6 +85,7 @@
     {% endif %}
     
   </div>
+  </custom-collection-filters>
 </div>
 
 {% schema %}
