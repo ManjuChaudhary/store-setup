@@ -319,8 +319,8 @@ class CollectionFilters extends HTMLElement {
     let _this = event.currentTarget;
     let currentvalue = document.querySelector('[data-sortby] [name="custom_sort_by_desktop"]:checked').value;
     console.log(currentvalue);
-    document.querySelector('[name="sort_by"]').value = currentvalue;
-    document.querySelector('[name="sort_by"]').dispatchEvent(new Event('input', {
+    document.querySelector('[name="custom_sort_by_desktop"]').value = currentvalue;
+    document.querySelector('[name="custom_sort_by_desktop"]').dispatchEvent(new Event('input', {
       bubbles: true,
       cancelable: true,
     }));
