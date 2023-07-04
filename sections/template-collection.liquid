@@ -22,6 +22,15 @@
           endif
         -%}
 
+       <div class="row">
+        <div class="col-md-6 col-4">
+        
+        </div>
+        <div class="col-md-6 col-8">
+        {% include 'template-collection-sorting' %}
+        </div>
+        </div>
+
 <!--         {%- case filter_type -%}
           {%- when 'horizontal-filters' -%}
             {%- render 'collection-topbar-filters' , product_count : product_count -%}
