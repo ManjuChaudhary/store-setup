@@ -543,16 +543,20 @@ class CustomCollectionFilters extends HTMLElement {
 
   
   _manageSortByFilter(event) {
+     document.getElementById('collection-product-grid').classList.add('loading');
 
-    let _this = event.currentTarget;
-    // let currentvalue = document.querySelector('[data-sortby] [name="custom_sort_by_mobile"]:checked').value;
+    let collectionHandle = document.querySelector(".sortby-dropdown").dataset.collectionHandle;
+
+
     let currentvalue = document.querySelector('[data-sortby] [name="custom_sort_by_desktop"]:checked').value;
 
-    this.querySelector('[name="sort_by"]').value = currentvalue;
-    this.querySelector('[name="sort_by"]').dispatchEvent(new Event('input', {
-      bubbles: true,
-      cancelable: true,
-    }));
+    // if(collectionHandle != ''){
+    let customURL = `/collections/${collectionHandle}?sort_by=${currentvalue}`;
+    // }else{
+    // let customURL = `${window.location.pathname}?sort_by=${currentvalue}`;
+    // }
+
+    this.fetchCollectionProductGrid(customURL, collectionHandle);
   // Save existing sort parameters
   // Shopify.queryParams = {};
   // if(location.search.length) {
@@ -568,5 +572,27 @@ class CustomCollectionFilters extends HTMLElement {
   //   Shopify.queryParams.sort_by = currentvalue;
   //   location.search = new URLSearchParams(Shopify.queryParams).toString();
 }
+
+  fetchCollectionProductGrid(url, handle) {
+    console.log("url==>>",url)
+    console.log("handle==>>",handle)
+    if(!url) return;
+    fetch(url)
+      .then(response => response.text())
+      .then((responseText) => {
+        const html = responseText;
+        this.rendercCollectionProductGrid(html,handle);
+      });
+  }
+  
+  rendercCollectionProductGrid(html,collectionHandle) {
+    const innerHTML = new DOMParser().parseFromString(html, 'text/html');
+    const collectionGridID = `collection-${collectionHandle}`;
+    console.log(collectionGridID);
+    const collectionGridHTML = innerHTML.getElementById(collectionGridID).innerHTML;
+    document.getElementById(collectionGridID).innerHTML = collectionGridHTML;
+    StampedFn.reloadUGC();
+  }
+
 }
 customElements.define('custom-collection-filters', CustomCollectionFilters);
