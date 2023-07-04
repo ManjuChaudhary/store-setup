@@ -22,7 +22,11 @@
             endfor
           endif
         -%}
-        {%- render 'template-collection-sorting', sort_by: sort_by, type: 'desktop' -%}
+        {%- if section.settings.enable_sorting -%}
+                              <div class="ms-lg-3 ps-lg-1">
+                                  {%- render 'template-collection-sorting', sort_by: sort_by, type: 'desktop' -%}
+                              </div>
+                          {%- endif -%}
 <!--         {%- case filter_type -%}
           {%- when 'horizontal-filters' -%}
             {%- render 'collection-topbar-filters' , product_count : product_count -%}
