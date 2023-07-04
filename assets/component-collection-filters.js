@@ -39,6 +39,7 @@ class CollectionFilters extends HTMLElement {
     /*********** End of Open Drawer on Filter or SortBy button click. Close Drawer on close button click ********/
 
     this.sortby_values = document.querySelectorAll('[data-sortby] .sortby_options');
+    console.log(this.sortby_values);
     this.sortby_values.forEach(input => input.addEventListener('change', this.updateSortBy.bind(this)));
 
     this.pagination_value = document.querySelectorAll('[data-custom-pagination] .pagination_value');
