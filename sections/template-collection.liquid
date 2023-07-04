@@ -1,5 +1,6 @@
 <div class="{% if section.settings.fluid_layout %}container-fluid{% else %}container{% endif %}">
-    <div class="row">
+   <custom-collection-filter>
+  <div class="row">
 
         <!-- {%- assign filter_type = section.settings.filter_type -%} -->
 
@@ -84,6 +85,7 @@
     {% endif %}
     
   </div>
+     </custom-collection-filter>
 </div>
 
 {% schema %}
