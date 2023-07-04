@@ -8,7 +8,7 @@
     </div>
     {%- if section.settings.enable_filtering or section.settings.enable_sorting -%}
         {%- assign total_active_values = 0 -%}
-        <custom-collection-filters class="filters small-hide" data-filterType="{{ section.settings.filter_type }}" data-accordionType="{% if section.settings.open_single_accordians %}single{% else %}multiple{% endif %}">
+        <collection-filters class="filters small-hide" data-filterType="{{ section.settings.filter_type }}" data-accordionType="{% if section.settings.open_single_accordians %}single{% else %}multiple{% endif %}">
           <form id="CollectionFiltersForm" class="filter__form pt-4 px-3 pb-2 p-lg-0">
             <input type="hidden" name="count" data-custom_pagination_id value="{{ product_count }}" />
            
@@ -334,6 +334,6 @@
                 </button>
             </div>
           </form>
-        </custom-collection-filters>
+        </collection-filters>
     {%- endif -%}
   </div>
