@@ -543,21 +543,32 @@ class CustomCollectionFilters extends HTMLElement {
 
   
   _manageSortByFilter(event) {
-  // Save existing sort parameters
-  Shopify.queryParams = {};
-  if(location.search.length) {
-    for(var aKeyValue, i = 0, aCouples = location.search.substr(1).split('&'); i < aCouples.length; i++) {
-      aKeyValue = aCouples[i].split('=');
-      if (aKeyValue.length > 1) {
-        Shopify.queryParams[decodeURIComponent(aKeyValue[0])] = decodeURIComponent(aKeyValue[1]);
-      }
-    }
-  }
-  let currentvalue = document.querySelector('[data-sortby] [name="custom_sort_by_desktop"]:checked').value;
-  // Add existing sort parameters to current URL
-    Shopify.queryParams.sort_by = currentvalue;
-    location.search = new URLSearchParams(Shopify.queryParams).toString();
 
+    let _this = event.currentTarget;
+    let currentvalue = document.querySelector('[data-sortby] [name="custom_sort_by_mobile"]:checked').value;
+    if (_this.name == 'custom_sort_by_desktop') {
+      currentvalue = document.querySelector('[data-sortby] [name="custom_sort_by_desktop"]:checked').value;
+    }
+
+    this.querySelector('[name="sort_by"]').value = currentvalue;
+    this.querySelector('[name="sort_by"]').dispatchEvent(new Event('input', {
+      bubbles: true,
+      cancelable: true,
+    }));
+  // Save existing sort parameters
+  // Shopify.queryParams = {};
+  // if(location.search.length) {
+  //   for(var aKeyValue, i = 0, aCouples = location.search.substr(1).split('&'); i < aCouples.length; i++) {
+  //     aKeyValue = aCouples[i].split('=');
+  //     if (aKeyValue.length > 1) {
+  //       Shopify.queryParams[decodeURIComponent(aKeyValue[0])] = decodeURIComponent(aKeyValue[1]);
+  //     }
+  //   }
+  // }
+  // let currentvalue = document.querySelector('[data-sortby] [name="custom_sort_by_desktop"]:checked').value;
+  // // Add existing sort parameters to current URL
+  //   Shopify.queryParams.sort_by = currentvalue;
+  //   location.search = new URLSearchParams(Shopify.queryParams).toString();
 }
 }
 customElements.define('custom-collection-filters', CustomCollectionFilters);
