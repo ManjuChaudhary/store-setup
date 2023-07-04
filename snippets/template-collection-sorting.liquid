@@ -17,7 +17,10 @@
     <fieldset>
         <legend class="visually-hidden-skip">{{ sortBylable }}</legend>
         <div class="d-flex default justify-content-between align-items-center bg-white position-relative"><span class="option_txt">{{ sortBylable }}</span><span class="icon-arrow-down ms-auto lh-1"></span></div>
-        <div class="custom--select">
+      <form id="CollectionFiltersForm" class="filter__form pt-4 px-3 pb-2 p-lg-0">  \
+         {% if section.settings.enable_sorting %}
+              <input type="hidden" name="sort_by" value="{{ sort_by }}" />
+            {% endif %}      <div class="custom--select">
             <ul class="list-unstyled m-0 toggle-content" data-sortBy data-type="content">
                 {%- for option in sortByArray -%}
                 <li data-value="{{ option.value | escape }}" class="form-check p-0 pb-2">
@@ -27,5 +30,6 @@
                 {%- endfor -%}
             </ul>
         </div>
+       </form>
     </fieldset>
 </custom-select>
