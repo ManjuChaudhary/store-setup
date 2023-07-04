@@ -316,8 +316,10 @@ class CollectionFilters extends HTMLElement {
   updateSortBy(event){
     let _this = event.currentTarget;
     let currentvalue = document.querySelector('[data-sortby] [name="custom_sort_by_mobile"]:checked').value;
+    console.log(currentvalue);
     if(_this.name == 'custom_sort_by_desktop'){
       currentvalue = document.querySelector('[data-sortby] [name="custom_sort_by_desktop"]:checked').value;
+      console.log(currentvalue);
     }
 
     document.querySelector('[name="sort_by"]').value = currentvalue;
