@@ -18,8 +18,8 @@ class CollectionFilters extends HTMLElement {
     this.openSortbyDrawer = document.getElementById('sortby-drawer');
     if(this.openSortbyDrawer) this.openSortbyDrawer.addEventListener('click', this.toggleFilterDrawer.bind(this));
 
-    this.closeFilterDrawer = this.filterParent.querySelector('.collection-filters-close');
-    if(this.closeFilterDrawer) this.closeFilterDrawer.addEventListener('click', this.toggleFilterDrawer.bind(this));
+    // this.closeFilterDrawer = this.filterParent.querySelector('.collection-filters-close');
+    // if(this.closeFilterDrawer) this.closeFilterDrawer.addEventListener('click', this.toggleFilterDrawer.bind(this));
 
     if(this.filterType == 'horizontal-filters'){
       document.body.addEventListener('click', (_event)=>{
