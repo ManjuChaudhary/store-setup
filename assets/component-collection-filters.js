@@ -538,8 +538,8 @@ class CustomCollectionFilters extends HTMLElement {
   constructor() {
     super(); 
 
-    this.openFilterDropdown = this.querySelector('[data-filterDropdown]');
-    if(this.openFilterDropdown) this.openFilterDropdown.addEventListener('click', this._toggleMobileFilterDropdown.bind(this));
+    // this.openFilterDropdown = this.querySelector('[data-filterDropdown]');
+    // if(this.openFilterDropdown) this.openFilterDropdown.addEventListener('click', this._toggleMobileFilterDropdown.bind(this));
 
     this.clickFilterDropdownList = this.querySelectorAll('[data-filterDropdownList]');
     if(this.clickFilterDropdownList) this.clickFilterDropdownList.forEach(link => link.addEventListener('click', this._manageCollectionFilter.bind(this)));
@@ -574,52 +574,52 @@ class CustomCollectionFilters extends HTMLElement {
     this.fetchCollectionProductGrid(customURL, collectionHandle);
   }
 
-  _manageCollectionFilter(event) {
-    event.preventDefault();
+  // _manageCollectionFilter(event) {
+  //   event.preventDefault();
 
-    let collectionHandle = event.currentTarget.getAttribute('data-collectionHandle');
-    let currentvalue = document.querySelector('[data-sortby] [name="custom_sort_by_desktop"]:checked').value;
-    let customURL = `/collections/${collectionHandle}?sort_by=${currentvalue}`;
-    this.fetchCollectionProductGrid(customURL, collectionHandle);
+  //   let collectionHandle = event.currentTarget.getAttribute('data-collectionHandle');
+  //   let currentvalue = document.querySelector('[data-sortby] [name="custom_sort_by_desktop"]:checked').value;
+  //   let customURL = `/collections/${collectionHandle}?sort_by=${currentvalue}`;
+  //   this.fetchCollectionProductGrid(customURL, collectionHandle);
 
-    if(this.openFilterDropdown) this._toggleMobileFilterDropdown();
+  //   if(this.openFilterDropdown) this._toggleMobileFilterDropdown();
     
-    var productCount = event.currentTarget.getAttribute('data-productCount');
-    var collectionTitle = event.currentTarget.querySelector('[data-collectionTitle]').getAttribute('data-collectionTitle');
-    this.querySelector('[data-selectedCollectionTitle]').innerHTML = collectionTitle;
-    this.querySelectorAll('[data-selectedProductCount]').forEach((element) => { 
-      element.innerHTML = productCount + ' products';
-    });
-  }
+  //   var productCount = event.currentTarget.getAttribute('data-productCount');
+  //   var collectionTitle = event.currentTarget.querySelector('[data-collectionTitle]').getAttribute('data-collectionTitle');
+  //   this.querySelector('[data-selectedCollectionTitle]').innerHTML = collectionTitle;
+  //   this.querySelectorAll('[data-selectedProductCount]').forEach((element) => { 
+  //     element.innerHTML = productCount + ' products';
+  //   });
+  // }
 
-  fetchCollectionProductGrid(url, handle) {
-    console.log("url==>>",url)
-    console.log("handle==>>",handle)
-    if(!url) return;
-    fetch(url)
-      .then(response => response.text())
-      .then((responseText) => {
-        const html = responseText;
-        this.rendercCollectionProductGrid(html,handle);
-      });
-  }
+  // fetchCollectionProductGrid(url, handle) {
+  //   console.log("url==>>",url)
+  //   console.log("handle==>>",handle)
+  //   if(!url) return;
+  //   fetch(url)
+  //     .then(response => response.text())
+  //     .then((responseText) => {
+  //       const html = responseText;
+  //       this.rendercCollectionProductGrid(html,handle);
+  //     });
+  // }
   
-  rendercCollectionProductGrid(html,collectionHandle) {
-    const innerHTML = new DOMParser().parseFromString(html, 'text/html');
-    const collectionGridID = `collection-${collectionHandle}`;
-    const collectionGridHTML = innerHTML.getElementById(collectionGridID).innerHTML;
-    document.getElementById(collectionGridID).innerHTML = collectionGridHTML;
-    StampedFn.reloadUGC();
-  }
+  // rendercCollectionProductGrid(html,collectionHandle) {
+  //   const innerHTML = new DOMParser().parseFromString(html, 'text/html');
+  //   const collectionGridID = `collection-${collectionHandle}`;
+  //   const collectionGridHTML = innerHTML.getElementById(collectionGridID).innerHTML;
+  //   document.getElementById(collectionGridID).innerHTML = collectionGridHTML;
+  //   StampedFn.reloadUGC();
+  // }
 
-  _toggleMobileFilterDropdown(event) {
-    // event.preventDefault();
-    if(this.openFilterDropdown.classList.contains('open')){
-      Utility.toggleElement(this.openFilterDropdown, 'close');
-    }else{
-      Utility.toggleElement(this.openFilterDropdown, 'open');
-    }
-  }
+  // _toggleMobileFilterDropdown(event) {
+  //   // event.preventDefault();
+  //   if(this.openFilterDropdown.classList.contains('open')){
+  //     Utility.toggleElement(this.openFilterDropdown, 'close');
+  //   }else{
+  //     Utility.toggleElement(this.openFilterDropdown, 'open');
+  //   }
+  // }
 
 }
 customElements.define('custom-collection-filters', CustomCollectionFilters);
