@@ -49,7 +49,7 @@
                             </div>
                         </div>
                     {%- else -%}
-                        <div class="row justify-content-center" id="template-collection" data-id="{{ section.id }}">
+                        <div class="row justify-content-center" id="collection-{{collection.handle}}" data-id="{{ section.id }}">
                             {%- liquid 
                               assign loopIndex = 0 
                               assign totalProducts = collection.products.count
