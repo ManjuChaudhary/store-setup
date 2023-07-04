@@ -555,6 +555,7 @@ class CustomCollectionFilters extends HTMLElement {
     document.getElementById('collection-product-grid').classList.add('loading');
 
     let collectionHandle = document.querySelector(".sortby-dropdown").dataset.collectionHandle;
+    console.log(collectionHandle);
     
     // if(this.clickFilterDropdownList) {
     //   this.clickFilterDropdownList.forEach((element) => {
