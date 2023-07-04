@@ -40,7 +40,10 @@ class CollectionFilters extends HTMLElement {
 
     this.sortby_values = document.querySelectorAll('[data-sortby] .sortby_options');
     console.log(this.sortby_values);
-    this.sortby_values.forEach(input => input.addEventListener('change', this.updateSortBy.bind(this)));
+    this.sortby_values.forEach(input => input.addEventListener('change', 
+                                                               this.updateSortBy.bind(this)
+                                                               console.log("hello");
+                                                              ));
 
     this.pagination_value = document.querySelectorAll('[data-custom-pagination] .pagination_value');
     this.pagination_value.forEach(input => input.addEventListener('change', this.updatePagination.bind(this)));
