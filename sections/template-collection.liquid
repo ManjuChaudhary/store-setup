@@ -1,8 +1,7 @@
 <div class="{% if section.settings.fluid_layout %}container-fluid{% else %}container{% endif %}">
-    <custom-collection-filters >
-  <div class="row">
+    <div class="row">
 
-        {%- assign filter_type = section.settings.filter_type -%}
+        <!-- {%- assign filter_type = section.settings.filter_type -%} -->
 
         {%- capture contentForQuerystring -%}{{ content_for_header }}{%- endcapture -%}
 
@@ -22,8 +21,6 @@
             endfor
           endif
         -%}
-
-       
 
         {%- case filter_type -%}
           {%- when 'horizontal-filters' -%}
@@ -55,7 +52,7 @@
                             {% for product in collection.products %}
                               {% unless product.tags contains productExcludeTag %}
                                   {% assign loopIndex = loopIndex | plus: 1 %}
-                                  <div class="col-6 col-lg-{{ section.settings.product_per_row }} col-md-4 col-sm-6 mb-5 d-flex align-items-stretch justify-content-around">
+                                  <div class="col-12 col-lg-{{ section.settings.product_per_row }} col-md-4 col-sm-6 mb-5 d-flex align-items-stretch justify-content-around">
                                       {% render 'card-product-style-generic', product: product %}
                                   </div>
                                   {% render 'card-collection-promo', loopIndex: loopIndex, totalProducts: totalProducts %}
@@ -79,25 +76,14 @@
                 {%- endpaginate -%}
             </div>
         </div>
-     <hr class="mt-3 border-gray-200" style="width:-webkit-fill-available">
-    {% if collection.metafields.custom.description != blank %}
-      <div class="text-left collection-meta-description mt-md-6 mt-4">
-        <span data-block-content-wrapper class="show-more-content" data-content-height="313"> 
-        {{ collection.metafields.custom.description.value }}
-        </span>
-        {% assign plength =  collection.metafields.custom.description.value | size %}
-        {% if plength > 200 %}
-        <a href="javascript:void(0)" class="cta-read-more d-flex align-items-center" data-cta-read-more="" rel="nofollow">
-            <span>
-                <h6 class="read-more-txt ls-0 mb-0">Read More</h6>
-                <h6 class="read-less-txt ls-0 mb-0">Read Less</h6>
-            </span>
-        </a>
-        {% endif %}
+
+    {% if collection.description != blank %}
+      <div class="text-center mt-7">
+        {{ collection.description }}
       </div>
     {% endif %}
+    
   </div>
-      </custom-collection-filters>
 </div>
 
 {% schema %}
@@ -278,31 +264,26 @@
           "label": "Enable"
         },
         {
-          "type": "color",
-          "id": "background_color",
-          "default": "#F5F5F5",
-          "label":"Background Color"
-        },
-        {
           "type": "text",
           "id": "block_index",
           "label": "Block Placement",
           "info": "The block will be added after mentioned index(Must be in Number) in Product listing. Exclude Promo grid while calculating index."
         },
-{
-    "type": "image_picker",
-    "id": "image",
-    "label": "Select Image"
-},
-{
-    "type": "image_picker",
-    "id": "image_mobile",
-    "label": "Select Mobile Image"
-},
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image",
+          "info": "Use 480x590 sized image."
+        },
         {
           "type": "richtext",
           "id": "heading",
           "label": "Heading"
+        },
+        {
+          "type": "richtext",
+          "id": "subheading",
+          "label": "Subheading"
         },
         {
           "type": "text",
