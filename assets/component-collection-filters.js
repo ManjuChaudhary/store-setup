@@ -541,8 +541,8 @@ class CustomCollectionFilters extends HTMLElement {
     // this.openFilterDropdown = this.querySelector('[data-filterDropdown]');
     // if(this.openFilterDropdown) this.openFilterDropdown.addEventListener('click', this._toggleMobileFilterDropdown.bind(this));
 
-    this.clickFilterDropdownList = this.querySelectorAll('[data-filterDropdownList]');
-    if(this.clickFilterDropdownList) this.clickFilterDropdownList.forEach(link => link.addEventListener('click', this._manageCollectionFilter.bind(this)));
+    // this.clickFilterDropdownList = this.querySelectorAll('[data-filterDropdownList]');
+    // if(this.clickFilterDropdownList) this.clickFilterDropdownList.forEach(link => link.addEventListener('click', this._manageCollectionFilter.bind(this)));
 
 
     this.sortby_values = document.querySelectorAll('[data-sortby] .sortby_options');
@@ -554,14 +554,14 @@ class CustomCollectionFilters extends HTMLElement {
     // let _this = event.currentTarget;
     document.getElementById('collection-product-grid').classList.add('loading');
 
-    let collectionHandle = '';
-    if(this.clickFilterDropdownList) {
-      this.clickFilterDropdownList.forEach((element) => {
-        if(element.classList.contains('open')){
-          collectionHandle = element.getAttribute('data-collectionHandle');
-        }
-      });
-    }
+    let collectionHandle = this.dataset.collectionHandle;
+    // if(this.clickFilterDropdownList) {
+    //   this.clickFilterDropdownList.forEach((element) => {
+    //     if(element.classList.contains('open')){
+    //       collectionHandle = element.getAttribute('data-collectionHandle');
+    //     }
+    //   });
+    // }
 
     let currentvalue = document.querySelector('[data-sortby] [name="custom_sort_by_desktop"]:checked').value;
 
@@ -592,25 +592,25 @@ class CustomCollectionFilters extends HTMLElement {
   //   });
   // }
 
-  // fetchCollectionProductGrid(url, handle) {
-  //   console.log("url==>>",url)
-  //   console.log("handle==>>",handle)
-  //   if(!url) return;
-  //   fetch(url)
-  //     .then(response => response.text())
-  //     .then((responseText) => {
-  //       const html = responseText;
-  //       this.rendercCollectionProductGrid(html,handle);
-  //     });
-  // }
+  fetchCollectionProductGrid(url, handle) {
+    console.log("url==>>",url)
+    console.log("handle==>>",handle)
+    if(!url) return;
+    fetch(url)
+      .then(response => response.text())
+      .then((responseText) => {
+        const html = responseText;
+        this.rendercCollectionProductGrid(html,handle);
+      });
+  }
   
-  // rendercCollectionProductGrid(html,collectionHandle) {
-  //   const innerHTML = new DOMParser().parseFromString(html, 'text/html');
-  //   const collectionGridID = `collection-${collectionHandle}`;
-  //   const collectionGridHTML = innerHTML.getElementById(collectionGridID).innerHTML;
-  //   document.getElementById(collectionGridID).innerHTML = collectionGridHTML;
-  //   StampedFn.reloadUGC();
-  // }
+  rendercCollectionProductGrid(html,collectionHandle) {
+    const innerHTML = new DOMParser().parseFromString(html, 'text/html');
+    const collectionGridID = `collection-${collectionHandle}`;
+    const collectionGridHTML = innerHTML.getElementById(collectionGridID).innerHTML;
+    document.getElementById(collectionGridID).innerHTML = collectionGridHTML;
+    StampedFn.reloadUGC();
+  }
 
   // _toggleMobileFilterDropdown(event) {
   //   // event.preventDefault();
