@@ -22,7 +22,7 @@
             endfor
           endif
         -%}
-
+        {%- render 'template-collection-sorting', sort_by: sort_by, type: 'desktop' -%}
 <!--         {%- case filter_type -%}
           {%- when 'horizontal-filters' -%}
             {%- render 'collection-topbar-filters' , product_count : product_count -%}
