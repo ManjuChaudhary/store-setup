@@ -609,6 +609,7 @@ class CustomCollectionFilters extends HTMLElement {
   rendercCollectionProductGrid(html,collectionHandle) {
     const innerHTML = new DOMParser().parseFromString(html, 'text/html');
     const collectionGridID = `collection-${collectionHandle}`;
+    console.log(collectionGridID);
     const collectionGridHTML = innerHTML.getElementById(collectionGridID).innerHTML;
     document.getElementById(collectionGridID).innerHTML = collectionGridHTML;
     StampedFn.reloadUGC();
