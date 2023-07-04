@@ -15,8 +15,8 @@ class CollectionFilters extends HTMLElement {
     // this.openFilterDrawer = document.getElementById('filter-drawer');
     // if(this.openFilterDrawer) this.openFilterDrawer.addEventListener('click', this.toggleFilterDrawer.bind(this));
 
-    // this.openSortbyDrawer = document.getElementById('sortby-drawer');
-    // if(this.openSortbyDrawer) this.openSortbyDrawer.addEventListener('click', this.toggleFilterDrawer.bind(this));
+    this.openSortbyDrawer = document.getElementById('sortby-drawer');
+    if(this.openSortbyDrawer) this.openSortbyDrawer.addEventListener('click', this.toggleFilterDrawer.bind(this));
 
     // this.closeFilterDrawer = this.filterParent.querySelector('.collection-filters-close');
     // if(this.closeFilterDrawer) this.closeFilterDrawer.addEventListener('click', this.toggleFilterDrawer.bind(this));
@@ -388,36 +388,36 @@ class CollectionFilters extends HTMLElement {
    * Toggle Filter drawer
    * @param {event} event 
    */
-  // toggleFilterDrawer(event){
-  //   event.preventDefault();
-  //   let button = event.currentTarget;
-  //   if(button.id == 'filter-drawer' || button.id == 'sortby-drawer'){
-  //     this.filterParent.classList.add('filter-active');
-  //     button.setAttribute('aria-expanded', true);
-  //     button.setAttribute('tabindex', '-1');
+  toggleFilterDrawer(event){
+    event.preventDefault();
+    let button = event.currentTarget;
+    if(button.id == 'filter-drawer' || button.id == 'sortby-drawer'){
+      this.filterParent.classList.add('filter-active');
+      button.setAttribute('aria-expanded', true);
+      button.setAttribute('tabindex', '-1');
 
-  //     if(button.id == 'sortby-drawer'){ this.filterParent.classList.add('sortby-drawer'); }
-  //     else{ this.filterParent.classList.remove('sortby-drawer'); }
+      if(button.id == 'sortby-drawer'){ this.filterParent.classList.add('sortby-drawer'); }
+      else{ this.filterParent.classList.remove('sortby-drawer'); }
 
-  //     Utility.trapFocus(this.filterParent);
-  //     Utility.forceFocus(this.closeFilterDrawer);
-  //     siteOverlay.prototype.showOverlay();
-  //   }else{
-  //     this.filterParent.classList.remove('filter-active');
-  //     this.filterParent.classList.remove('sortby-drawer');
-  //     if(this.openFilterDrawer){
-  //       this.openFilterDrawer.setAttribute('aria-expanded', false);
-  //       this.openFilterDrawer.removeAttribute('tabindex');
-  //     }
-  //     if(this.openSortbyDrawer){
-  //       this.openSortbyDrawer.setAttribute('aria-expanded', false);
-  //       this.openSortbyDrawer.removeAttribute('tabindex');
-  //     }
+      Utility.trapFocus(this.filterParent);
+      Utility.forceFocus(this.closeFilterDrawer);
+      siteOverlay.prototype.showOverlay();
+    }else{
+      this.filterParent.classList.remove('filter-active');
+      this.filterParent.classList.remove('sortby-drawer');
+      if(this.openFilterDrawer){
+        this.openFilterDrawer.setAttribute('aria-expanded', false);
+        this.openFilterDrawer.removeAttribute('tabindex');
+      }
+      if(this.openSortbyDrawer){
+        this.openSortbyDrawer.setAttribute('aria-expanded', false);
+        this.openSortbyDrawer.removeAttribute('tabindex');
+      }
 
-  //     Utility.removeTrapFocus(this.filterParent);
-  //     siteOverlay.prototype.hideOverlay();
-  //   }
-  // }
+      Utility.removeTrapFocus(this.filterParent);
+      siteOverlay.prototype.hideOverlay();
+    }
+  }
 
   /**
    * Toggle Filter drawer
