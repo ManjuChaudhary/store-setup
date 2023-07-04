@@ -588,6 +588,7 @@ class CustomCollectionFilters extends HTMLElement {
   
   rendercCollectionProductGrid(html,collectionHandle) {
     const innerHTML = new DOMParser().parseFromString(html, 'text/html');
+    console.log(innerHTML);
     const collectionGridID = `collection-${collectionHandle}`;
     console.log(collectionGridID);
     const collectionGridHTML = innerHTML.getElementById(collectionGridID).innerHTML;
