@@ -315,6 +315,7 @@ class CollectionFilters extends HTMLElement {
    * @param {event} event 
    */
   updateSortBy(event){
+    console.log("hello");
     let _this = event.currentTarget;
     let currentvalue = document.querySelector('[data-sortby] [name="custom_sort_by_mobile"]:checked').value;
     console.log(currentvalue);
