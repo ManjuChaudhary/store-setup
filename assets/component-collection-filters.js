@@ -537,125 +537,26 @@ customElements.define('range-slider', PriceRangeSlider);
 class CustomCollectionFilters extends HTMLElement { 
   constructor() {
     super(); 
-
-    // this.openFilterDropdown = this.querySelector('[data-filterDropdown]');
-    // if(this.openFilterDropdown) this.openFilterDropdown.addEventListener('click', this._toggleMobileFilterDropdown.bind(this));
-
-    // this.clickFilterDropdownList = this.querySelectorAll('[data-filterDropdownList]');
-    // if(this.clickFilterDropdownList) this.clickFilterDropdownList.forEach(link => link.addEventListener('click', this._manageCollectionFilter.bind(this)));
-
-
     this.sortby_values = document.querySelectorAll('[data-sortby] .sortby_options');
     this.sortby_values.forEach(input => input.addEventListener('change', this._manageSortByFilter.bind(this)));
   }
 
   
   _manageSortByFilter(event) {
-    // let _this = event.currentTarget;
-    document.getElementById('collection-product-grid').classList.add('loading');
-
-    let collectionHandle = document.querySelector(".sortby-dropdown").dataset.collectionHandle;
-    console.log(collectionHandle);
-    
-    // if(this.clickFilterDropdownList) {
-    //   this.clickFilterDropdownList.forEach((element) => {
-    //     if(element.classList.contains('open')){
-    //       collectionHandle = element.getAttribute('data-collectionHandle');
-    //     }
-    //   });
-    // }
-
-    let currentvalue = document.querySelector('[data-sortby] [name="custom_sort_by_desktop"]:checked').value;
-
-    // if(collectionHandle != ''){
-    let customURL = `/collections/${collectionHandle}?sort_by=${currentvalue}`;
-    // }else{
-    // let customURL = `${window.location.pathname}?sort_by=${currentvalue}`;
-    // }
-
-    this.fetchCollectionProductGrid(customURL, collectionHandle);
+  // Save existing sort parameters
+  Shopify.queryParams = {};
+  if(location.search.length) {
+    for(var aKeyValue, i = 0, aCouples = location.search.substr(1).split('&'); i < aCouples.length; i++) {
+      aKeyValue = aCouples[i].split('=');
+      if (aKeyValue.length > 1) {
+        Shopify.queryParams[decodeURIComponent(aKeyValue[0])] = decodeURIComponent(aKeyValue[1]);
+      }
+    }
   }
-
-  // _manageCollectionFilter(event) {
-  //   event.preventDefault();
-
-  //   let collectionHandle = event.currentTarget.getAttribute('data-collectionHandle');
-  //   let currentvalue = document.querySelector('[data-sortby] [name="custom_sort_by_desktop"]:checked').value;
-  //   let customURL = `/collections/${collectionHandle}?sort_by=${currentvalue}`;
-  //   this.fetchCollectionProductGrid(customURL, collectionHandle);
-
-  //   if(this.openFilterDropdown) this._toggleMobileFilterDropdown();
-    
-  //   var productCount = event.currentTarget.getAttribute('data-productCount');
-  //   var collectionTitle = event.currentTarget.querySelector('[data-collectionTitle]').getAttribute('data-collectionTitle');
-  //   this.querySelector('[data-selectedCollectionTitle]').innerHTML = collectionTitle;
-  //   this.querySelectorAll('[data-selectedProductCount]').forEach((element) => { 
-  //     element.innerHTML = productCount + ' products';
-  //   });
-  // }
-
-  fetchCollectionProductGrid(url, handle) {
-    console.log("url==>>",url)
-    console.log("handle==>>",handle)
-    if(!url) return;
-    fetch(url)
-      .then(response => response.text())
-      .then((responseText) => {
-        const html = responseText;
-        this.rendercCollectionProductGrid(html,handle);
-      });
-  }
-  
-  rendercCollectionProductGrid(html,collectionHandle) {
-    const innerHTML = new DOMParser().parseFromString(html, 'text/html');
-    const collectionGridID = `collection-${collectionHandle}`;
-    console.log(collectionGridID);
-    const collectionGridHTML = innerHTML.getElementById(collectionGridID).innerHTML;
-    document.getElementById(collectionGridID).innerHTML = collectionGridHTML;
-    StampedFn.reloadUGC();
-  }
-
-  // _toggleMobileFilterDropdown(event) {
-  //   // event.preventDefault();
-  //   if(this.openFilterDropdown.classList.contains('open')){
-  //     Utility.toggleElement(this.openFilterDropdown, 'close');
-  //   }else{
-  //     Utility.toggleElement(this.openFilterDropdown, 'open');
-  //   }
-  // }
+  let currentvalue = document.querySelector('[data-sortby] [name="custom_sort_by_desktop"]:checked').value;
+  // Add existing sort parameters to current URL
+    Shopify.queryParams.sort_by = currentvalue;
+    location.search = new URLSearchParams(Shopify.queryParams).toString();
 
 }
 customElements.define('custom-collection-filters', CustomCollectionFilters);
-
-
-
-// this.openFilterDropdown = document.querySelector('[data-filterDropdown]');
-// if(this.openFilterDropdown) {
-//   this.openFilterDropdown.addEventListener('click',(element)=>{
-//     if(element.currentTarget.classList.contains('open')){
-//       Utility.toggleElement(element.currentTarget, 'close');
-//     }else{
-//       Utility.toggleElement(element.currentTarget, 'open');
-//     }
-//   });
-// }
-
-// this.clickFilterDropdownList = document.querySelectorAll('[data-filterDropdownList]');
-// if(this.clickFilterDropdownList) {
-//   this.clickFilterDropdownList.forEach((target) => {
-//     target.addEventListener('click',(element)=>{
-//       if(this.openFilterDropdown.classList.contains('open')){
-//         Utility.toggleElement(this.openFilterDropdown, 'close');
-//       }else{
-//         Utility.toggleElement(this.openFilterDropdown, 'open');
-//       }
-      
-//       var productCount = element.currentTarget.getAttribute('data-productCount');
-//       var collectionTitle = element.currentTarget.getAttribute('data-collectionTitle');
-//       document.querySelector('[data-selectedCollectionTitle]').innerHTML = collectionTitle;
-//       document.querySelectorAll('[data-selectedProductCount]').forEach((element) => { 
-//         element.innerHTML = productCount + ' products';
-//       });
-//     });
-//   });
-// }
