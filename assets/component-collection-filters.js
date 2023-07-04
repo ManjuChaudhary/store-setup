@@ -581,6 +581,7 @@ class CustomCollectionFilters extends HTMLElement {
       .then(response => response.text())
       .then((responseText) => {
         const html = responseText;
+        console.log(html);
         this.rendercCollectionProductGrid(html,handle);
       });
   }
