@@ -22,11 +22,13 @@
             endfor
           endif
         -%}
+    <div class="col-12">
         {%- if section.settings.enable_sorting -%}
                               <div class="ms-lg-3 ps-lg-1">
                                   {%- render 'template-collection-sorting', sort_by: sort_by, type: 'desktop' -%}
                               </div>
                           {%- endif -%}
+    </div>
 <!--         {%- case filter_type -%}
           {%- when 'horizontal-filters' -%}
             {%- render 'collection-topbar-filters' , product_count : product_count -%}
