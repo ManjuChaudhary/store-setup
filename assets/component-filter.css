@@ -6,16 +6,7 @@
 .mobile-filter__clear.disabled {
     pointer-events: none;
 }
-.sortby-dropdown .custom--select ul li .form-check-input[type=radio]{
-    display: none;
-}
-.sortby-dropdown .custom--select.open{
-    border-left: 1px solid #D6D7D8;
-    border-right: 1px solid #D6D7D8;
-    border-bottom: 1px solid #D6D7D8;
-    border-top: 0;
-    border-radius: 0 0px 5px 5px; 
-}
+
 @media all and (min-width: 750px) {
     .active-filters-mobile {
         display: none;
@@ -52,39 +43,35 @@
     background-color: var(--color-background);
     border-radius: 50%;
 }
-.sortby-dropdown .default {
-    cursor: pointer;
-    z-index: 2;
-    border: 1px solid #D6D7D8;
-    border-radius: 5px;
-    padding: 9.5px 20px;
-}
+
 @media (min-width: 992px) {
     .sortby-dropdown {
         position: relative;
         display: block;
-        max-width: 200px;
-        margin-left: auto;
     }
-    .sortby-dropdown .default .icon-arrow-down{
-        font-size: 8px;
+
+    .sortby-dropdown .default {
+        cursor: pointer;
+        z-index: 2;
     }
+
     .sortby-dropdown .custom--select {
-        position: absolute;                         
-        top: calc(98% - 1px);
+        position: absolute;
+        top: calc(100% - 1px);
         left: 0;
         width: 100%;
         z-index: 2;
         background: var(--bs-body-bg);
     }
     .sortby-dropdown .custom--select > ul{
+        border: 1px solid var(--bs-input-border-color);
         padding: 0px 20px;
     }
     .sortby-dropdown .custom--select ul li:first-child{
-        /* padding-top: 15px !important; */
+        padding-top: 15px !important;
     }
     .sortby-dropdown .custom--select ul li:last-child{
-        padding-bottom: 11px !important;
+        padding-bottom: 15px !important;
     }
 }
 
@@ -106,37 +93,6 @@
     .filter-active.sortby-drawer .sortby-dropdown .custom--select .toggle-content {
         display: block;
         height: auto !important;
-    }
-    .sortby-dropdown {
-        position: relative;
-        display: block;
-    }
-    .total-products{
-        font-size: 14px;
-    }
-    .collection-sorting{
-        padding: 0;
-        max-width:174px;
-    }
-    .sortby-dropdown .default{
-        padding: 10.5px 17px;
-    }
-    .sortby-dropdown .default .icon-arrow-down{
-        font-size: 8.5px;
-    }
-    .sortby-dropdown .custom--select > ul{
-        padding: 0px 17px;
-    }
-    .sortby-dropdown .custom--select {
-        position: absolute;                         
-        top: calc(98% - 1px);
-        left: 0;
-        width: 100%;
-        z-index: 2;
-        background: var(--bs-body-bg);
-    }
-    .sortby-dropdown .custom--select ul li:last-child{
-        padding-bottom: 11px !important;
     }
 }
 

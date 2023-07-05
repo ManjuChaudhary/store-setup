@@ -4,15 +4,35 @@
 
     <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
     <div class="row">
-      <div class="col-12 d-flex justify-content-between flex-column selling-plans">
-      {% for group in product.selling_plan_groups %}
-      <label>Select Delivery Frequency</label>
-     <select id="selling-plans" class="form-select variant_selector rounded-0 p-0 border-top-0 border-end-0 border-start-0 font-size-md fw-medium" name="selling_plan" form="product-form-{{ product.id }}">
-    {% for selling_plan in group.selling_plans %}
-    <option name="selling_plan" value="{{ selling_plan.id }}" id="selling_plan_{{ selling_plan.id }}">{{ selling_plan.name }}</option>
-    {% endfor %}
-  </fieldset>
-  {% endfor %}
+      <div class="col-12 d-flex justify-content-between flex-column">
+        {% unless product.has_only_default_variant %}
+          <variant-radios class="no-js-hidden" data-section="{{ section.id }}" data-url="{{ product.url | within: collection }}" data-type="variant-radios">
+            {%- for option in product.options_with_values -%}
+                <fieldset class="js product-form__input mb-4 {% if option.name == 'Color' or option.name == 'color' %}color-swatch{% endif %}" data-optionindex="{{ forloop.index }}">
+                    <legend class="form__label fw-medium text-uppercase font-size-sm mb-2">{{ option.name }}: <span class="selected-option">{{ option.selected_value }}</span></legend>
+                    <ul class="list-unstyled d-flex my-0 py-0">
+                        {%- for value in option.values -%}
+                            {%- capture swatchID -%}swatch-{{ product.id }}-grid-{{ option.name | handleize }}-{{ value | handleize }}{%- endcapture -%}
+                            <li class="me-2">
+                                <div class="swatch {% if option.name == 'Color' or option.name == 'color' %}color-swatch{% endif %}">
+                                    <input type="radio" class="form-control" id="{{ swatchID }}"
+                                      title="{{ value }}" aria-label="{{ value }}"
+                                      name="{{ option.name }}" value="{{ value | escape }}"
+                                      {% if current_variant == false %}{% if forloop.first %}checked{% endif %}{% else %}{% if option.selected_value == value %}checked{% endif %}{% endif %} 
+                                      data-handle="{{ value | handle }}">
+                                    <label class="form-label swatch-label {{ value }}" for="{{ swatchID }}" title="{{ value }}" aria-label="{{ value }}"> 
+                                      {% unless option.name == 'Color' or option.name == 'color' %} {{ value }} {% endunless %}  
+                                      <span class="visually-hidden-skip">{{ value }}</span>
+                                    </label>
+                                </div>
+                            </li>
+                        {%- endfor -%}
+                        </ul>
+                </fieldset>
+            {%- endfor -%}
+          </variant-radios>
+        {% endunless %}
+
         <input type="hidden" name="quantity" value="1" />
       </div>
     </div>
@@ -49,11 +69,6 @@
                   <span class="icon-quickview font-size-lg"></span>
               </a>
           {%- endif -%}
-      </div>
-      <div class="col-12  text-center">
-      <a href="{{product.url }}" class="btn-link text-decoration-none view-btn">
-      {{ 'view details' }}
-      </a>
       </div>
     </div>
     <script class="variantsJSON-{{ product.id }}" data-variantJSON type="application/json">

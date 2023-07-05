@@ -34,6 +34,17 @@
           <span class="small">{{ 'customer.register.newsletter_subscribe' | t }}</span>
         </label>
       </div>
+      <strong  class="mb-2 d-block">{{ 'customer.register.b2b_customer' | t }}</strong>
+      <div class="row mb-3">
+         <div class="col-2">
+          <input type="radio" id="b2b_customer" name="customer[tags]" aria-label="B2b Customer" class="form-check-input" checked="checked" value="b2b_customer" />
+          <span class="small">{{ 'customer.register.b2b_yes' |  t }}</span>
+          </div>
+          <div class="col-2">
+          <input type="radio" id="b2b_customer" name="customer[tags]" aria-label="B2b Customer" class="form-check-input"  />
+          <span class="small">{{ 'customer.register.b2b_no' |  t }}</span>
+          </div>
+       </div>
   
       <input type="submit" class="btn btn-primary btn-block" value="{{ 'customer.register.submit' | t }}">
   

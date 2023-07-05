@@ -1,75 +1,139 @@
 {% style %}
-  @font-face {
-    font-family: 'Crimson Text';
-    src: url('{{ 'CrimsonText-Italic.woff2' | asset_url }}') format('woff2'),
-        url('{{ 'CrimsonText-Italic.woff' | asset_url }}') format('woff');
-    font-weight: normal;
-    font-style: italic;
-    font-display: swap;
-}
+    @font-face {
+    font-family: 'Futura';
+    src: url('{{ "Futura-Book.woff2" | asset_url }}') format('woff2'),
+        url('{{ "Futura-Book.woff" | asset_url }}') format('woff');
+        font-weight: normal;
+        font-style: normal;
+        font-display: swap;
+    }
 
-@font-face {
-    font-family: 'Crimson Text';
-    src: url( '{{ 'CrimsonText-Semibold.woff2' | asset_url }}') format('woff2'),
-        url('{{ 'CrimsonText-Semibold.woff' | asset_url }}') format('woff');
-    font-weight: 600;
-    font-style: normal;
-    font-display: swap;
-}
+    @font-face {
+    font-family: 'Futura';
+    src: url('{{ "FuturaBT-Medium.woff2" | asset_url }}') format('woff2'),
+        url('{{ "FuturaBT-Medium.woff" | asset_url }}') format('woff');
+        font-weight: 500;
+        font-style: normal;
+        font-display: swap;
+    }
 
-@font-face {
-    font-family: 'Crimson Text';
-    src: url( '{{ 'CrimsonText-Roman.woff2' | asset_url }}') format('woff2'),
-        url('{{ 'CrimsonText-Roman.woff' | asset_url }}') format('woff');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-}
+    @font-face {
+    font-family: 'Futura';
+    src: url('{{ "FuturaBT-MediumItalic.woff2" | asset_url }}') format('woff2'),
+        url('{{ "FuturaBT-MediumItalic.woff" | asset_url }}') format('woff');
+        font-weight: 500;
+        font-style: italic;
+        font-display: swap;
+    }
 
-@font-face {
-    font-family: 'Crimson Text';
-    src: url( '{{ 'CrimsonText-SemiboldItalic.woff2' | asset_url }}' ) format('woff2'),
-        url( '{{ 'CrimsonText-SemiboldItalic.woff' | asset_url }}' ) format('woff');
-    font-weight: 600;
-    font-style: italic;
-    font-display: swap;
-}
-@font-face {
-    font-family: 'Inter';
-    src: url('{{ 'Inter-Regular.woff2' | asset_url }}') format('woff2'),
-        url('{{ 'Inter-Regular.woff' | asset_url }}') format('woff');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-}
 
-@font-face {
-    font-family: 'Inter';
-    src: url('{{ 'Inter-Bold.woff2' | asset_url }}') format('woff2'),
-        url('{{ 'Inter-Bold.woff' | asset_url }}') format('woff');
-    font-weight: bold;
-    font-style: normal;
-    font-display: swap;
-}
+    @font-face {
+    font-family: 'Futura';
+    src: url('{{ "Futura-Bold.woff2" | asset_url }}') format('woff2'),
+        url('{{ "Futura-Bold.woff" | asset_url }}') format('woff');
+        font-weight: bold;
+        font-style: normal;
+        font-display: swap;
+    }
 
-@font-face {
-    font-family: 'Inter';
-    src: url('{{ 'Inter-SemiBold.woff2' | asset_url }}') format('woff2'),
-        url('{{ 'Inter-SemiBold.woff' | asset_url }}') format('woff');
-    font-weight: 600;
-    font-style: normal;
-    font-display: swap;
-}
+    @font-face {
+    font-family: 'Futura';
+    src: url('{{ "FuturaBT-BoldItalic.woff2" | asset_url }}') format('woff2'),
+        url('{{ "FuturaBT-BoldItalic.woff" | asset_url }}') format('woff');
+        font-weight: bold;
+        font-style: italic;
+        font-display: swap;
+    }
 
-@font-face {
-    font-family: 'Inter';
-    src: url('{{'Inter-Medium.woff2' | asset_url }}') format('woff2'),
-        url( '{{'Inter-Medium.woff' | asset_url }}') format('woff');
-    font-weight: 500;
-    font-style: normal;
-    font-display: swap;
-}
+    @font-face {
+    font-family: 'Futura';
+    src: url('{{ "FuturaBT-Light.woff2" | asset_url }}') format('woff2'),
+        url('{{ "FuturaBT-Light.woff" | asset_url }}') format('woff');
+        font-weight: 300;
+        font-style: normal;
+        font-display: swap;
+    }
+
+    @font-face {
+    font-family: 'Futura';
+    src: url('{{ "FuturaBT-LightItalic.woff2" | asset_url }}') format('woff2'),
+        url('{{ "FuturaBT-LightItalic.woff" | asset_url }}') format('woff');
+        font-weight: 300;
+        font-style: italic;
+        font-display: swap;
+    }
+
+    @font-face {
+        font-family: 'Karla';
+        src: url('{{ "Karla-Bold.woff2" | asset_url }}') format('woff2'),
+            url('{{ "Karla-Bold.woff" | asset_url }}') format('woff');
+        font-weight: 700;
+        font-style: normal;
+        font-display: swap;
+    }
     
+    @font-face {
+        font-family: 'Karla';
+        src: url('{{ "Karla-Italic.woff2" | asset_url }}') format('woff2'),
+            url('{{ "Karla-Italic.woff" | asset_url }}') format('woff');
+        font-weight: 400;
+        font-style: italic;
+        font-display: swap;
+    }
+    
+    @font-face {
+        font-family: 'Karla';
+        src: url('{{ "Karla-BoldItalic.woff2" | asset_url }}') format('woff2'),
+            url('{{ "Karla-BoldItalic.woff" | asset_url }}') format('woff');
+        font-weight: 700;
+        font-style: italic;
+        font-display: swap;
+    }
+    
+    @font-face {
+        font-family: 'Karla';
+        src: url('{{ "Karla-LightItalic.woff2" | asset_url }}') format('woff2'),
+            url('{{ "Karla-LightItalic.woff" | asset_url }}') format('woff');
+        font-weight: 300;
+        font-style: italic;
+        font-display: swap;
+    }
+    
+    @font-face {
+        font-family: 'Karla';
+        src: url('{{ "Karla-Light.woff2" | asset_url }}') format('woff2'),
+            url('{{ "Karla-Light.woff" | asset_url }}') format('woff');
+        font-weight: 300;
+        font-style: normal;
+        font-display: swap;
+    }
+    
+    @font-face {
+        font-family: 'Karla';
+        src: url('{{ "Karla-Regular.woff2" | asset_url }}') format('woff2'),
+            url('{{ "Karla-Regular.woff" | asset_url }}') format('woff');
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+    }
+    
+    @font-face {
+        font-family: 'Karla';
+        src: url('{{ "Karla-MediumItalic.woff2" | asset_url }}') format('woff2'),
+            url('{{ "Karla-MediumItalic.woff" | asset_url }}') format('woff');
+        font-weight: 500;
+        font-style: italic;
+        font-display: swap;
+    }
+    
+    @font-face {
+        font-family: 'Karla';
+        src: url('{{ "Karla-Medium.woff2" | asset_url }}') format('woff2'),
+            url('{{ "Karla-Medium.woff" | asset_url }}') format('woff');
+        font-weight: 500;
+        font-style: normal;
+        font-display: swap;
+    }
 
 
     @font-face {
@@ -129,28 +193,6 @@
         --bs-h5-font-size-sm:{{ settings.h5_font_size_sm }};
         --bs-h6-font-size-sm:{{ settings.h6_font_size_sm }};
 
-          --bs-h1-line-height:{{ settings.h1_line_height }};
-        --bs-h2-line-height:{{ settings.h2_line_height }};
-        --bs-h3-line-height:{{ settings.h3_line_height }};
-        --bs-h4-line-height:{{ settings.h4_line_height }};
-        --bs-h5-line-height:{{ settings.h5_line_height }};
-        --bs-h6-line-height:{{ settings.h6_line_height }};
-
-        --bs-h1-line-height-md:{{ settings.h1_line_height_md }};
-        --bs-h2-line-height-md:{{ settings.h2_line_height_md }};
-        --bs-h3-line-height-md:{{ settings.h3_line_height_md }};
-        --bs-h4-line-height-md:{{ settings.h4_line_height_md }};
-        --bs-h5-line-height-md:{{ settings.h5_line_height_md }};
-        --bs-h6-line-height-md:{{ settings.h6_line_height_md }};
-
-        --bs-h1-line-height-sm:{{ settings.h1_line_height_sm }};
-        --bs-h2-line-height-sm:{{ settings.h2_line_height_sm }};
-        --bs-h3-line-height-sm:{{ settings.h3_line_height_sm }};
-        --bs-h4-line-height-sm:{{ settings.h4_line_height_sm }};
-        --bs-h5-line-height-sm:{{ settings.h5_line_height_sm }};
-        --bs-h6-line-height-sm:{{ settings.h6_line_height_sm }};
-
-
         --bs-font-family-button: {{ settings.type_button_font }};
         --bs-font-weight-button: {{ settings.type_button_font_weight }};
         --bs-font-size-button: {{ settings.button_font_size }};
@@ -168,10 +210,6 @@
         --bs-x-padding-button-lg: {{ settings.button_x_padding_lg }};
         --bs-y-padding-button-lg: {{ settings.button_y_padding_lg }};
         --bs-font-size-button-lg: {{ settings.button_font_size_lg }};
-
-        --bs-x-padding-button-sold-out: {{ settings.button_x_padding_sold_out }};
-        --bs-y-padding-button-sold-out: {{ settings.button_y_padding_sold_out}};
-        --bs-font-size-button-sold-out: {{ settings.button_font_size_sold_out}};
 
 
         --bs-font-family-input: {{ settings.type_input_font }};
@@ -214,9 +252,6 @@
         --bs-bg-color-btn-dark: {{ settings.bg_color_btn_dark }};
         --bs-bg-hover-color-btn-dark: {{ settings.bg_hover_color_btn_dark }};
 
-        --bs-txt-color-btn-sold-out: {{ settings.txt_color_btn_sold_out }};
-        --bs-bg-color-btn-sold-out: {{ settings.bg_color_btn_sold_out }};
-
         --bs-shadow: {{ settings.shadow }};
         --bs-shadow-sm: {{ settings.shadow-sm }};
         --bs-shadow-lg: {{ settings.shadow-lg }};
@@ -233,19 +268,24 @@
         --bs-link-hover-color: {{ settings.link_hover_color }};
         --bs-color-border: {{ settings.color_border }};
 
-        --bs-color-primary-100: {{ settings.color_primary_1 }};
-        --bs-color-primary-200: {{ settings.color_primary_2 }};
-        --bs-color-primary-300: {{ settings.color_primary_3 }};
-        --bs-color-primary-400: {{ settings.color_primary_4 }};
-        --bs-color-primary-500: {{ settings.color_primary_5 }};
+        --bs-color-primary: {{ settings.color_primary }};
+        --bs-color-secondary: {{ settings.color_secondary }};
+        --bs-color-dark: {{ settings.color_dark }};
+        --bs-color-alabaster: {{ settings.color_alabaster }};
+        --bs-color-almond: {{ settings.color_almond }};
+        
 
-        --bs-color-secondary-100: {{ settings.color_secondary_1 }};
-        --bs-color-secondary-200: {{ settings.color_secondary_2}};
-        --bs-color-secondary-300: {{ settings.color_secondary_3 }};
-        --bs-color-secondary-400: {{ settings.color_secondary_4 }};
-        --bs-color-secondary-500: {{ settings.color_secondary_5 }};
-       --bs-color-secondary-600: {{ settings.color_secondary_6 }};
-       --bs-color-secondary-700: {{ settings.color_secondary_7 }};
+        --bs-color-primary-100: {{ settings.color_primary_100 }};
+        --bs-color-primary-200: {{ settings.color_primary_200 }};
+        --bs-color-primary-300: {{ settings.color_primary_300 }};
+        --bs-color-primary-400: {{ settings.color_primary_400 }};
+        --bs-color-primary-500: {{ settings.color_primary_500 }};
+
+        --bs-color-secondary-100: {{ settings.color_secondary_100 }};
+        --bs-color-secondary-200: {{ settings.color_secondary_200 }};
+        --bs-color-secondary-300: {{ settings.color_secondary_300 }};
+        --bs-color-secondary-400: {{ settings.color_secondary_400 }};
+        --bs-color-secondary-500: {{ settings.color_secondary_500 }};
 
         --bs-color-white: {{ settings.color_white }};
         --bs-color-gray-100: {{ settings.color_gray_100 }};
@@ -259,8 +299,7 @@
         --bs-color-gray-900: {{ settings.color_gray_900 }};
         --bs-color-black: {{ settings.color_black }};
 
-        --bs-color-primary:{{  settings.color_black }};
-        --bs-color-secondary:{{  settings.color_white }};
+
         --bs-color-success: {{ settings.color_success }};
         --bs-color-warning: {{ settings.color_warning }};
         --bs-color-danger: {{ settings.color_danger }};
@@ -290,11 +329,5 @@
         color: var(--bs-body-color);
         background-color: var(--bs-body-bg);
         letter-spacing:var(--bs-letter-spacing-base);
-    }
-    @media screen and (max-width:767px){
-      body {
-         line-height: 1.6;
-         font-size:15px;
-      }  
     }
 {% endstyle %}

@@ -1,15 +1,14 @@
-<section data-collectionBanner class="collection-hero__banner position-relative d-flex align-items-center" style="background: {{ section.settings.section_bg_color }}">
-     {% if section.settings.show_breadcrumbs %}
+<section data-collectionBanner class="section-content collection-hero__banner position-relative d-flex align-items-center" style="background: {{ section.settings.section_bg_color }}">
+
     <div class="{% if section.settings.fluid_layout %}container-fluid{% else %}container{% endif %} banner-breadcrumbs">
         {% render 'breadcrumbs' %}
     </div>
-    {% endif %}
 
     <div class="{% if section.settings.fluid_layout %}container-fluid{% else %}container{% endif %} collection-banner__caption">
-        <div class="row align-items-center">
-            <div class="col-sm-12 col-md-6 collection-description {{ section.settings.alignment }} {{ section.settings.caption_alignment }}" style="color: {{ section.settings.txt_color }};">
+        <div class="row">
+            <div class="col-sm-12 col-md-6 col-xl-5 {{ section.settings.alignment }} {{ section.settings.caption_alignment }}" style="color: {{ section.settings.txt_color }};">
                 <div class="fancy-heading">
-                    <h1 class="page-title"> 
+                    <h1 class="h3 page-title mb-2"> 
                         {{- collection.title | escape -}}
                     </h1>
                     {%- if section.settings.show_collection_description -%}
@@ -17,9 +16,11 @@
                     {%- endif -%}
                 </div>
             </div>
-            <div class="col-sm-12 col-md-6 collectionm-image p-0">
-             {%- if section.settings.show_collection_image and collection.image -%}
-            <div class="collection-hero__image-container">
+        </div>
+    </div>
+
+    {%- if section.settings.show_collection_image and collection.image -%}
+        <div class="collection-hero__image-container">
             <img srcset="
                 {%- if collection.image.width >= 360 -%}{{ collection.image | image_url: width: 360, crop: 'center', format: 'pjpg' }} 360w,{%- endif -%}
                 {%- if collection.image.width >= 535 -%}{{ collection.image | image_url: width: 535, crop: 'center', format: 'pjpg' }} 535w,{%- endif -%}
@@ -39,14 +40,10 @@
                 alt="{{ collection.title | escape }}"
                 loading="lazy"
                 width="{{ collection.image.width }}"
-                height="{{ collection.image.width | divided_by: collection.image.aspect_ratio | round }}"
-                class="w-100 h-100"
+                height="{{ collection.image.height }}"
             >
         </div>
-           {%- endif -%}
-            </div>
-        </div>
-    </div>
+    {%- endif -%}
 </section>
 
 
@@ -63,16 +60,6 @@
             "type": "checkbox",
             "id": "fluid_layout",
             "label": "Full Width Layout?",
-            "default": false
-        },
-        {
-            "type":"header",
-            "content":"breadcrumbs"
-        },
-        {
-            "type": "checkbox",
-            "id": "show_breadcrumbs",
-            "label": "Show Breadcrumbs",
             "default": false
         },
         {
