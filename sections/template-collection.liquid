@@ -22,12 +22,21 @@
           endif
         -%}
 
-        {%- case filter_type -%}
+        <div class="row">
+        <div class="col-md-6 col-4">
+
+        </div>
+        <div class="col-md-6 col-8">
+        {%- render 'template-collection-sorting', sort_by: sort_by, type: 'desktop' -%} 
+        </div>
+        </div>
+
+        {% comment %} {%- case filter_type -%}
           {%- when 'horizontal-filters' -%}
             {%- render 'collection-topbar-filters' , product_count : product_count -%}
           {%- else -%}
             {%- render 'collection-sidebar-filters' , product_count : product_count -%}
-        {%- endcase -%}
+        {%- endcase -%} {% endcomment %}
 
         <div class="col">
             <div id="collection-product-grid">

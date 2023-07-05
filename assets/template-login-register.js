@@ -58,6 +58,56 @@ class accountPages {
           this.elements.resetPasswordForm.style.display = 'block';
       }
   }
+
+  
+
 }
 
 typeof accountPages !== 'undefined' && new accountPages();
+
+
+
+document.getElementById("customer_login").setAttribute("action", "");
+
+
+document.querySelector("#customer_login").addEventListener("submit", function(){
+
+});
+// Replace 'your-shopify-domain' with your actual Shopify store domain
+const shopifyDomain = 'demo-manju';
+
+// Replace 'your-api-key' and 'your-api-password' with your actual Shopify API credentials
+const apiKey = '43f6773a1a70da5f248d618b986e9c89';
+const admin_API_access_token = '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';
+
+const apiPassword = 'f2c21d73c596ae6b10ac085bc31f966e';
+
+// Construct the API endpoint URL
+const url = `https://${shopifyDomain}.myshopify.com/admin/api/2023-01/customers.json`;
+
+// Create the headers object with the 'Authorization' header
+const headers = new Headers();
+headers.append('Authorization', `Bearer ${apiKey}:${apiPassword}`);
+
+// Make the GET request to retrieve all customers
+fetch(url, {
+  method: 'GET',
+  headers: headers
+})
+  .then(response => {
+    if (response.ok) {
+      return response.json();
+    } else {
+      throw new Error(`HTTP status ${response.status}`);
+    }
+  })
+  .then(data => {
+    const customers = data.customers;
+    // Process the list of customers as needed
+    customers.forEach(customer => {
+      console.log(`Customer ID: ${customer.id}, Name: ${customer.first_name} ${customer.last_name}`);
+    });
+  })
+  .catch(error => {
+    console.error('Error:', error.message);
+  });
