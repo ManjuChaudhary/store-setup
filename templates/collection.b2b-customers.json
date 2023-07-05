@@ -1,0 +1,56 @@
+{
+  "wrapper": "section",
+  "sections": {
+    "banner": {
+      "type": "collection-b2b-banner",
+      "settings": {
+        "fluid_layout": true,
+        "show_breadcrumbs": false,
+        "show_collection_description": true,
+        "show_collection_image": true,
+        "section_bg_color": "#f5f5f5",
+        "txt_color": "#000000",
+        "alignment": "text-start",
+        "caption_alignment": "me-auto"
+      }
+    },
+    "product-grid": {
+      "type": "template-b2b-collection",
+      "blocks": {
+        "569f40d4-52e3-4549-a672-e422dbdff177": {
+          "type": "promo-blocks",
+          "settings": {
+            "enable": true,
+            "block_index": "6",
+            "image": "shopify:\/\/shop_images\/Mask_Group_40.jpg",
+            "heading": "<p>The one thing stopping your metabolism from giving you all those benefits.<\/p>",
+            "btn_text": "take the quiz",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "569f40d4-52e3-4549-a672-e422dbdff177"
+      ],
+      "settings": {
+        "products_per_page": 24,
+        "product_per_row": "3",
+        "pagination_type": "loadmore",
+        "enable_sub_collections": false,
+        "sub_collections": "",
+        "enable_filtering": true,
+        "filter_type": "default",
+        "price_filter_layout": "range_slider",
+        "price_filter_values": "",
+        "enable_custom_pagination": false,
+        "custom_pagination": "16,24,32",
+        "open_single_accordians": false,
+        "enable_sorting": true
+      }
+    }
+  },
+  "order": [
+    "banner",
+    "product-grid"
+  ]
+}

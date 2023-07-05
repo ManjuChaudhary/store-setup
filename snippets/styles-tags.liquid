@@ -35,6 +35,15 @@
     <link href="{{ 'component-pagination.css' | asset_url }}" rel="stylesheet" type="text/css">
 {%- endif -%}
 
+{%- if template.suffix == 'b2b-customers' -%} 
+  {% comment %} Collection Page custom css {% endcomment %}
+    <link href="{{ 'template-b2b-collection.css' | asset_url }}" rel="stylesheet" type="text/css">
+
+    {% comment %} Collection Filter css {% endcomment %}
+    <link href="{{ 'b2b-collection-filter.css' | asset_url }}" rel="stylesheet" type="text/css">
+
+{%- endif -%}
+
 {% comment %} Product Page css {% endcomment %}
 {%- if template.name == 'product' -%}
     <link href="{{ 'template-product.css' | asset_url }}" rel="stylesheet" type="text/css">

@@ -116,9 +116,20 @@
       <li id="a11y-refresh-page-message">{{ 'accessibility.refresh_page' | t }}</li>
     </ul>
 
+   {% liquid
+      assign b2b_customer = ""
+      if customer
+          for tag in customer.tags
+              if tag == 'b2b_customer'
+                  assign b2b_customer = "?view=b2b-customers"
+              endif
+          endfor
+      endif 
+    %}
     <script type="text/javascript">
       window.globalVariables = {
         cart: {{ cart | json }},
+        b2b_customer: '{{ b2b_customer }}',
         product: {%- if template.name == 'product' -%}{{ product | json }}{%- else -%}{}{%- endif -%},
         collection: {%- if template.name == 'collection' -%}{
           all_products_count: {{ collection.all_products_count }},

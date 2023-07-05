@@ -5,12 +5,14 @@
       "blocks": {
         "76185562-4eb8-429b-a627-624a152e3944": {
           "type": "vendor",
+          "disabled": true,
           "settings": {
             "show_vendor": true
           }
         },
         "f74187b8-c891-42b8-9a6b-2c67a497b018": {
           "type": "subtitle",
+          "disabled": true,
           "settings": {
             "subtitle": ""
           }
@@ -22,6 +24,7 @@
         },
         "fcbf423b-3c83-4097-901c-ca70b8b80e5c": {
           "type": "description",
+          "disabled": true,
           "settings": {
           }
         },
@@ -38,6 +41,7 @@
         },
         "product-tabs": {
           "type": "product-tabs",
+          "disabled": true,
           "settings": {
             "enable_product_tabs": true,
             "product_tabs_fluid_layout": false,
@@ -53,6 +57,7 @@
         },
         "related-products": {
           "type": "related-products",
+          "disabled": true,
           "settings": {
             "enable_related_products": true,
             "related_products_fluid_layout": false,

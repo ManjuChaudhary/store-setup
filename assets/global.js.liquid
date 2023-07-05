@@ -1276,3 +1276,24 @@ if(document.querySelectorAll('.product-thumb--image').length > 0) {
   });
 }
 {%- endif -%}
+
+window.onload=function(){
+console.log(window.globalVariables.b2b_customer);
+let currenturl = window.location.href;
+console.log(currenturl);
+const b2b_customer = window.globalVariables.b2b_customer;
+console.log(b2b_customer);
+if(currenturl.indexOf('/collections') >= 0)
+{
+  if(b2b_customer != "" && currenturl.indexOf('b2b-customers') < 0){
+   window.location.href = currenturl + b2b_customer;
+  }
+}
+if(currenturl.indexOf('/products') >= 0)
+{
+  if(b2b_customer != "" && currenturl.indexOf('b2b-customers') < 0){
+   window.location.href = currenturl + b2b_customer;
+  }
+}
+}
+
