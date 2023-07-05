@@ -1,5 +1,5 @@
 {% if section.settings.enabled %}
-<section data-section-id="{{ section.id }}" data-type="slider" class="header-slider">
+<section data-section-id="{{ section.id }}" data-type="slider" class="header-slider bg-gray-100">
   {% comment %}Carousel for larger screens {% endcomment %}
     <slider-element class="d-block" role="tree">
         <div class="swiper swiper-slider header-slider-desktop {{ section.settings.height }}" data-slider='{
@@ -32,7 +32,7 @@
                     {%- endif -%}
 
                     {% if block.type == 'image' %}
-                        <div class="swiper-slide header-image-slide  {% if section.settings.show_text_below %} text-below {% endif %} d-flex align-items-center slide-{{ block.id }}"
+                        <div class="swiper-slide d-flex align-items-center slide-{{ block.id }}"
                             role="treeitem" {{ block.shopify_attributes }}
                             data-block-id="{{ block.id }}"
                             data-slide-type="image">
@@ -94,19 +94,14 @@
                             {% endif %}
                             {% if block.settings.heading != blank or block.settings.caption != blank %}
                                 <div class="slider-content w-100">
-                                    <div class="container {{ block.settings.mobile_alignment }} {{ block.settings.alignment }}">
-                                        <div class="row {{ block.settings.caption_alignment }} {{ block.settings.mobile_caption_alignment }}">
-                                            <div class="col-xl-5 col-lg-6 col-md-7 col-12 slider-content-wrapper px-3 ps-lg-9">
-                                                <h2 class="h1 heading_txt mb-3" style="color: {{ block.settings.heading_txt_color }};background-color:{{ block.settings.head-bg-color }};">{{ block.settings.heading  }}</h2>
-                                                <p class="caption_txt fw-light mb-3" style="color: {{ block.settings.caption_txt_color }};background-color:{{ block.settings.head-bg-color }};">{{ block.settings.caption | escape }}</p>
-                                                <div class="d-flex align-items-center {{ block.settings.caption_alignment }} {{ block.settings.mobile_caption_alignment }}">
+                                    <div class="container {{ block.settings.alignment }}">
+                                        <div class="row {{ block.settings.caption_alignment }}">
+                                            <div class="col-xl-5 col-lg-6 col-md-7 col-12">
+                                                <h2 class="h1 px-4 px-md-0 heading_txt mb-3" style="color: {{ block.settings.heading_txt_color }};background-color:{{ block.settings.head-bg-color }};">{{ block.settings.heading | escape }}</h2>
+                                                <p class="px-4 px-md-0 caption_txt fw-light mb-4" style="color: {{ block.settings.caption_txt_color }};background-color:{{ block.settings.head-bg-color }};">{{ block.settings.caption | escape }}</p>
                                                 {% if block.settings.btn_txt != blank %}
-                                                    <a {% if block.settings.btn_link %} href="{{ block.settings.btn_link }}" {% endif %} class="{% unless block.settings.btn_type == 'link' %}btn{% endunless %} btn{% if block.settings.btn_type == 'outline' %}-{% endif %}{% unless block.settings.btn_type_2 == 'link'  %}{{ block.settings.btn_type }}{% endunless %}-{{ block.settings.btn_variant }} {{ block.settings.btn_size }} mt-3 text-decoration-none me-6">{{ block.settings.btn_txt }}</a>
+                                                    <a {% if block.settings.btn_link %} href="{{ block.settings.btn_link }}" {% endif %} class="btn btn{% if block.settings.btn_type == 'outline' %}-{% endif %}{{ block.settings.btn_type }}-{{ block.settings.btn_variant }} {{ block.settings.btn_size }} mt-3">{{ block.settings.btn_txt }}</a>
                                                 {% endif %}
-                                                 {% if block.settings.btn_txt_2 != blank %}
-                                                    <a {% if block.settings.btn_link_2 %} href="{{ block.settings.btn_link_2 }}" {% endif %} class="{% unless block.settings.btn_type_2 == 'link'  %}btn{% endunless %} btn{% if block.settings.btn_type_2 == 'outline' %}-{% endif %}{% unless block.settings.btn_type_2 == 'link'  %}{{ block.settings.btn_type_2 }}{% endunless %}-{{ block.settings.btn_variant_2 }} {{ block.settings.btn_size_2 }} mt-3 text-decoration-none">{{ block.settings.btn_txt_2 }}</a>
-                                                {% endif %}
-                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -118,7 +113,7 @@
                             {% endif %}
                         </div>
                     {% elsif block.type == 'video-slide' %} 
-                        <div class="custom-video-container {% unless block.settings.play_icon %}full-video-layout{% endunless %} header-video-slide {% if section.settings.show_text_below %} text-below {% endif %} w-100 swiper-slide d-flex align-items-center slide-{{ block.id }}">
+                        <div class="custom-video-container {% unless block.settings.play_icon %}full-video-layout{% endunless %} header-video-slide w-100 swiper-slide d-flex align-items-center slide-{{ block.id }}">
                             <custom-video class="video-with--text position-relative d-block w-100 h-100 placement--{{ block.settings.placement }}" 
                                 data-loop="{{ block.settings.loop }}" data-autoplay="true" data-controls="{{ block.settings.controls }}" data-muted="{{ block.settings.muted }}"
                                 data-video-type="{{ block.settings.video_type }}"  data-placement="{{ block.settings.placement }}"
@@ -202,12 +197,12 @@
                                         {% endif %}
                                         <div>
                                             {% if block.settings.play_btn %}
-                                                <a data-trigger-videobtn href="#" class="btn btn {% if block.settings.btn_type == 'outline' %}-{% endif %}{{ block.settings.btn_type }}-{{ block.settings.btn_variant }} {{ block.settings.btn_size }}" title="{{ 'sections.video-with-text.play_video' | t }}">
+                                                <a data-trigger-videobtn href="#" class="btn btn{% if block.settings.btn_type == 'outline' %}-{% endif %}{{ block.settings.btn_type }}-{{ block.settings.btn_variant }} {{ block.settings.btn_size }}" title="{{ 'sections.video-with-text.play_video' | t }}">
                                                     {{ 'sections.video-with-text.play_video' | t }}
                                                 </a>
                                             {% endif %}
                                             {% if block.settings.btn_txt != blank %}
-                                                <a {% if block.settings.btn_link %} href="{{ block.settings.btn_link_second }}" {% endif %}class="btn btn{% if block.settings.btn_type == 'outline' %}-{% endif %} {{ block.settings.btn_type }}-{{ block.settings.btn_variant }} {{ block.settings.btn_size }}" title="{{ block.settings.btn_txt }}">{{ block.settings.btn_txt }}</a>
+                                                <a {% if block.settings.btn_link %} href="{{ block.settings.btn_link_second }}" {% endif %}class="btn btn{% if block.settings.btn_type == 'outline' %}-{% endif %}{{ block.settings.btn_type }}-{{ block.settings.btn_variant }} {{ block.settings.btn_size }}" title="{{ block.settings.btn_txt }}">{{ block.settings.btn_txt }}</a>
                                             {% endif %}
                                         </div>
                                     </div>
@@ -281,12 +276,6 @@
                     }
                 ],
                 "default": "tallheight"
-            },
-            {
-                "type": "checkbox",
-                "id": "show_text_below",
-                "default": true,
-                "label": "Show text below banner"
             }
         ],
         "presets": [
@@ -350,47 +339,7 @@
                     {
                         "type": "select",
                         "id": "caption_alignment",
-                        "label": "Caption Alignment Desktop",
-                        "options": [
-                            {
-                                "value": "justify-content-lg-center",
-                                "label": "Center"
-                            },
-                            {
-                                "value": "justify-content-lg-start",
-                                "label": "Left"
-                            },
-                            {
-                                "value": "justify-content-lg-end",
-                                "label": "Right"
-                            }
-                        ],
-                        "default": "justify-content-lg-center"
-                    },
-                    {
-                        "type": "select",
-                        "id": "alignment",
-                        "label": "Text Alignment Desktop",
-                        "options": [
-                            {
-                                "value": "text-lg-center",
-                                "label": "Center"
-                            },
-                            {
-                                "value": "text-lg-start",
-                                "label": "Left"
-                            },
-                            {
-                                "value": "text-lg-end",
-                                "label": "Right"
-                            }
-                        ],
-                        "default": "text-lg-center"
-                    },
-                    {
-                        "type": "select",
-                        "id": "mobile_caption_alignment",
-                        "label": "Caption Alignment Mobile",
+                        "label": "Caption Alignment",
                         "options": [
                             {
                                 "value": "justify-content-center",
@@ -409,8 +358,8 @@
                     },
                     {
                         "type": "select",
-                        "id": "mobile_alignment",
-                        "label": "Text Alignment Mobile",
+                        "id": "alignment",
+                        "label": "Text Alignment",
                         "options": [
                             {
                                 "value": "text-center",
@@ -428,7 +377,7 @@
                         "default": "text-center"
                     },
                     {
-                        "type": "html",
+                        "type": "text",
                         "id": "heading",
                         "label": "Heading"
                     },
@@ -482,10 +431,6 @@
                             {
                                 "value": "",
                                 "label": "Solid"
-                            },
-                            {
-                                "value": "link",
-                                "label": "Link"
                             }
                         ],
                         "default": ""
@@ -510,10 +455,6 @@
                             {
                                 "value": "dark",
                                 "label": "Dark"
-                            },
-                            {
-                                "value": "link",
-                                "label": "Link"
                             }
                         ],
                         "default": "dark"
@@ -521,88 +462,6 @@
                     {
                         "type": "select",
                         "id": "btn_size",
-                        "label": "Button Size",
-                        "options": [
-                            {
-                                "value": "",
-                                "label": "Default"
-                            },
-                            {
-                                "value": "btn-sm",
-                                "label": "Small"
-                            },
-                            {
-                                "value": "btn-lg",
-                                "label": "Large"
-                            }
-                        ],
-                        "default": ""
-                    },
-                    {
-                        "type": "header",
-                        "content": "Button"
-                    },
-                    {
-                        "type": "text",
-                        "id": "btn_txt_2",
-                        "label": "Button Text"
-                    },
-                    {
-                        "type": "url",
-                        "id": "btn_link_2",
-                        "label": "Button Link"
-                    },
-                    {
-                        "type": "select",
-                        "id": "btn_type_2",
-                        "label": "Button Type",
-                        "options": [
-                            {
-                                "value": "outline",
-                                "label": "Outline"
-                            },
-                            {
-                                "value": "",
-                                "label": "Solid"
-                            },
-                            {
-                                "value": "link",
-                                "label": "Link"
-                            }
-                        ],
-                        "default": ""
-                    },
-                    {
-                        "type": "select",
-                        "id": "btn_variant_2",
-                        "label": "Button Variant",
-                        "options": [
-                            {
-                                "value": "primary",
-                                "label": "Primary"
-                            },
-                            {
-                                "value": "secondary",
-                                "label": "Secondary"
-                            },
-                            {
-                                "value": "white",
-                                "label": "White"
-                            },
-                            {
-                                "value": "dark",
-                                "label": "Dark"
-                            },
-                            {
-                                "value": "link",
-                                "label": "Link"
-                            }
-                        ],
-                        "default": "dark"
-                    },
-                    {
-                        "type": "select",
-                        "id": "btn_size_2",
                         "label": "Button Size",
                         "options": [
                             {
@@ -702,10 +561,6 @@
                             {
                                 "value": "",
                                 "label": "Solid"
-                            },
-                            {
-                                "value": "link",
-                                "label": "Link"
                             }
                         ],
                         "default": ""

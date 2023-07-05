@@ -14,7 +14,7 @@
     },
     "social": {
       "newsletter_form": {
-        "newsletter_email": "Email Address",
+        "newsletter_email": "Enter Your email",
         "newsletter_confirmation": "Thanks for subscribing",
         "button": "Submit"
       },
@@ -44,7 +44,7 @@
     },
     "search": {
       "title": "Search Store",
-      "placeholder": "What can we help with?",
+      "placeholder": "Search",
       "submit": "Submit"
     },
     "breadcrumbs": {
@@ -374,6 +374,9 @@
       "password": "Password",
       "password_confirm": "Confirm password",
       "newsletter_subscribe": "Subscribe to newsletter",
+      "b2b_customer": "Apply as b2b Customer",
+      "b2b_yes": "Yes",
+      "b2b_no": "No",
       "submit": "Create"
     },
     "reset_password": {

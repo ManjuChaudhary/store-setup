@@ -1,7 +1,7 @@
 {% assign current_variant = product.selected_or_first_available_variant %}
 
 <div class="card card-product card-product-style-1 text-start rounded-0 border-0" data-product-grid>
-  {% comment %} <span class="badges">
+  <span class="badges">
     {%- liquid
       assign onSale = false
       assign soldOut = false
@@ -37,7 +37,7 @@
         {{ 'products.product.sold_out' | t | escape }}
       </span>
     {% endif %}
-  </span> {% endcomment %}
+  </span>
 
   <div class="card-img text-center {% if product.featured_image.size == 0 %}bg-gray-300{% endif %}" >
     {% capture current %}{% cycle 1, 2, 3, 4, 5, 6 %}{% endcapture %}
@@ -79,8 +79,8 @@
         <a href="{{ product.url | within: collection }}" class="d-block product-link" >
                 <img
                 srcset="
-                  {%- if product.featured_image.width >= 150 -%}{{ product.featured_image | image_url: width: 150 }} 150w,{%- endif -%}
-                  {%- if product.featured_image.width >= 200 -%}{{ product.featured_image | image_url: width: 200 }} 200w,{%- endif -%}"
+                  {%- if product.featured_image.width >= 360 -%}{{ product.featured_image | image_url: width: 360 }} 360w,{%- endif -%}
+                  {%- if product.featured_image.width >= 533 -%}{{ product.featured_image | image_url: width: 533 }} 533w,{%- endif -%}"
                 src="{{ product.featured_image | image_url: width: 50 }}"
 
                 sizes="(min-width: {{ settings.container_width }}) {{ settings.container_width | minus: 150 | divided_by: 4 }}px, (min-width: 768px) calc((100vw - 130px) / 2), 50vw"                
@@ -126,29 +126,18 @@
   </div>
   <div class="card-body px-0">
     <div class="row no-gutter">
-        <div class="col-12">
-            <h5 class="card-title m-0 font-family-heading">
-                <a class="product-link lh-base text-black text-decoration-none" role="button" href="{{ product.url | within: collection }}">{{ product.title }}</a>
-            </h5>
+        <div class="col-8">
+            <h6 class="card-title m-0 font-family-base">
+                <a class="product-link lh-base" role="button" href="{{ product.url | within: collection }}">{{ product.title }}</a>
+            </h6>
         </div>
-        <div class="col-12">
-        <!-- Stamped - Begin Star Rating Badge -->
-        <span 
-          class="stamped-product-reviews-badge stamped-main-badge" 
-          data-id="{{ product.id }}" 
-          data-product-sku="{{ product.handle }}" 
-          data-product-title="{{product.title}}" 
-          data-product-type="{{product.type}}" 
-          style="display: block;">
-        </span>
-       <!-- Stamped - End Star Rating Badge --></div>
-        <div class="col-12 price-wrapper d-flex flex-wrap">
+        <div class="col-4 text-end">
           {% if current_variant and current_variant.compare_at_price > current_variant.price %}
-            <span class="price small money fw-semibold font-family-heading font-size-md w-100" data-comparePrice>{{ current_variant.compare_at_price | money }}</span>
+            <s class="price small m-0 p-0 text-gray-600 me-1 money" data-comparePrice>{{ current_variant.compare_at_price | money }}</s>
           {% elsif product.compare_at_price > product.price %}
-            <span class="price small  money fw-semibold font-family-heading font-size-md w-100" data-comparePrice>{{ product.compare_at_price | money }}</span>
-       {% endif %}
-         <span class="price money {% if product.compare_at_price > product.price %} text-secondary-200 {% endif %} w-100 fw-semibold font-family-heading font-size-lg" data-currentPrice>
+            <s class="price small m-0 p-0 text-gray-600 me-1 money" data-comparePrice>{{ product.compare_at_price | money }}</s>
+          {% endif %}
+          <span class="price m-0 p-0 money" data-currentPrice>
             {% if current_variant %}
               {{ current_variant.price | money }}
             {% elsif product.price_varies %}
@@ -158,13 +147,7 @@
             {% else %}
               {{ product.price | money }}
             {% endif %}
-            {% if product.compare_at_price > product.price %}
-            <span class="font-size-xs">{{ 'Advantage Price '}}</span>
-            {% endif %}
           </span>
-        </div>
-        <div class="col-12 quick-shop">
-        <button class="btn btn-outline-primary w-100 btn-sm">{{ 'quick shop' }}</button>
         </div>
         {%- for block in section.blocks -%}
           {%- case block.type -%}
@@ -177,6 +160,10 @@
     {%- if settings.show_vendor -%}
         <p>{{ product.vendor }}</p>
     {%- endif -%}
-    {% render 'quick-shop-popup', product: product, current_variant: current_variant  %}
   </div>
+  {%- if settings.enable_product_card_swatches -%}
+    <div class="card-footer bg-transparent border-0 p-0">
+      {%- render 'form-product-grid', product: product, current_variant: current_variant -%}
+    </div>
+  {%- endif -%}
 </div>

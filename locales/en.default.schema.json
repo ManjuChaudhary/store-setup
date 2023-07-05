@@ -530,12 +530,6 @@
         },
         "header_topbar_font_size": {
           "label": "Font Size"
-        },
-        "header_topbar_font_family": {
-          "label": "Font Family"
-        },
-        "header_topbar_font_weight": {
-          "label": "Font Weight"
         }
       }
     },
