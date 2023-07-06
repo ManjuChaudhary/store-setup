@@ -11,7 +11,7 @@
 {% comment %}theme-check-enable UnusedAssign{% endcomment %}
 
 {%- assign product_form_id = 'product-form-' | append: product.id -%}
-{% form 'product', product, data-productid: product.id, id: product_form_id, class: "mt-4", data-product-form: "", data-product-id: product.id, data-type: 'add-to-cart-form', data-format: format %}
+{% form 'product', product, data-productid: product.id, id: product_form_id, class: "mt-4", data-product-form: "", data-product-id: product.id, data-type: 'add-to-cart-form', data-format: format , data-warrenty : warrenty %}
 
   <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
   <div class="row">
@@ -111,6 +111,7 @@
             <span class="add-text">{%- if current_variant.available -%}{{ 'products.product.add_to_cart' | t }}{%- else-%}{{ 'products.product.sold_out' | t }}{%- endif -%}</span>
             <span class="spinner"></span>
         </button>
+      
 
         {% comment %} Dynamic Checkout Button {% endcomment %}
         {% if section.settings.enable_dynamic_checkout %}
@@ -125,3 +126,19 @@
 {% endform %}
 
 </product-form>
+{% if warrenty %}
+<zip-code class="zip-code-wrapper d-none">
+    {% if warrenty %}
+     <div class="warrenty-details mt-2 mb-2">{{ settings.warranty_details }}
+     Your Zip code is <span class="current_zip_code"></span><a href="" class="change_zip_code">click here to change it</a></div>
+     {% endif %}
+     <div class="zip-code-field">
+          <form class="zip-code-form">
+              <div class="input-group mb-5"> 
+                <input type="text" name="zip-code" aria-label="zip-code" id="zip-code" class="form-control" placeholder="Enter Your Zip Code" value="" autocorrect="off" autocapitalize="off" required="">
+                <button type="submit" name="btnSubmit" aria-label="submit" class="btn btn-primary btn-sm">Submit</button>
+           </form>
+      </div>
+   </div>
+</zip-code>
+{% endif %}

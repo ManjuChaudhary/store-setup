@@ -4,7 +4,10 @@
     assign fluid_layout = section.settings.fluid_layout
     assign current_variant = product.selected_or_first_available_variant
     assign featured_image = current_variant.featured_image | default: product.featured_image
-
+    assign warrenty = false
+    if settings.enable_warrently_feature and settings.zip_codes != blank  and product.tags contains 'Warranty' 
+    assign warrenty = true
+    endif
     capture current
       cycle 1, 2
     endcapture
@@ -174,7 +177,7 @@
                     {%- when 'product_form' -%}
                       {%- liquid 
                         unless product.tags contains productExcludeTag
-                          render 'form-product', product: product, current_variant: current_variant, format: 'product-page'
+                          render 'form-product', product: product, current_variant: current_variant, warrenty: warrenty, format: 'product-page'
                         endunless
                       -%}
                     {%- when 'share' -%}

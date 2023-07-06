@@ -127,3 +127,22 @@
 .custom-video-container.video--playing .play__button{
     display: none;
 }
+
+#PopupModal-warrantyProduct img{
+ max-width: 300px;
+ min-width: 300px;
+}
+
+.warranty-options span {
+    border: 1px solid;
+    padding: 6px;
+    margin: 20px 5px;
+    display: block;
+    width: 8%;
+    text-align: center;
+}
+
+.variant_wrappers {
+    display: flex;
+    justify-content: center;
+}

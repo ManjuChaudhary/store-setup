@@ -8,9 +8,9 @@ class ProductForm extends HTMLElement {
     this.form = this.querySelector('form');
     this.form.addEventListener('submit', this.onSubmitHandler.bind(this));
     this.cartElement = document.querySelector('ajax-cart');
-
     this.qtyBtns = this.querySelectorAll('[data-qty-btn]');
     this.qtyBtns.forEach(qtyBtn => qtyBtn.addEventListener('click', this.manageQtyBtn.bind(this)));
+    // document.querySelector("form.zip-code-form button").addEventListener("click", this.checkZipCodeValue.bind(this));
   }
 
   /**
@@ -27,7 +27,17 @@ class ProductForm extends HTMLElement {
 
     submitButton.setAttribute('disabled', true);
     submitButton.classList.add('loading');
+    const zipCode = document.querySelector('zip-code');
+    console.log(zipCode);
 
+    if(zipCode){
+      let submitBtn = document.querySelector('[name="add"]');
+      submitBtn.classList.add('d-none');
+      document.querySelector("zip-code").classList.remove("d-none");
+      document.querySelector(".warrenty-details").classList.add("d-none");
+      return false;
+    }
+   
     addItems.push(JSON.parse(serializeForm(this.form)))
     if(pdpContainer){
       let addOnItemsEle = pdpContainer.querySelectorAll('[data-addon-selection]:checked');
@@ -46,7 +56,8 @@ class ProductForm extends HTMLElement {
     const body = JSON.stringify({
       items: addItems
     });
-    
+
+
     fetch(`${routes.cart_add_url}`, { ...fetchConfig(), body })
       .then((response) => response.json())
       .then(() => {
@@ -63,6 +74,7 @@ class ProductForm extends HTMLElement {
         submitButton.classList.remove('loading');
         submitButton.removeAttribute('disabled');
       });
+    
   }
 
   /**

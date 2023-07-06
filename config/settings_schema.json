@@ -1214,6 +1214,43 @@
     ]
   },
   {
+    "name": "Warranty Feature",
+    "settings": [
+      {
+        "type":"header",
+        "content":"Warranty Feature"
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_warrently_feature",
+        "label": "Enable Warranty Feature"
+      },
+      {
+        "type": "richtext",
+        "id": "warranty_details",
+        "label": "Warranty Details"
+      },
+      {
+        "type":"header",
+        "content":"Zip Codes"
+      },
+      {
+         "type" : "textarea",
+         "id" : "zip_codes",
+        "label" : "Zip Codes"
+      },
+      {
+        "type":"header",
+        "content":"Warranty Products"
+      },
+      {
+        "type": "product",
+        "id": "warranty_product",
+        "label": "Warranty Product"
+      }
+    ]
+  },
+  {
     "name": "Cart",
     "settings": [
       {

@@ -71,6 +71,59 @@
         
       </quick-shop>
     {% endif %}
+    {% assign warrantyProduct = all_products[settings.warranty_product] %}
+
+     <modal-dialog id="PopupModal-warrantyProduct">
+      <div class="modal" role="dialog">
+          <div class="modal-dialog modal-dialog-centered" data-customVideoPopup>
+            <div class="modal-content">
+              <div class="modal-head">
+                <button class="btn p-2 close-quickshop" type="button" id="ModalClose-video" aria-label="{{ 'sections.video-with-text.close_video' | t }}">
+                  <span class="icon-close"></span>
+                </button>
+              </div>
+              <div class="modal-body warrenty-section">
+              <div class="row justify-content-center text-center">
+               <div class="col-12">
+              {% assign image = warrantyProduct.featured_image %}
+                <img srcset="
+                                                  {%- if image.src.width >= 350 -%}{{ image.src | image_url: width: 350 }} 350w,{%- endif -%}
+                                                  {%- if image.src.width >= 550 -%}{{ image.src | image_url: width: 550 }} 550w,{%- endif -%}
+                                                  {%- if image.src.width >= 750 -%}{{ image.src | image_url: width: 750 }} 750w,{%- endif -%}
+                                                  {%- if image.src.width >= 991 -%}{{ image.src | image_url: width: 991 }} 991w,{%- endif -%}
+                                                  {%- if image.src.width >= 1200 -%}{{ image.src | image_url: width: 1200 }} 1200w,{%- endif -%} 
+                                                  {%- if image.src.width >= 1500 -%}{{ image.src | image_url: width: 1500 }} 1500w,{%- endif -%} 
+                                                  {{ image.src | image_url }} {{ image.src.width }}w"
+                                                  src="{{ image.src | image_url: width: 50 }}" 
+                                                  {% if forloop.index != 1 %} loading="lazy" {% else %} fetchpriority="high" {% endif %}
+                                                  data-variant-title="{{ image.alt | escape }}"
+                                                  sizes="(min-width: {{ settings.container_width }}) {{ settings.container_width }}, 100vw"
+                                                  alt="{{ image.alt | escape }}"
+                                                  width="{{ image.src.width }}"
+                                                  height="{{ image.src.width | divided_by: image.src.aspect_ratio | round }}"
+                  >
+              </div>
+              <div class="col-12">
+                <h3>{{ warrantyProduct.title }}</h3>
+                <h5>{{ warrantyProduct.price | money }}</h5>
+                <div class="warranty-options">
+                  <h6>{{ 'Select Warranty Period' }}</h6>
+                  <div class="variant_wrappers">
+                {% for variant in warrantyProduct.variants%}
+                   <span data-variant="{{variant.id}}">{{ variant.title }}</span>
+                {% endfor %}
+                </div>
+                </div>
+              </div>
+              <form>
+              <button type="submit" class="btn btn-primary mb-4">Add Warranty product</button>
+              </form>
+              </div>
+              </div>
+            </div>
+          </div>
+      </div>
+    </modal-dialog>
 
     <modal-dialog id="PopupModal-video">
       <div class="modal" role="dialog">
@@ -125,10 +178,17 @@
               endif
           endfor
       endif 
+      assign zip_codes = ""
+      if settings.enable_warrently_feature
+         assign zip_codes =  settings.zip_codes | newline_to_br | strip_newlines | split: '<br />' | json 
+      endif
     %}
+   
+  
     <script type="text/javascript">
       window.globalVariables = {
         cart: {{ cart | json }},
+        zip_codes : {{ zip_codes }},
         b2b_customer: '{{ b2b_customer }}',
         product: {%- if template.name == 'product' -%}{{ product | json }}{%- else -%}{}{%- endif -%},
         collection: {%- if template.name == 'collection' -%}{
