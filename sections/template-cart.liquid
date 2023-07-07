@@ -63,6 +63,7 @@
                                         elsif currentVar.inventory_management == 'shopify' and currentVar.inventory_policy == 'deny' and item.quantity == currentVar.inventory_quantity
                                             assign varStatus = 'locked'
                                         endif
+                                        
                                     -%}
 
                                     <div class="cart-items py-4 border-bottom"  data-cart-item data-variant-id="{{ item.id }}">
@@ -126,6 +127,11 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                            {%  if settings.enable_warrently_feature and settings.zip_codes != blank  and item.product.tags contains 'Warranty' %}
+                                             <div class="col-12">
+                                               <input type="checkbox" name="add-warranty" class="warranty-product">{{ 'Add Warranty To Cart'}}
+                                              </div>
+                                              {% endif %}
                                             <div class="col-4 col-md-2 text-md-center cart-price">
                                                 {% if item.properties['promo_product'] or item.original_price == 0 %}
                                                     <span class="m-0 p-0">{{ 'templates.cart.free' | t }}</span>

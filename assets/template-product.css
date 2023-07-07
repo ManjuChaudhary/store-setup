@@ -140,8 +140,12 @@
     display: block;
     width: 8%;
     text-align: center;
+    cursor: pointer;
 }
-
+.warranty-options span.active {
+    background-color: #000;
+    color: #fff;
+}
 .variant_wrappers {
     display: flex;
     justify-content: center;

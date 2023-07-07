@@ -20,7 +20,7 @@
     "enable_newletter": false,
     "enable_custom_klaviyo": false,
     "enable_warrently_feature": true,
-    "warranty_details": "<p>Please Enter your local zip code  in 5km -10km area. You Can  Purchase the warranty from nearest store in this area.<\/p>",
+    "warranty_details": "<p>Please Enter your local zip code  in 5km -10km area. <\/p>",
     "zip_codes": "174303\n174304\n174305\n174306",
     "warranty_product": "warranty-product",
     "enable_cart_notes": true,

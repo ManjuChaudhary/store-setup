@@ -10,7 +10,149 @@ class ProductForm extends HTMLElement {
     this.cartElement = document.querySelector('ajax-cart');
     this.qtyBtns = this.querySelectorAll('[data-qty-btn]');
     this.qtyBtns.forEach(qtyBtn => qtyBtn.addEventListener('click', this.manageQtyBtn.bind(this)));
-    // document.querySelector("form.zip-code-form button").addEventListener("click", this.checkZipCodeValue.bind(this));
+    this.popupZipCode = document.querySelector("#PopupModal-zipCode");
+    if(this.popupZipCode) this.popupModel = this.popupZipCode.querySelector(".modal");
+    document.querySelector(".zip-code-form button").addEventListener("click", this.zipCodeSubmitHandler.bind(this));
+    // document.addEventListener("DOMContentLoaded", this.checkZipCodeCookieValue.bind(this));
+    // this.popupWarranty = document.querySelector("#PopupModal-warrantyProduct");
+    // if(this.popupWarranty) this.popupModel = this.popupWarranty.querySelector(".modal");
+}
+
+  /*
+   * Check Zip Code Cookies Value On Page Load
+   * 
+   * @param {evt} Event instance
+   */
+// async checkZipCodeCookieValue(){
+//   let zipCodeCookiesValue = Utility.getCookie("zipCode");
+//   if(zipCodeCookiesValue !== undefined ){
+//   }
+// }
+
+ /**
+   * Warranty Feature Check Zip Code Value and Set It As Cookies
+   *
+   * @param {evt} Event instance
+   */
+ async zipCodeSubmitHandler(evt){
+          let _this = this;
+          const allLocalZipCodes = window.globalVariables.zip_codes;
+          let zipCodeInput = this.querySelector('[name="zip-code"]');
+          let zipCodeValue =  null;
+          if(zipCodeInput) zipCodeValue = zipCodeInput.value.trim();
+          console.log(allLocalZipCodes.indexOf(zipCodeValue));
+          if(zipCodeValue != ""){
+          setTimeout(()=>{
+            _this.addProduct(evt);
+          }, 3000);
+        }
+  }
+  
+   /**
+   * Add product.
+   *
+   * @param {evt} Event instance
+   */
+    async addProduct(evt) {
+    evt.preventDefault();
+    let productForm = document.querySelector('.product-form form');
+    console.log(productForm);
+    console.log("sumit");
+    const addItems = [];
+    const submitButton = productForm.querySelector('[type="submit"]');
+    submitButton.setAttribute('disabled', true);
+    submitButton.classList.add('loading');
+
+    // warranty product get data //
+    addItems.push(JSON.parse(serializeForm(productForm)))
+
+    const allLocalZipCodes = window.globalVariables.zip_codes;
+    let zipCodefiled = document.querySelector('[name="zip-code"]');
+    let zipCode = zipCodefiled.value;
+    console.log(zipCode);
+    console.log(allLocalZipCodes.indexOf(zipCode));
+    const warrantyForm = document.querySelector(".warranty_product");
+    console.log(warrantyForm);
+    let variantId = warrantyForm.dataset.variantId;
+    console.log(variantId);
+    if(allLocalZipCodes.indexOf(zipCode) === -1 )
+    {
+      // fetch(`${routes.cart_fetch_url}`, {
+      //   method: 'POST', // Specify the HTTP method (e.g., POST, GET, etc.)
+      //   body: JSON.stringify({}), // Add the request body if required
+      //   headers: {
+      //     'Content-Type': 'application/json'
+      //   }
+      // })
+      //   .then((response) => response.json())
+      //   .then((responseData) => {
+      //     console.log(responseData);
+      //   })
+      //   .catch((error) => {
+      //     console.error(error);
+      //   });
+      
+      document.querySelector(".warrenty-success").classList.add("d-none");
+     if(warrantyForm){
+            if(variantId){
+              let addOnJSON = {
+                id: variantId,
+                quantity:1
+              }
+              addItems.push(addOnJSON);
+         }
+      }
+    }
+    else if(allLocalZipCodes.indexOf(zipCode) >= 0 ){
+      document.querySelector(".warrenty-success").classList.remove("d-none");
+      const data = JSON.stringify({
+        id: variantId,
+        quantity: 0
+      });
+      if (warrantyForm) {
+        fetch(routes.cart_change_url, {
+          method: "POST",
+          body: data,
+          headers: {
+            "Content-Type": "application/json"
+          }
+        })
+          .then((response) => response.json())
+          .then((responseData) => {
+            console.log(responseData);
+          })
+          .catch((error) => {
+            console.error(error);
+          });
+      }
+   }
+
+
+    const body = JSON.stringify({
+      items: addItems
+    });
+    
+    console.log(body);
+
+    fetch(`${routes.cart_add_url}`, { ...fetchConfig(), body })
+      .then((response) => response.json())
+      .then(() => {
+        if(document.querySelector('#PopupModal-quickshop')){
+          document.querySelector('#PopupModal-quickshop .close-quickshop').dispatchEvent(new Event('click'))
+        }
+        this.cartElement.getCartData('open_drawer');
+        document.body.classList.remove('overflow-hidden');
+        this.popupModel.classList.remove('open');
+        siteOverlay.prototype.hideOverlay();
+        Utility.removeTrapFocus();
+      })
+      .catch((e) => {
+        console.error(e);
+      })
+      .finally(() => {
+        submitButton.classList.remove('loading');
+        submitButton.removeAttribute('disabled');
+      });
   }
 
   /**
@@ -24,18 +166,21 @@ class ProductForm extends HTMLElement {
     const submitButton = this.querySelector('[type="submit"]');
     const qtyInput = this.querySelector('[data-qty-input]');
     const pdpContainer = this.closest('.product-details-wrapper');
-
     submitButton.setAttribute('disabled', true);
     submitButton.classList.add('loading');
-    const zipCode = document.querySelector('zip-code');
+    const zipCode = document.querySelector('#PopupModal-zipCode');
     console.log(zipCode);
-
     if(zipCode){
-      let submitBtn = document.querySelector('[name="add"]');
-      submitBtn.classList.add('d-none');
-      document.querySelector("zip-code").classList.remove("d-none");
-      document.querySelector(".warrenty-details").classList.add("d-none");
-      return false;
+      if(this.popupZipCode) {
+        if(this.popupModel) {
+          this.popupModel.classList.add('open');
+          siteOverlay.prototype.showOverlay();
+          Utility.trapFocus(this.popupModel);
+          Utility.forceFocus(this.popupModel.querySelector('[id^="ModalClose-"]'));
+        }
+      }
+     submitButton.classList.remove('loading');
+     return false;
     }
    
     addItems.push(JSON.parse(serializeForm(this.form)))
