@@ -164,7 +164,7 @@
   %}
   
  {% assign warrantyproduct = all_products[settings.warranty_product] %}
-{% if settings.enable_warrently_feature and settings.zip_codes != blank  %}
+  {%  if settings.enable_warrently_feature and settings.zip_codes != blank %}
   <span class="warranty_product d-none" data-variant-id="{{warrantyproduct.selected_or_first_available_variant.id }}"></span>
   {% endif %} 
 

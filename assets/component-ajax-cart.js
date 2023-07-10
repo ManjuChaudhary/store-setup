@@ -13,11 +13,13 @@ class AjaxCart extends HTMLElement {
         this.bindEvents();
         this.cartNoteInput();
         this.querySelectorAll('.close-ajax--cart').forEach(button => button.addEventListener('click', this.closeCartDrawer.bind(this)));
+
         if (window.globalVariables.template != 'cart') {
             this.addAccessibilityAttributes(this.openeBy);
             this.getCartData();
         } else {
             this.style.visibility = 'visible';
+            this.getCartData();
         }
 
         if (navigator.platform === 'iPhone') document.documentElement.style.setProperty('--viewport-height', `${window.innerHeight}px`);
@@ -171,8 +173,9 @@ class AjaxCart extends HTMLElement {
         }
 
         let cartElement = cartHTML.querySelector('ajax-cart form');
-       
-      console.log(cartElement);
+        let warranty_product = window.globalVariables.warranty_product;
+        console.log(warranty_product);
+
         let mainProductHandles = [];
         cartElement.querySelectorAll(".main-product").forEach(handle => {
             let hnadleHtml = handle.innerHTML
@@ -180,9 +183,13 @@ class AjaxCart extends HTMLElement {
             console.log(modifiedHtmlString);
             mainProductHandles.push(modifiedHtmlString);
         });
+        console.log(mainProductHandles);
 
+
+        let cartItemHandles = [];
         cartElement.querySelectorAll(".card-title").forEach(itemHandle => {
             let currentHanlde = itemHandle.dataset.handle;
+            console.log(currentHanlde);
             let warrantyElem = itemHandle.closest(".cart-item").querySelector(".cart-warrenty-field");
             if (mainProductHandles.length > 0) {
                 if (mainProductHandles.includes(currentHanlde)) {
@@ -192,6 +199,7 @@ class AjaxCart extends HTMLElement {
                 if (warrantyElem) warrantyElem.style.display = "block";
             }
         });
+        console.log(cartItemHandles);
 
         if (this.querySelector('form')) {
             this.querySelector('form').innerHTML = cartElement.innerHTML;
