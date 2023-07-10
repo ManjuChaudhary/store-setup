@@ -8,6 +8,8 @@ class WarrantyFeature extends HTMLElement {
         if(zipCodeForm) zipCodeForm.addEventListener("click", this.zipCodeSubmitHandler.bind(this));
         this.popupZipCode = document.querySelector("#PopupModal-zipCode");
         if (this.popupZipCode) this.popupModel = this.popupZipCode.querySelector(".modal");
+        document.addEventListener("DOMContentLoaded", this.showZipCodePopup.bind(this));
+        
     }
 
   /**
@@ -24,7 +26,11 @@ class WarrantyFeature extends HTMLElement {
     if(zipCodeValue != ""){
     setTimeout(()=>{
       _this.addProduct(evt);
-    }, 3000);
+    }, 2000);
+    document.querySelector(".error_msg").classList.add("d-none");
+  }
+  else{
+    document.querySelector(".error_msg").classList.remove("d-none");
   }
 }
 
@@ -34,17 +40,29 @@ class WarrantyFeature extends HTMLElement {
    * @param {evt} Event instance
    */
  async addProduct(evt) {
-    let _this = this;
+  let _this = this;
+  console.log(_this.popupModel);
     evt.preventDefault();
     let productForm = document.querySelector('.product-form form');
-    let mainProductId = productForm.querySelector('[name="id"]').value;
-        let randomValue = Math.random().toFixed(4);
+    let checkWarrantyCheckbox = Utility.getCookie("warranty-checkbox");
+    let checkWarrantyProductId = Utility.getCookie("warranty-product-id");
+    let checkWarrantyProductHandle = Utility.getCookie("warranty-product-handle");
+    let mainProductId;
+    let mainProductHandle;
+    if(checkWarrantyCheckbox){
+     mainProductId = checkWarrantyProductId;
+     mainProductHandle = checkWarrantyProductHandle;
+    }
+    else{
+      mainProductId = productForm.querySelector('[name="id"]').value;
+      mainProductHandle = productForm.dataset.handle;
+    }
+    console.log(mainProductHandle);
     const addItems = [];
     const submitButton = productForm.querySelector('[type="submit"]');
     submitButton.setAttribute('disabled', true);
     submitButton.classList.add('loading');
-
-    // warranty product get data //
+ 
     addItems.push(JSON.parse(serializeForm(productForm)))
 
     const allLocalZipCodes = window.globalVariables.zip_codes;
@@ -62,6 +80,7 @@ class WarrantyFeature extends HTMLElement {
                 quantity:1,
                 properties: {
                     'Main Product': mainProductId,
+                    "Main Product Handle" : mainProductHandle
                   }
               }
               addItems.push(addOnJSON);
@@ -91,7 +110,6 @@ class WarrantyFeature extends HTMLElement {
       }
    }
 
-
     const body = JSON.stringify({
       items: addItems
     });
@@ -103,7 +121,7 @@ class WarrantyFeature extends HTMLElement {
         if(document.querySelector('#PopupModal-quickshop')){
           document.querySelector('#PopupModal-quickshop .close-quickshop').dispatchEvent(new Event('click'))
         }
-        _this.cartElement.getCartData('open_drawer');
+        this.cartElement.getCartData('open_drawer');
         document.body.classList.remove('overflow-hidden');
         _this.popupModel.classList.remove('open');
         siteOverlay.prototype.hideOverlay();
@@ -118,7 +136,29 @@ class WarrantyFeature extends HTMLElement {
       });
   }
 
-  
+  async showZipCodePopup(){
+    Utility.removeCookie("warranty-checkbox");
+    Utility.removeCookie("warranty-product-id");
+    document.addEventListener("change", function(event) {
+      if (event.target.matches("[data-cart-form] [name=warranty]")) {
+        var clickedItem = event.target;
+        Utility.setCookie("warranty-checkbox" , clickedItem.checked);
+        Utility.setCookie("warranty-product-id" , clickedItem.value);
+        Utility.setCookie("warranty-product-handle" , clickedItem.dataset.handle);
+        let popupZipCode = document.querySelector("#PopupModal-zipCode");
+        if(popupZipCode){
+        let popupModel = popupZipCode.querySelector(".modal");
+        if (clickedItem.checked) {
+          console.log("clicked");
+          popupModel.classList.add('open');
+                  siteOverlay.prototype.showOverlay();
+                  Utility.trapFocus(popupModel);
+                  Utility.forceFocus(popupModel.querySelector('[id^="ModalClose-"]'));
+        }
+       }
+      }
+    });
+  }
 
 }
 

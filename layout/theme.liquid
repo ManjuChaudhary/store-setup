@@ -88,11 +88,12 @@
                  <div class="warrenty-details mt-2 mb-2">{{ settings.warranty_details }}</div>
                  <div class="warrenty-success mt-2 mb-2 d-none">{{ 'Purchase the warranty from nearest store' }}</div>
                <div class="zip-code-field zip-code-form">
-                   <div class="input-group mb-5"> 
+                   <div class="input-group mb-3"> 
                    <input type="text" name="zip-code" aria-label="zip-code" id="zip-code" class="form-control" placeholder="Enter Your Zip Code" value="" autocorrect="off" autocapitalize="off" required="">
                     <button type="submit" name="btnSubmit" aria-label="submit" class="btn btn-primary btn-sm">Submit</button>
                 </div>
               </div>
+              <h6 class="d-none text-danger error_msg">{{ 'Please Enter Zip Code Value' }}</h6>
           </zip-code>
             </div>
           </div>
@@ -162,7 +163,10 @@
      assign warranty_product = all_products[settings.warranty_product].handle
   %}
   
- 
+ {% assign warrantyproduct = all_products[settings.warranty_product] %}
+{% if settings.enable_warrently_feature and settings.zip_codes != blank  %}
+  <span class="warranty_product d-none" data-variant-id="{{warrantyproduct.selected_or_first_available_variant.id }}"></span>
+  {% endif %} 
 
   <script type="text/javascript">
     window.globalVariables = {

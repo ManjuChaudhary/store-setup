@@ -12,10 +12,7 @@
       cycle 1, 2
     endcapture
   -%}
-  {% assign warrantyproduct = all_products[settings.warranty_product] %}
-  {% if warrenty %}
-  <span class="warranty_product d-none" data-variant-id="{{warrantyproduct.selected_or_first_available_variant.id }}"></span>
-  {% endif %} 
+  
   <section class="section-content" data-product-container>
     <div class="{% if fluid_layout %}container-fluid{% else %}container{% endif %}">
         <div class="row">
@@ -139,7 +136,7 @@
             </div>
 
             <div class="col-lg-5" id="ProductInfo-{{ section.id }}">
-                <div class="product-details-wrapper mt-5 mt-lg-0" data-slider_type="{{ section.settings.slider_type }}" data-product-title="{{ product.title }}">
+                <div class="product-details-wrapper mt-5 mt-lg-0" data-slider_type="{{ section.settings.slider_type }}">
                   <h1 class="product-title">{{ product.title }}</h1>
                   {%- for block in section.blocks -%}
                     {%- case block.type -%}

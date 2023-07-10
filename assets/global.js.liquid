@@ -1295,25 +1295,5 @@ if(currenturl.indexOf('/products') >= 0)
    window.location.href = currenturl + b2b_customer;
   }
 }
-
-let popupZipCode = document.querySelector("#PopupModal-zipCode");
-let popupModel = popupZipCode.querySelector(".modal");
-var checkbox = document.querySelector("[name=warranty]");
-if(checkbox){
-checkbox.addEventListener("change", function() {
-          if (checkbox.checked) {
-              console.log("clicked");
-              console.log(this.popupModel);
-              if (popupZipCode) {
-                  if (popupModel) {
-                    popupModel.classList.add('open');
-                      siteOverlay.prototype.showOverlay();
-                      Utility.trapFocus(popupModel);
-                      Utility.forceFocus(popupModel.querySelector('[id^="ModalClose-"]'));
-                  }
-              }
-          }
-      });
-}
 }
 
