@@ -128,10 +128,11 @@
                                                 </div>
                                             </div>
                                             {%  if settings.enable_warrently_feature and settings.zip_codes != blank  and item.product.tags contains 'Warranty' %}
-                                             <div class="col-12">
-                                               <input type="checkbox" name="add-warranty" class="warranty-product">{{ 'Add Warranty To Cart'}}
-                                              </div>
-                                              {% endif %}
+                                            <div class="col-12 cart-warrenty-field">
+                                              <input type="checkbox" name="warranty" value="{{ item.variant.id }}" id="warranty-checkbox-{{ item.variant.id }}">
+                                              <label for="warranty-checkbox-{{ item.variant.id }}">Add Warranty</label>
+                                            </div>
+                                            {% endif %}
                                             <div class="col-4 col-md-2 text-md-center cart-price">
                                                 {% if item.properties['promo_product'] or item.original_price == 0 %}
                                                     <span class="m-0 p-0">{{ 'templates.cart.free' | t }}</span>
@@ -161,7 +162,7 @@
                                                                 </a>
                                                             </div>
                                                         </div>
-                                                        <a class="my-0 text-danger ms-3"
+                                                        <a class="my-0 text-danger ms-3 {% if item.product.handle contains 'warranty-product'%}waranty-remove{% endif %}"
                                                             href="#"
                                                             title="{{ 'templates.cart.remove' | t }}"
                                                             aria-label="{{ 'templates.cart.remove' | t }}"

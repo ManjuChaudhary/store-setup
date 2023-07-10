@@ -69,7 +69,7 @@
                                                         {%- if section.settings.show_vendor -%}
                                                             <p class="caption-with-letter-spacing light">{{ item.product.vendor }}</p>
                                                         {%- endif -%}
-                                                        <a href="{{ item.url }}" class="card-title"> {{ item.product.title | escape }} </a>
+                                                        <a href="{{ item.url }}" class="card-title" data-handle="{{ item.product.handle }}"> {{ item.product.title | escape }} </a>
                                                         {%- if item.product.has_only_default_variant == false or item.properties.size != 0 or item.selling_plan_allocation != nil -%}
                                                             {%- if item.product.has_only_default_variant == false -%}
                                                                 <ul class="list-unstyled">
@@ -109,11 +109,12 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            {%  if settings.enable_warrently_feature and settings.zip_codes != blank  and item.product.tags contains 'Warranty' %}
-                                             <div class="col-12">
-                                               <input type="checkbox" name="add-warranty" class="warranty-product">{{ 'Add Warranty To Cart'}}
-                                              </div>
-                                              {% endif %}
+                                           {%  if settings.enable_warrently_feature and settings.zip_codes != blank  and item.product.tags contains 'Warranty' %}
+                                            <div class="col-12 cart-warrenty-field d-none">
+                                              <input type="checkbox" name="warranty" value="{{ item.variant.id }}" id="warranty-checkbox-{{ item.variant.id }}">
+                                              <label for="warranty-checkbox-{{ item.variant.id }}">Add Warranty</label>
+                                            </div>
+                                            {% endif %}
                                             <div class="col-4 col-md-2 text-md-center cart-price">
                                                 {% if item.properties['promo_product'] or item.original_price == 0 %}
                                                     <span class="m-0 p-0">{{ 'templates.cart.free' | t }}</span>
@@ -146,7 +147,7 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <a class="my-0 text-danger ms-3"
+                                                        <a class="my-0 text-danger ms-3 {% if item.product.handle contains 'warranty-product'%}waranty-remove{% endif %}"
                                                             href="#"
                                                             title="{{ 'templates.cart.remove' | t }}"
                                                             aria-label="{{ 'templates.cart.remove' | t }}"
@@ -234,4 +235,3 @@
         </div>
     </div>
   </section>
-  

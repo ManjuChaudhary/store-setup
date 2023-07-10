@@ -5,275 +5,316 @@ const drawerSelectors = {
   cartIconMobile: document.querySelector('#cart-icon-mobile'),
 };
 class AjaxCart extends HTMLElement {
-    constructor() {
+  constructor() {
       super();
-  
+
       this.openeBy = drawerSelectors.cartIcons;
-      this.isOpen =  this.classList.contains('open--drawer');
+      this.isOpen = this.classList.contains('open--drawer');
       this.bindEvents();
       this.cartNoteInput();
       this.querySelectorAll('.close-ajax--cart').forEach(button => button.addEventListener('click', this.closeCartDrawer.bind(this)));
-      
-      if(window.globalVariables.template != 'cart'){
-        this.addAccessibilityAttributes(this.openeBy);
-        this.getCartData();
-      }else{
-        this.style.visibility = 'visible';
+      this.popupZipCode = document.querySelector("#PopupModal-zipCode");
+      this.popupModel = this.popupZipCode.querySelector(".modal");
+      if (window.globalVariables.template != 'cart') {
+          this.addAccessibilityAttributes(this.openeBy);
+          this.getCartData();
+      } else {
+          this.style.visibility = 'visible';
       }
 
       if (navigator.platform === 'iPhone') document.documentElement.style.setProperty('--viewport-height', `${window.innerHeight}px`);
-    }
-  
-    /**
-     * Observe attribute of component
-     * 
-     * @returns {array} Attributes to Observe
-     */
-    static get observedAttributes() {
+  }
+
+  /**
+   * Observe attribute of component
+   * 
+   * @returns {array} Attributes to Observe
+   */
+  static get observedAttributes() {
       return ['updating'];
-    }
-  
-    /**
-     * To Perform operation when attribute is changed
-     * Calls attributeChangedCallback() with params when attribute value is updated
-     * 
-     * @param {string} name attribute name
-     * @param {string} oldValue attribute Old value
-     * @param {string} newValue attribute latest value
-     */
-    attributeChangedCallback(name, _oldValue, newValue) {
+  }
+
+  /**
+   * To Perform operation when attribute is changed
+   * Calls attributeChangedCallback() with params when attribute value is updated
+   * 
+   * @param {string} name attribute name
+   * @param {string} oldValue attribute Old value
+   * @param {string} newValue attribute latest value
+   */
+  attributeChangedCallback(name, _oldValue, newValue) {
       // called when one of attributes listed above is modified
-      if(name == 'updating' && newValue == 'false'){
-        this.updateEvents();
+      if (name == 'updating' && newValue == 'false') {
+          this.updateEvents();
       }
-    }
-  
-    /**
-     * Add accessibility attributes to Open Drawer buttons
-     * 
-     * @param {Node Array} openDrawerButtons Cart Icons
-     */
-    addAccessibilityAttributes(openDrawerButtons) {
+  }
+
+  /**
+   * Add accessibility attributes to Open Drawer buttons
+   * 
+   * @param {Node Array} openDrawerButtons Cart Icons
+   */
+  addAccessibilityAttributes(openDrawerButtons) {
       let _this = this;
       openDrawerButtons.forEach(element => {
-        element.setAttribute('role', 'button');
-        element.setAttribute('aria-expanded', false);
-        element.setAttribute('aria-controls', _this.id);
+          element.setAttribute('role', 'button');
+          element.setAttribute('aria-expanded', false);
+          element.setAttribute('aria-controls', _this.id);
       });
-    }
-  
-    /**
-     * Escape Click event to close drawer when focused within Cart Drawer
-     *
-     * @param {event} Event instance
-     */
-    onKeyUp(event) {
-      if(event.code.toUpperCase() !== 'ESCAPE') return;
+  }
+
+  /**
+   * Escape Click event to close drawer when focused within Cart Drawer
+   *
+   * @param {event} Event instance
+   */
+  onKeyUp(event) {
+      if (event.code.toUpperCase() !== 'ESCAPE') return;
       this.querySelector('.close-ajax--cart').dispatchEvent(new Event('click'));
-    }
-  
-    /**
-     * bind dclick and keyup event to Cart Icons
-     * bind keyUp event to Cart drawer component
-     * bind Other inside element events
-     *
-     */
-    bindEvents() {
-      if(window.globalVariables.template != 'cart'){
-        this.openeBy.forEach(cartBtn => cartBtn.addEventListener('click', this.openCartDrawer.bind(this)));
-        this.addEventListener('keyup', this.onKeyUp.bind(this));
+  }
+
+  /**
+   * bind dclick and keyup event to Cart Icons
+   * bind keyUp event to Cart drawer component
+   * bind Other inside element events
+   *
+   */
+  bindEvents() {
+      if (window.globalVariables.template != 'cart') {
+          this.openeBy.forEach(cartBtn => cartBtn.addEventListener('click', this.openCartDrawer.bind(this)));
+          this.addEventListener('keyup', this.onKeyUp.bind(this));
       }
       this.updateEvents();
-    }
+  }
 
-    /**
-     * bind Other inside element events to DOM
-     *
-     */
-    updateEvents(){
+  /**
+   * bind Other inside element events to DOM
+   *
+   */
+  updateEvents() {
       this.querySelectorAll('[data-itemRemove]').forEach(button => button.addEventListener('click', this.removeItem.bind(this)));
       this.querySelectorAll('[data-qty-btn]').forEach(button => button.addEventListener('click', this.manageQtyBtn.bind(this)));
       this.querySelectorAll('[data-qty-input]').forEach(button => button.addEventListener('change', this.onQtyChange.bind(this)));
-    }
-  
-    /**
-     * Open Cart drawer and add focus to drawer container
-     *
-     * @param {event} Event instance
-     */
-    openCartDrawer(event) {
-      if(!window.globalVariables.cart_drawer){
-        window.location.href = window.routes.cart_fetch_url || '/cart';
-        return;
+  }
+
+  /**
+   * Open Cart drawer and add focus to drawer container
+   *
+   * @param {event} Event instance
+   */
+  openCartDrawer(event) {
+      let _this = this;
+      if (!window.globalVariables.cart_drawer) {
+          window.location.href = window.routes.cart_fetch_url || '/cart';
+          return;
       }
-  
-      if(document.querySelector('#mobile-menu-drawer').classList.contains('opened-drawer')){
-        document.querySelector('.close-mobile--navbar').dispatchEvent(new Event('click'));
+      if (document.querySelector('#mobile-menu-drawer').classList.contains('opened-drawer')) {
+          document.querySelector('.close-mobile--navbar').dispatchEvent(new Event('click'));
       }
-  
+      document.querySelectorAll("[name=warranty]").forEach(checkbox => {
+      console.log(checkbox);
+      checkbox.addEventListener("change", function() {
+          if (checkbox.checked) {
+              console.log("clicked");
+              console.log(_this.popupModel);
+              if (_this.popupZipCode) {
+                  if (_this.popupModel) {
+                    _this.popupModel.classList.add('open');
+                      siteOverlay.prototype.showOverlay();
+                      Utility.trapFocus(_this.popupModel);
+                      Utility.forceFocus(_this.popupModel.querySelector('[id^="ModalClose-"]'));
+                  }
+              }
+          }
+      });
+      });
       this.classList.add('opened-drawer');
       siteOverlay.prototype.showOverlay();
       Utility.forceFocus(this.querySelector('.cart-title'));
       let closeBtn = this.querySelector('.close-ajax--cart');
       Utility.trapFocus(this, closeBtn);
-  
-      if(event){
-        event.preventDefault();
-        let openBy = event.currentTarget;
-        openBy.setAttribute('aria-expanded', true);
+      if (event) {
+          event.preventDefault();
+          let openBy = event.currentTarget;
+          openBy.setAttribute('aria-expanded', true);
       }
-    }
+  }
+
   
-    /**
-     * Close Cart drawer and Remove focus from drawer container
-     *
-     * @param {event} Event instance
-     */
-    closeCartDrawer(event, elementToFocus = false) {
+  /**
+   * Close Cart drawer and Remove focus from drawer container
+   *
+   * @param {event} Event instance
+   */
+  closeCartDrawer(event, elementToFocus = false) {
       if (event !== undefined) {
-        event.preventDefault();
-        this.classList.remove('opened-drawer');
-        siteOverlay.prototype.hideOverlay();
-        let openByEle = event.currentTarget;
-        openByEle.setAttribute('aria-expanded', false);
-        Utility.removeTrapFocus(elementToFocus);
-  
-        let actionBtn = drawerSelectors.cartIconDesktop;
-        if(window.innerWidth < 1024){
-          actionBtn = drawerSelectors.cartIconMobile;
-        }
-        Utility.forceFocus(actionBtn);
+          event.preventDefault();
+          this.classList.remove('opened-drawer');
+          siteOverlay.prototype.hideOverlay();
+          let openByEle = event.currentTarget;
+          openByEle.setAttribute('aria-expanded', false);
+          Utility.removeTrapFocus(elementToFocus);
+
+          let actionBtn = drawerSelectors.cartIconDesktop;
+          if (window.innerWidth < 1024) {
+              actionBtn = drawerSelectors.cartIconMobile;
+          }
+          Utility.forceFocus(actionBtn);
       }
-    }
-  
-    /**
-     * Update cart HTML and Trigger Open Drawer event
-     *
-     * @param {string} cartHTML String formatted response from fetch cart.js call
-     * @param {string} action Open Drawer as value if need to Open Cart drawer
-     */
-    _updateCart(response, action){
+  }
+
+  /**
+   * Update cart HTML and Trigger Open Drawer event
+   *
+   * @param {string} cartHTML String formatted response from fetch cart.js call
+   * @param {string} action Open Drawer as value if need to Open Cart drawer
+   */
+  _updateCart(response, action) {
       this.setAttribute('updating', true);
 
       // Convert the HTML string into a document object
       let cartHTML = '';
-      if(window.globalVariables.template != 'cart') {
-        cartHTML = response['template-cart-drawer'];
-      }else{
-        cartHTML = response['template-cart'];
+      if (window.globalVariables.template != 'cart') {
+          cartHTML = response['template-cart-drawer'];
+      } else {
+          cartHTML = response['template-cart'];
       }
 
-      if(cartHTML == null) return;
+      if (cartHTML == null) return;
       let parser = new DOMParser();
       cartHTML = parser.parseFromString(cartHTML, 'text/html');
 
       let cartJSONEle = cartHTML.querySelector('[data-cartScriptJSON]');
-      if(cartJSONEle != undefined && cartJSONEle != null){
-        window.globalVariables.cart = JSON.parse(cartJSONEle.textContent);
+      if (cartJSONEle != undefined && cartJSONEle != null) {
+          window.globalVariables.cart = JSON.parse(cartJSONEle.textContent);
       }
 
       let cartElement = cartHTML.querySelector('ajax-cart form');
-      if(this.querySelector('form')){ this.querySelector('form').innerHTML = cartElement.innerHTML; }
-      if(this.querySelector('[data-carttotal] span.money')){ 
-        this.querySelector('[data-carttotal] span.money').innerHTML = Shopify.formatMoney(window.globalVariables.cart.total_price, window.globalVariables.money_format);
+      let warranty_product = window.globalVariables.warranty_product;
+      console.log(warranty_product);
+      cartElement.querySelectorAll(".cart-warrenty-field").forEach(warrantyElem => {
+        if (cartElement.innerHTML.includes(warranty_product)) {
+          if(warrantyElem) warrantyElem.classList.add("d-none");
+         }
+         else{
+          if(warrantyElem) warrantyElem.classList.remove("d-none");
+         }
+      });
+
+      if (this.querySelector('form')) {
+          this.querySelector('form').innerHTML = cartElement.innerHTML;
+      }
+      if (this.querySelector('[data-carttotal] span.money')) {
+          this.querySelector('[data-carttotal] span.money').innerHTML = Shopify.formatMoney(window.globalVariables.cart.total_price, window.globalVariables.money_format);
       }
 
       let elements = this.querySelectorAll('[data-checkoutBtns], [data-cartnote], [data-cartupsell]');
-      if(window.globalVariables.cart.item_count <= 0){
-        elements.forEach((div)=>{
-          div.classList.add('d-none');
-        });
-      }else{
-        elements.forEach((div)=>{
-          div.classList.remove('d-none');
-        });
+      if (window.globalVariables.cart.item_count <= 0) {
+          elements.forEach((div) => {
+              div.classList.add('d-none');
+          });
+      } else {
+          elements.forEach((div) => {
+              div.classList.remove('d-none');
+          });
       }
       this.setAttribute('updating', false);
 
       let headerHTML = new DOMParser().parseFromString(response['header'], 'text/html');
       let cartIcon = headerHTML.getElementById('cart-icon-desktop');
-      if(drawerSelectors.cartIconDesktop) drawerSelectors.cartIconDesktop.innerHTML = cartIcon.innerHTML;
-      if(drawerSelectors.cartIconMobile) drawerSelectors.cartIconMobile.innerHTML = cartIcon.innerHTML;
+      if (drawerSelectors.cartIconDesktop) drawerSelectors.cartIconDesktop.innerHTML = cartIcon.innerHTML;
+      if (drawerSelectors.cartIconMobile) drawerSelectors.cartIconMobile.innerHTML = cartIcon.innerHTML;
 
-      if(window.globalVariables.cart_drawer && action == 'open_drawer' && window.globalVariables.template != 'cart'){
+      if (window.globalVariables.cart_drawer && action == 'open_drawer' && window.globalVariables.template != 'cart') {
           this.openCartDrawer();
       }
-    }
+  }
 
-    /**
-     * Fetch latest cart data 
-     *
-     * @param {string} action Open Drawer as value if need to Open Cart drawer or else let it be empty
-     */
-    getCartData(action){
-        let cartRoute = `${routes.cart_fetch_url}?sections=template-cart,header`;
-        if(window.globalVariables.template != 'cart'){
+  /**
+   * Fetch latest cart data 
+   *
+   * @param {string} action Open Drawer as value if need to Open Cart drawer or else let it be empty
+   */
+  getCartData(action) {
+      let cartRoute = `${routes.cart_fetch_url}?sections=template-cart,header`;
+      if (window.globalVariables.template != 'cart') {
           cartRoute = `${routes.cart_fetch_url}?sections=template-cart-drawer,header`;
-        }
-
-        fetch(cartRoute).then(response => {
+      }
+      fetch(cartRoute).then(response => {
           return response.json();
-        }).then(response => {
-            this._updateCart(response, action);
-        }).catch((e) => {
-            console.error(e);
-        }).finally(() => {
-            // Cart HTML fetch done
-        });
-    }
-  
-     /**
-     * Update Quantity API call 
-     *
-     * @param {string} line Line Index value of cart Item (Starts from 1)
-     * @param {integer} quantity Quantity to update
-     */
-    updateItemQty(line, quantity){
-        let lineItem = document.querySelectorAll('[data-cart-item]')[line-1];
+      }).then(response => {
+          console.log(response);
+          this._updateCart(response, action);
+      }).catch((e) => {
+          console.error(e);
+      }).finally(() => {
+          // Cart HTML fetch done
+      });
+  }
 
-        if(lineItem){ lineItem.classList.add('updating'); }
-        const body = JSON.stringify({
-            line,
-            quantity
-        });
-  
-        fetch(`${routes.cart_change_url}`, { ...fetchConfig(), ...{ body }})
-        .then((response) => {
-            return response.text();
-        })
-        .then((_state) => {
-          this.getCartData();
-          setTimeout(() => {
-            if(lineItem){ lineItem.classList.remove('updating'); }
-          }, 1000);
-        }).catch((error) => {
-          setTimeout(() => {
-            if(lineItem){ lineItem.classList.remove('updating'); }
-          }, 1000);
-          console.log(error);
-        });
-    }
-  
-    /**
-     * Remove Item Event
-     *
-     * @param {event} Event instance
-     */
-    removeItem(event){
+  /**
+   * Update Quantity API call 
+   *
+   * @param {string} line Line Index value of cart Item (Starts from 1)
+   * @param {integer} quantity Quantity to update
+   */
+  updateItemQty(line, quantity) {
+      let lineItem = document.querySelectorAll('[data-cart-item]')[line - 1];
+
+      if (lineItem) {
+          lineItem.classList.add('updating');
+      }
+      const body = JSON.stringify({
+          line,
+          quantity
+      });
+
+      fetch(`${routes.cart_change_url}`, {
+              ...fetchConfig(),
+              ...{
+                  body
+              }
+          })
+          .then((response) => {
+              return response.text();
+          })
+          .then((_state) => {
+              this.getCartData();
+              setTimeout(() => {
+                  if (lineItem) {
+                      lineItem.classList.remove('updating');
+                  }
+              }, 1000);
+          }).catch((error) => {
+              setTimeout(() => {
+                  if (lineItem) {
+                      lineItem.classList.remove('updating');
+                  }
+              }, 1000);
+              console.log(error);
+          });
+  }
+
+  /**
+   * Remove Item Event
+   *
+   * @param {event} Event instance
+   */
+  removeItem(event) {
       event.preventDefault();
       let currentTarget = event.currentTarget;
       let itemIndex = currentTarget.dataset.index || null;
-      if(itemIndex != null){
+      if (itemIndex != null) {
           this.updateItemQty(itemIndex, 0);
       }
-    }
-  
-    /**
-     * Cart Item Qunatity Increment/Decrement Button event
-     *
-     * @param {event} Event instance
-     */
-    manageQtyBtn(event){
+  }
+
+  /**
+   * Cart Item Qunatity Increment/Decrement Button event
+   *
+   * @param {event} Event instance
+   */
+  manageQtyBtn(event) {
       event.preventDefault();
       let currentTarget = event.currentTarget;
       let action = currentTarget.dataset.for || 'increase';
@@ -281,72 +322,72 @@ class AjaxCart extends HTMLElement {
       let itemIndex = $qtyInput.dataset.index || 1;
       let currentQty = parseInt($qtyInput.value) || 1;
       let finalQty = 1;
-  
-      if(action == 'decrease' && currentQty <= 1){
+
+      if (action == 'decrease' && currentQty <= 1) {
           return false;
-      }else if(action == 'decrease'){
+      } else if (action == 'decrease') {
           finalQty = currentQty - 1;
-      }else{
+      } else {
           finalQty = currentQty + 1;
       }
       this.updateItemQty(itemIndex, finalQty);
-    }
+  }
 
-    /**
-     * Cart Item Qunatity Input change event
-     *
-     * @param {event} Event instance
-     */
-    onQtyChange(event){
+  /**
+   * Cart Item Qunatity Input change event
+   *
+   * @param {event} Event instance
+   */
+  onQtyChange(event) {
       const $qtyInput = event.currentTarget;
       const qtyValue = $qtyInput.value;
       const itemIndex = $qtyInput.dataset.index || null;
-      if(itemIndex) this.updateItemQty(itemIndex, qtyValue);
-    }
+      if (itemIndex) this.updateItemQty(itemIndex, qtyValue);
+  }
 
-    /**
-     * Manage Cart Notes
-     */
-    cartNoteInput(){
+  /**
+   * Manage Cart Notes
+   */
+  cartNoteInput() {
       const cartNoteEle = document.querySelector('[data-cartNote] [name="note"]');
-      if(!cartNoteEle) return;
+      if (!cartNoteEle) return;
 
       const cartNoteSave = document.querySelector('[data-saveNote]');
       let cartNoteEvents = ['input', 'paste'];
-      cartNoteEvents.forEach((eventName)=>{
-        cartNoteEle.addEventListener( eventName, ()=> {
-          const defaultNote = cartNoteEle.dataset.default;
-          if(defaultNote != cartNoteEle.value){
-              cartNoteSave.style.display = 'block';
-          }else{
-              cartNoteSave.style.display = 'none';
-          }
-        }, false);
+      cartNoteEvents.forEach((eventName) => {
+          cartNoteEle.addEventListener(eventName, () => {
+              const defaultNote = cartNoteEle.dataset.default;
+              if (defaultNote != cartNoteEle.value) {
+                  cartNoteSave.style.display = 'block';
+              } else {
+                  cartNoteSave.style.display = 'none';
+              }
+          }, false);
       });
 
       //  Cart Note Change event
-      cartNoteSave.addEventListener( "click", e => {
-        e.preventDefault();
-        const currentTarget = e.currentTarget;
-        const cartNoteContainer = currentTarget.closest('[data-cartNote]');
-        const cartNote = cartNoteContainer.querySelector('[name="note"]').value.trim();
-        if(cartNote.length <= 0){
-          alert('Add Note before proceeding');
-          return;
-        }
-        const submitBtn = cartNoteContainer.querySelector('[data-saveNote]');
-        const waitText = (submitBtn.dataset.adding_txt) ? submitBtn.dataset.adding_txt : 'Saving...';
-        submitBtn.innerHTML = waitText;
-        submitBtn.disabled = true;
-        this.updateCartNote(cartNoteContainer);
+      cartNoteSave.addEventListener("click", e => {
+          e.preventDefault();
+          const currentTarget = e.currentTarget;
+          const cartNoteContainer = currentTarget.closest('[data-cartNote]');
+          const cartNote = cartNoteContainer.querySelector('[name="note"]').value.trim();
+          if (cartNote.length <= 0) {
+              alert('Add Note before proceeding');
+              return;
+          }
+          const submitBtn = cartNoteContainer.querySelector('[data-saveNote]');
+          const waitText = (submitBtn.dataset.adding_txt) ? submitBtn.dataset.adding_txt : 'Saving...';
+          submitBtn.innerHTML = waitText;
+          submitBtn.disabled = true;
+          this.updateCartNote(cartNoteContainer);
       });
-    }
+  }
 
-    /**
-     * Update Cart Note
-     * @param {element} cartNoteContainer 
-     */
-    updateCartNote(cartNoteContainer){
+  /**
+   * Update Cart Note
+   * @param {element} cartNoteContainer 
+   */
+  updateCartNote(cartNoteContainer) {
       const _this = this;
       const cartNoteEle = cartNoteContainer.querySelector('[name="note"]');
       const cartNote = cartNoteEle.value.trim();
@@ -355,51 +396,54 @@ class AjaxCart extends HTMLElement {
       const defaultText = (submitBtn.dataset.default) ? submitBtn.dataset.default : 'Save';
 
       let body = JSON.stringify({
-        note: cartNote
+          note: cartNote
       });
-      fetch(`${routes.cart_update_url}`, { ...fetchConfig(), ...{ body }
-      }).then(function (data) {
-        if (data.status == 200) {
-          if(resultEle){
-            resultEle.innerText = 'Added note to Order!';
-            _this.manageResponseText(resultEle);
+      fetch(`${routes.cart_update_url}`, {
+          ...fetchConfig(),
+          ...{
+              body
           }
-          if(cartNoteEle){
-            cartNoteEle.dataset.default = cartNote;
+      }).then(function(data) {
+          if (data.status == 200) {
+              if (resultEle) {
+                  resultEle.innerText = 'Added note to Order!';
+                  _this.manageResponseText(resultEle);
+              }
+              if (cartNoteEle) {
+                  cartNoteEle.dataset.default = cartNote;
+              }
+              submitBtn.style.display = 'none';
+              submitBtn.innerHTML = defaultText;
+              submitBtn.disabled = false;
+          } else {
+              console.error('Request returned an error', data);
+              if (resultEle) {
+                  resultEle.innerText = data;
+                  _this.manageResponseText(resultEle);
+              }
+              submitBtn.innerHTML = defaultText;
+              submitBtn.disabled = false;
           }
-          submitBtn.style.display = 'none';
-          submitBtn.innerHTML = defaultText;
-          submitBtn.disabled = false;
-        }
-        else {
-          console.error('Request returned an error', data);
-          if(resultEle){
-            resultEle.innerText = data;
-            _this.manageResponseText(resultEle);
-          }
-          submitBtn.innerHTML = defaultText;
-          submitBtn.disabled = false;
-        }
-      }).catch(function (error) {
+      }).catch(function(error) {
           console.error('Request failed', error);
-          if(resultEle){
-            resultEle.innerText = error;
-            _this.manageResponseText(resultEle);
+          if (resultEle) {
+              resultEle.innerText = error;
+              _this.manageResponseText(resultEle);
           }
           submitBtn.innerHTML = defaultText;
           submitBtn.disabled = false;
       });
-    }
+  }
 
-    /**
-     * fade effect on reponse
-     * @param {element} element 
-     */
-    manageResponseText(element){
+  /**
+   * fade effect on reponse
+   * @param {element} element 
+   */
+  manageResponseText(element) {
       Utility.fadeEffect(element, 'fadeIn');
       setTimeout(() => {
           Utility.fadeEffect(element, 'fadeOut');
       }, 3000);
-    }
+  }
 }
 customElements.define("ajax-cart", AjaxCart);

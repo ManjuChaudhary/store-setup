@@ -139,8 +139,8 @@
             </div>
 
             <div class="col-lg-5" id="ProductInfo-{{ section.id }}">
-                <div class="product-details-wrapper mt-5 mt-lg-0" data-slider_type="{{ section.settings.slider_type }}">
-                  <h1>{{ product.title }}</h1>
+                <div class="product-details-wrapper mt-5 mt-lg-0" data-slider_type="{{ section.settings.slider_type }}" data-product-title="{{ product.title }}">
+                  <h1 class="product-title">{{ product.title }}</h1>
                   {%- for block in section.blocks -%}
                     {%- case block.type -%}
                     {%- when '@app' -%}

@@ -72,6 +72,35 @@
     </quick-shop>
   {% endif %}
 
+ {%  if settings.enable_warrently_feature and settings.zip_codes != blank  %}
+<feature-waranty>
+<modal-dialog  id="PopupModal-zipCode">
+    <div class="modal" role="dialog">
+        <div class="modal-dialog modal-dialog-centered" data-customVideoPopup>
+          <div class="modal-content">
+            <div class="modal-head">
+              <button class="btn p-2 close-quickshop" type="button" id="ModalClose-video" aria-label="{{ 'sections.video-with-text.close_video' | t }}">
+                <span class="icon-close"></span>
+              </button>
+            </div>
+            <div class="modal-body zipCode">
+            <zip-code class="zip-code-wrapper">
+                 <div class="warrenty-details mt-2 mb-2">{{ settings.warranty_details }}</div>
+                 <div class="warrenty-success mt-2 mb-2 d-none">{{ 'Purchase the warranty from nearest store' }}</div>
+               <div class="zip-code-field zip-code-form">
+                   <div class="input-group mb-5"> 
+                   <input type="text" name="zip-code" aria-label="zip-code" id="zip-code" class="form-control" placeholder="Enter Your Zip Code" value="" autocorrect="off" autocapitalize="off" required="">
+                    <button type="submit" name="btnSubmit" aria-label="submit" class="btn btn-primary btn-sm">Submit</button>
+                </div>
+              </div>
+          </zip-code>
+            </div>
+          </div>
+        </div>
+    </div>
+</modal-dialog>
+</feature-waranty>
+{% endif %}
 
   <modal-dialog id="PopupModal-video">
     <div class="modal" role="dialog">
@@ -130,13 +159,16 @@
     if settings.enable_warrently_feature
         assign zip_codes =  settings.zip_codes | newline_to_br | strip_newlines | split: '<br />' | json 
     endif
+     assign warranty_product = all_products[settings.warranty_product].handle
   %}
   
+ 
 
   <script type="text/javascript">
     window.globalVariables = {
       cart: {{ cart | json }},
       zip_codes : {{ zip_codes }},
+      warranty_product :"{{ warranty_product }}",
       b2b_customer: '{{ b2b_customer }}',
       product: {%- if template.name == 'product' -%}{{ product | json }}{%- else -%}{}{%- endif -%},
       collection: {%- if template.name == 'collection' -%}{
