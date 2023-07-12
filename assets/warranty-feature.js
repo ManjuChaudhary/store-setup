@@ -11,8 +11,7 @@ class WarrantyFeature extends HTMLElement {
     }
 
   /**
-   * Warranty Feature Check Zip Code Value and Set It As Cookies
-   *
+   * Zip code Submit Function 
    * @param {evt} Event instance
    */
   async zipCodeSubmitHandler(evt){
@@ -33,9 +32,11 @@ class WarrantyFeature extends HTMLElement {
 }
 
  /**
-   * Add product.
-   *
+   * Function for add the main product and warranty product for product page
+   * we check the zip code value , if it matched with theme settings then only main product is added to cart
+   * If Its Not match with theme settings then main product and warranty both products are added to cart.
    * @param {evt} Event instance
+   * @param {zipCodeValue} zipCodeValue instance
    */
  async addProduct(evt, zipCodeValue) {
   let _this = this;
@@ -146,6 +147,13 @@ class WarrantyFeature extends HTMLElement {
     }
   }
 
+  /**
+   * Function for add the warranty product on cart page if the warranty checkbox is checked. 
+   * we check the zip code value , if it matched with theme settings then warranty product is not added
+   * If its not match with theme settings then  warranty  product are added to cart.
+   * @param {zipCodeValue} zipCodeValue instance
+   */
+
   async addWarrantyProduct(zipCodeValue){
     let addItems = [];
     let _this = this;
@@ -238,7 +246,12 @@ class WarrantyFeature extends HTMLElement {
       });
   }
 
-
+ /**
+   * Function to show the ZipCode POPUP if warranty checkbox is checked
+   * 
+   * 
+   * 
+   */
   async showZipCodePopup(){
     Utility.removeCookie("warranty-checkbox");
     Utility.removeCookie("warranty-product-id");

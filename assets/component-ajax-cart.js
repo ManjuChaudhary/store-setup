@@ -175,7 +175,8 @@ class AjaxCart extends HTMLElement {
         }
 
         let cartElement = cartHTML.querySelector('ajax-cart form');
-
+        
+        // Get handle of main product passed with warranty product //
         let mainProductHandles = [];
         if(cartElement.querySelector(".main-product")){
         cartElement.querySelectorAll(".main-product").forEach(handle => {
@@ -185,8 +186,7 @@ class AjaxCart extends HTMLElement {
             mainProductHandles.push(modifiedHtmlString);
         });
       }
-        console.log(mainProductHandles);
-
+        // Get Handles of all cart items and match it with warranty product passed handles//
         let cartItemHandles = [];
         cartElement.querySelectorAll(".card-title").forEach(itemHandle => {
             let currentHanlde = itemHandle.dataset.handle;

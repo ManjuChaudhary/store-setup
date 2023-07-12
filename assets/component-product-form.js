@@ -30,6 +30,7 @@ class ProductForm extends HTMLElement {
     submitButton.classList.add('loading');
     const warranty = this.form.dataset.warrenty;
     console.log(warranty);
+    //Check if the product has warranty feature.
     if(warranty === 'true' ){
       if(_this.popupZipCode) {
         if(_this.popupModel) {
@@ -43,6 +44,7 @@ class ProductForm extends HTMLElement {
      submitButton.classList.remove('loading');
      return false;
     }
+    // end checking//
    
     addItems.push(JSON.parse(serializeForm(this.form)))
     if(pdpContainer){
