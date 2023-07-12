@@ -312,10 +312,13 @@ class AjaxCart extends HTMLElement {
         event.preventDefault();
         let currentTarget = event.currentTarget;
         let itemIndex = currentTarget.dataset.index || null;
+        let itemId = event.currentTarget.closest(".cart-items").dataset.variantId;
+        console.log(itemId);
         if (itemIndex != null) {
             this.updateItemQty(itemIndex, 0);
         }
     }
+ 
    
     /**
      * Cart Item Qunatity Increment/Decrement Button event

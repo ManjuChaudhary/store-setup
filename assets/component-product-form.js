@@ -28,8 +28,9 @@ class ProductForm extends HTMLElement {
     const pdpContainer = this.closest('.product-details-wrapper');
     submitButton.setAttribute('disabled', true);
     submitButton.classList.add('loading');
-    const zipCode = document.querySelector('#PopupModal-zipCode');
-    if(zipCode){
+    const warranty = this.form.dataset.warrenty;
+    console.log(warranty);
+    if(warranty === 'true' ){
       if(_this.popupZipCode) {
         if(_this.popupModel) {
           _this.popupModel.classList.add('open');

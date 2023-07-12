@@ -8,7 +8,6 @@ class WarrantyFeature extends HTMLElement {
         this.popupZipCode = document.querySelector("#PopupModal-zipCode");
         if (this.popupZipCode) this.popupModel = this.popupZipCode.querySelector(".modal");
         document.addEventListener("DOMContentLoaded", this.showZipCodePopup.bind(this));
-        
     }
 
   /**
@@ -195,9 +194,9 @@ class WarrantyFeature extends HTMLElement {
     else if(allLocalZipCodes.indexOf(zipCodeValue) >= 0 ){
       document.querySelector(".warrenty-success").classList.remove("d-none");
       const data = JSON.stringify({
-        id: variantId,
-        quantity: 0
-    });
+         id: variantId,
+         quantity: 0
+      });
       if (warrantyForm) {
         fetch(`${routes.cart_change_url}`, {
           method: "POST",
