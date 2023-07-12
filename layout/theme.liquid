@@ -161,15 +161,21 @@
         assign zip_codes =  settings.zip_codes | newline_to_br | strip_newlines | split: '<br />' | json 
     endif
      assign warranty_product = all_products[settings.warranty_product].handle
+
+     assign isTemplateProduct = false
+     if template.name == 'product'
+     assign isTemplateProduct = true
+     endif
   %}
   
  {% assign warrantyproduct = all_products[settings.warranty_product] %}
   {%  if settings.enable_warrently_feature and settings.zip_codes != blank %}
-  <span class="warranty_product d-none" data-variant-id="{{warrantyproduct.selected_or_first_available_variant.id }}"></span>
+  <span class="warranty_product d-none" data-variant-id="{{warrantyproduct.selected_or_first_available_variant.id }}" data-qty="1"></span>
   {% endif %} 
 
   <script type="text/javascript">
     window.globalVariables = {
+      isTemplateProduct:{{isTemplateProduct}},
       cart: {{ cart | json }},
       zip_codes : {{ zip_codes }},
       warranty_product :"{{ warranty_product }}",

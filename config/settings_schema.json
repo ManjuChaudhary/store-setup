@@ -1217,8 +1217,8 @@
     "name": "Warranty Feature",
     "settings": [
       {
-        "type":"header",
-        "content":"Warranty Feature"
+        "type": "header",
+        "content": "Warranty Feature"
       },
       {
         "type": "checkbox",
@@ -1231,17 +1231,17 @@
         "label": "Warranty Details"
       },
       {
-        "type":"header",
-        "content":"Zip Codes"
+        "type": "header",
+        "content": "Zip Codes"
       },
       {
-         "type" : "textarea",
-         "id" : "zip_codes",
-        "label" : "Zip Codes"
+        "type": "textarea",
+        "id": "zip_codes",
+        "label": "Zip Codes"
       },
       {
-        "type":"header",
-        "content":"Warranty Products"
+        "type": "header",
+        "content": "Warranty Products"
       },
       {
         "type": "product",

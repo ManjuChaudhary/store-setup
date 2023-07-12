@@ -76,7 +76,7 @@
                                                                 {%- for option in item.options_with_values -%}
                                                                     <li>
                                                                         <span class="text-muted small text-capitalize">{{ option.name }}:</span>
-                                                                        <span class="text-muted small text-capitalize {% if option.name == 'Main Product Handle'%}main-product{% endif %}">{{ option.value }}</span>
+                                                                        <span class="text-muted small text-capitalize {% if option.name == 'main-product-handle'%}main-product{% endif %}">{{ option.value }}</span>
                                                                     </li>
                                                                 {%- endfor -%}
                                                                 </ul>
@@ -89,7 +89,7 @@
                                                                     {%- if property.last != blank and property_first_char != '_' -%}
                                                                         <li>
                                                                             <span class="text-muted small text-capitalize">{{ property.first }}:</span>
-                                                                            <span class="text-muted small text-capitalize {% if property.first == 'Main Product Handle'%}main-product{% endif %}">
+                                                                            <span class="text-muted small text-capitalize {% if property.first == 'main-product-handle'%}main-product{% endif %}">
                                                                                 {%- if property.last contains '/uploads/' -%}
                                                                                     <a href="{{ property.last }}" target="_blank">
                                                                                         {{ property.last | split: '/' | last }}

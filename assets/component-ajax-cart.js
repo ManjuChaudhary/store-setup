@@ -22,6 +22,8 @@ class AjaxCart extends HTMLElement {
             this.getCartData();
         }
 
+        // this.removeWarrantyProduct();
+
         if (navigator.platform === 'iPhone') document.documentElement.style.setProperty('--viewport-height', `${window.innerHeight}px`);
     }
 
@@ -173,33 +175,37 @@ class AjaxCart extends HTMLElement {
         }
 
         let cartElement = cartHTML.querySelector('ajax-cart form');
-        let warranty_product = window.globalVariables.warranty_product;
-        console.log(warranty_product);
 
         let mainProductHandles = [];
+        if(cartElement.querySelector(".main-product")){
         cartElement.querySelectorAll(".main-product").forEach(handle => {
             let hnadleHtml = handle.innerHTML
             const modifiedHtmlString = hnadleHtml.replace(/\n/g, "");
             console.log(modifiedHtmlString);
             mainProductHandles.push(modifiedHtmlString);
         });
+      }
         console.log(mainProductHandles);
-
 
         let cartItemHandles = [];
         cartElement.querySelectorAll(".card-title").forEach(itemHandle => {
             let currentHanlde = itemHandle.dataset.handle;
             console.log(currentHanlde);
             let warrantyElem = itemHandle.closest(".cart-item").querySelector(".cart-warrenty-field");
-            if (mainProductHandles.length > 0) {
+            if (mainProductHandles.length > 0 ) {
                 if (mainProductHandles.includes(currentHanlde)) {
                     if (warrantyElem) warrantyElem.style.display = "none";
+                    console.log(currentHanlde);
+                }
+                else{
+                    if (warrantyElem) warrantyElem.style.display = "block";
                 }
             } else {
                 if (warrantyElem) warrantyElem.style.display = "block";
             }
         });
         console.log(cartItemHandles);
+        
 
         if (this.querySelector('form')) {
             this.querySelector('form').innerHTML = cartElement.innerHTML;
@@ -310,7 +316,7 @@ class AjaxCart extends HTMLElement {
             this.updateItemQty(itemIndex, 0);
         }
     }
-
+   
     /**
      * Cart Item Qunatity Increment/Decrement Button event
      *
