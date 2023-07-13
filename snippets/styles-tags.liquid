@@ -74,3 +74,8 @@
 {%- if template.directory == 'customers' -%}
     <link href="{{ 'template-account.css' | asset_url }}" rel="stylesheet" type="text/css">
 {%- endif -%}
+
+{%- comment -%} Product funnel css {%- endcomment -%}
+{% if page.handle == 'product-funnel' %}
+<link href="{{ 'product-funnel.css' | asset_url }}" rel="stylesheet" type="text/css">
+{% endif %}

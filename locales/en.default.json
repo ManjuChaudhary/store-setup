@@ -407,5 +407,11 @@
     "general": {
       "link_title": "TODO"
     }
-  }
+  },
+  "product_funnel":{
+    "nav_step1": "select Product",
+    "nav_step2": "Select Quantity",
+    "nav_step3": "Select AddOn Products",
+    "nav_step4":"Summary"
+}
 }

@@ -1296,56 +1296,5 @@ if(currenturl.indexOf('/products') >= 0)
   }
 }
 
-
-// Discount Code //
-// Function to apply a discount code to the cart
-function applyDiscount(discountCode) {
-  fetch('/cart/discount.json', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({
-      discount: {
-        code: discountCode
-      }
-    })
-  })
-    .then(response => response.json())
-    .then(data => {
-      console.log(data); // Response data after applying the discount
-      // Handle the response or perform any additional actions
-    })
-    .catch(error => {
-      console.error(error);
-    });
-}
-
-// Usage example:
-// Function to apply a discount code to the cart
-function applyDiscount(discountCode) {
-  fetch('/cart/discount.json', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({
-      discount: {
-        code: discountCode
-      }
-    })
-  })
-    .then(response => response.json())
-    .then(data => {
-      console.log(data); 
-    })
-    .catch(error => {
-      console.error(error);
-    });
-}
-
-// Usage example:
-const discountCode = 'VS4B2D69DFP3'; // Replace with the actual discount code
-applyDiscount(discountCode);
 }
 

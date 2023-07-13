@@ -3,10 +3,15 @@
 
 <script src="{{ 'global.js' | asset_url }}"></script>
 
-{% comment %}theme-check-enable ParserBlockingJavaScript{% endcomment %}
+<
+{%- comment -%} Product funnel JS {%- endcomment -%}
+{% if page.handle == 'product-funnel' %}
+<script src="{{ 'product-funnel.js' | asset_url }}"></script>
+{% endif %}
 
+{% comment %}theme-check-enable ParserBlockingJavaScript{% endcomment %}
 {%- if settings.enable_search -%}
-<script src="{{ 'component-search.js' | asset_url }}" defer></script>
+<script src="{{ 'component-search.js' | asset_url }}" defer></>
 {%- endif -%}
 
 {% if settings.enable_quickshop %}

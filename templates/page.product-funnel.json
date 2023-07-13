@@ -1,0 +1,50 @@
+{
+  "sections": {
+    "main": {
+      "type": "template-product-funnel",
+      "blocks": {
+        "c1c3c3a5-a73a-4d42-9f4b-139fcad77940": {
+          "type": "step-1",
+          "settings": {
+            "heading": "Select Product",
+            "collection": "best-seller"
+          }
+        },
+        "c328179e-b57a-4cb5-96d1-838d4c6dea10": {
+          "type": "step-2",
+          "settings": {
+            "heading": "Select Quantity",
+            "amount1": "1",
+            "amount2": "2",
+            "amount3": "3"
+          }
+        },
+        "58063d0c-99f7-46d4-97d2-f563c66ecf06": {
+          "type": "step-3",
+          "settings": {
+            "heading": "Select Add Ons Products",
+            "add_on_collection": "addons-collection"
+          }
+        },
+        "e690ebb6-0265-4f03-873a-03adcee12954": {
+          "type": "step-4",
+          "settings": {
+            "heading": "Summary"
+          }
+        }
+      },
+      "block_order": [
+        "c1c3c3a5-a73a-4d42-9f4b-139fcad77940",
+        "c328179e-b57a-4cb5-96d1-838d4c6dea10",
+        "58063d0c-99f7-46d4-97d2-f563c66ecf06",
+        "e690ebb6-0265-4f03-873a-03adcee12954"
+      ],
+      "settings": {
+        "fluid_layout": false
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}
